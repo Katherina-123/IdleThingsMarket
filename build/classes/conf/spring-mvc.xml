@@ -18,7 +18,7 @@
 	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
 
 <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
-<context:component-scan base-package="com.ldu.*" />
+<context:component-scan base-package="com.kath.*" />
     
     <!-- 处理请求时返回json字符串的中文乱码问题 -->
     <mvc:annotation-driven>

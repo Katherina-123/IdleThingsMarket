@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ldu.dao.ReplyMapper" >
-  <resultMap id="BaseResultMap" type="com.ldu.pojo.Reply" >
+<mapper namespace="com.kath.dao.ReplyMapper" >
+  <resultMap id="BaseResultMap" type="com.kath.pojo.Reply" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="atuser_id" property="atuserId" jdbcType="INTEGER" />
     <result column="commet_id" property="commetId" jdbcType="INTEGER" />
     <result column="create_at" property="createAt" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.ldu.pojo.Reply" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.kath.pojo.Reply" extends="BaseResultMap" >
     <result column="content" property="content" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -29,7 +29,7 @@
     delete from reply
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.ldu.pojo.Reply" >
+  <insert id="insert" parameterType="com.kath.pojo.Reply" >
     insert into reply (id, user_id, atuser_id, 
       commet_id, create_at, content
       )
@@ -37,7 +37,7 @@
       #{commetId,jdbcType=INTEGER}, #{createAt,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.ldu.pojo.Reply" >
+  <insert id="insertSelective" parameterType="com.kath.pojo.Reply" >
     insert into reply
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -80,7 +80,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ldu.pojo.Reply" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.kath.pojo.Reply" >
     update reply
     <set >
       <if test="userId != null" >
@@ -101,7 +101,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.ldu.pojo.Reply" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.kath.pojo.Reply" >
     update reply
     set user_id = #{userId,jdbcType=INTEGER},
       atuser_id = #{atuserId,jdbcType=INTEGER},
@@ -110,7 +110,7 @@
       content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ldu.pojo.Reply" >
+  <update id="updateByPrimaryKey" parameterType="com.kath.pojo.Reply" >
     update reply
     set user_id = #{userId,jdbcType=INTEGER},
       atuser_id = #{atuserId,jdbcType=INTEGER},

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.ldu.dao.PurseMapper">
-	<resultMap id="BaseResultMap" type="com.ldu.pojo.Purse">
+<mapper namespace="com.kath.dao.PurseMapper">
+	<resultMap id="BaseResultMap" type="com.kath.pojo.Purse">
 		<id column="id" property="id" jdbcType="INTEGER" />
 		<result column="user_id" property="userId" jdbcType="INTEGER" />
 		<result column="balance" property="balance" jdbcType="REAL" />
