@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ldu.dao.CatelogMapper" >
-  <resultMap id="BaseResultMap" type="com.ldu.pojo.Catelog" >
+<mapper namespace="com.kath.dao.CatelogMapper" >
+  <resultMap id="BaseResultMap" type="com.kath.pojo.Catelog" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="number" property="number" jdbcType="INTEGER" />
@@ -26,13 +26,13 @@
     delete from catelog
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.ldu.pojo.Catelog" >
+  <insert id="insert" parameterType="com.kath.pojo.Catelog" >
     insert into catelog (id, name, number, 
       status)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER}, 
       #{status,jdbcType=TINYINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.ldu.pojo.Catelog" >
+  <insert id="insertSelective" parameterType="com.kath.pojo.Catelog" >
     insert into catelog
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -63,7 +63,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ldu.pojo.Catelog" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.kath.pojo.Catelog" >
     update catelog
     <set >
       <if test="name != null" >
@@ -78,7 +78,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ldu.pojo.Catelog" >
+  <update id="updateByPrimaryKey" parameterType="com.kath.pojo.Catelog" >
     update catelog
     set name = #{name,jdbcType=VARCHAR},
       number = #{number,jdbcType=INTEGER},

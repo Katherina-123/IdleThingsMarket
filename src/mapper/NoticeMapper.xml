@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ldu.dao.NoticeMapper" >
-	<resultMap id="BaseResultMap" type="com.ldu.pojo.Notice" >
+<mapper namespace="com.kath.dao.NoticeMapper" >
+	<resultMap id="BaseResultMap" type="com.kath.pojo.Notice" >
 	  <id column="id" property="id" jdbcType="INTEGER" />
 	  <result column="create_at" property="createAt" jdbcType="VARCHAR" />
 	  <result column="context" property="context" jdbcType="LONGVARCHAR" />
 	  <result column="status" property="status" jdbcType="TINYINT" />
-	  <association property="user"  javaType="com.ldu.pojo.User" resultMap="userMap"/>
+	  <association property="user" javaType="com.kath.pojo.User" resultMap="userMap"/>
 	</resultMap>
-	<resultMap id="userMap" type="com.ldu.pojo.User" >
+	<resultMap id="userMap" type="com.kath.pojo.User" >
 	   <id column="id" property="id" jdbcType="INTEGER" />
 	   <result column="phone" property="phone" jdbcType="CHAR" />
 	   <result column="username" property="username" jdbcType="VARCHAR" />
@@ -23,20 +23,20 @@
   <select id="getNoticeList" resultMap="BaseResultMap">
      select * from notice n,user u where n.user_id=u.id order by n.create_at desc
   </select>
-   <insert id="insertSelective" parameterType="com.ldu.pojo.Notice" >
+   <insert id="insertSelective" parameterType="com.kath.pojo.Notice" >
 	 insert into notice(id,user_id,create_at,context,status) values(#{id},#{user.id},#{createAt},#{context},#{status})
   </insert>
   <!-- <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from notice
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.ldu.pojo.Notice" >
+  <insert id="insert" parameterType="com.kath.pojo.Notice" >
     insert into notice (id, user_id, create_at, 
       status, context)
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{createAt,jdbcType=VARCHAR}, 
       #{status,jdbcType=TINYINT}, #{context,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.ldu.pojo.Notice" >
+  <insert id="insertSelective" parameterType="com.kath.pojo.Notice" >
     insert into notice
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ldu.pojo.Notice" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.kath.pojo.Notice" >
     update notice
     <set >
       <if test="userId != null" >
@@ -91,7 +91,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.ldu.pojo.Notice" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.kath.pojo.Notice" >
     update notice
     set user_id = #{userId,jdbcType=INTEGER},
       create_at = #{createAt,jdbcType=VARCHAR},
@@ -99,7 +99,7 @@
       context = #{context,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ldu.pojo.Notice" >
+  <update id="updateByPrimaryKey" parameterType="com.kath.pojo.Notice" >
     update notice
     set user_id = #{userId,jdbcType=INTEGER},
       create_at = #{createAt,jdbcType=VARCHAR},

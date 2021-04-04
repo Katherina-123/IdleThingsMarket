@@ -15,7 +15,7 @@
 
     <!-- 加载数据库参数 -->
     <context:property-placeholder location="classpath:conf/jdbc.properties"/>
-    <context:component-scan base-package="com.ldu.service.impl"/>
+    <context:component-scan base-package="com.kath.service.impl"/>
     <bean id = "dataSource" class = "com.alibaba.druid.pool.DruidDataSource" destroy-method = "close">
         <!-- 数据库基本信息配置 -->
                <property name = "url" value = "${druid.url}" />
@@ -64,7 +64,7 @@
     </bean>
     <!-- Mapper接口所在包名，Spring会自动查找其下的Mapper  -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.ldu.dao"></property>
+        <property name="basePackage" value="com.kath.dao"></property>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
     </bean>
     <!-- 配置transactionManager事务管理器 -->
@@ -95,7 +95,7 @@
 
     <!-- 配置事物切面 -->
     <aop:config>
-        <aop:pointcut expression="execution(* com.ldu.service.*.*(..))" id="serviceOperation"/>
+        <aop:pointcut expression="execution(* com.kath.service.*.*(..))" id="serviceOperation"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation"/>
     </aop:config>
 </beans>

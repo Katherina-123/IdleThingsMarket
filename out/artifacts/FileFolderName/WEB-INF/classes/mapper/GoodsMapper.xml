@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ldu.dao.GoodsMapper" >
+<mapper namespace="com.kath.dao.GoodsMapper" >
 
 
-   <resultMap id="CommentExtend" type="com.ldu.pojo.CommentExtend" >
+   <resultMap id="CommentExtend" type="com.kath.pojo.CommentExtend" >
     <id column="goodsId" property="id" jdbcType="INTEGER" />
     <result column="catelog_id" property="catelogId" jdbcType="INTEGER" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
@@ -14,15 +14,15 @@
     <result column="end_time" property="endTime" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="INTEGER" />
     <result column="polish_time" property="polishTime" jdbcType="VARCHAR" />
-    <collection property="comments" ofType="com.ldu.pojo.Comments">
+    <collection property="comments" ofType="com.kath.pojo.Comments">
     	<id column="commentsId" property="id" jdbcType="INTEGER" />
     	<result column="goods_id" property="goodsId" jdbcType="LONGVARCHAR" />
 	    <result column="content" property="content" jdbcType="LONGVARCHAR" />
 	    <result column="create_at" property="createAt" jdbcType="VARCHAR" />
-	    <association property="user"  javaType="com.ldu.pojo.User" resultMap="userMap"/>
+	    <association property="user" javaType="com.kath.pojo.User" resultMap="userMap"/>
     </collection>
   </resultMap>
-  <resultMap id="userMap" type="com.ldu.pojo.User" >
+  <resultMap id="userMap" type="com.kath.pojo.User" >
     <result column="phone" property="phone" jdbcType="CHAR" />
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="CHAR" />
@@ -35,7 +35,7 @@
   </resultMap>
   
   
-  <resultMap id="BaseResultMap" type="com.ldu.pojo.Goods" >
+  <resultMap id="BaseResultMap" type="com.kath.pojo.Goods" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="catelog_id" property="catelogId" jdbcType="INTEGER" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
@@ -48,7 +48,7 @@
     <result column="polish_time" property="polishTime" jdbcType="VARCHAR" />
   </resultMap>
   
-  <resultMap id="ResultMapWithBLOBs" type="com.ldu.pojo.Goods" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.kath.pojo.Goods" extends="BaseResultMap" >
     <result column="describle" property="describle" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -198,7 +198,7 @@
    where id = #{id,jdbcType=INTEGER}
   </update>
 
-  <insert id="insert" parameterType="com.ldu.pojo.Goods" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insert" parameterType="com.kath.pojo.Goods" useGeneratedKeys="true" keyProperty="id">
     insert into goods (id, catelog_id, user_id,
     name, price, real_price, start_time,
     end_time, polish_time,describle)
@@ -207,7 +207,7 @@
     #{endTime,jdbcType=VARCHAR}, #{polishTime,jdbcType=VARCHAR}, #{describle,jdbcType=LONGVARCHAR}
     )
   </insert>
-  <insert id="insertSelective" parameterType="com.ldu.pojo.Goods" >
+  <insert id="insertSelective" parameterType="com.kath.pojo.Goods" >
     insert into goods
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -280,7 +280,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ldu.pojo.Goods" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.kath.pojo.Goods" >
     update goods
     <set >
       <if test="catelogId != null" >
@@ -316,7 +316,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.ldu.pojo.Goods" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.kath.pojo.Goods" >
     update goods
     set catelog_id = #{catelogId,jdbcType=INTEGER},
       user_id = #{userId,jdbcType=INTEGER},
@@ -330,7 +330,7 @@
       describle = #{describle,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ldu.pojo.Goods" >
+  <update id="updateByPrimaryKey" parameterType="com.kath.pojo.Goods" >
     update goods
     set catelog_id = #{catelogId,jdbcType=INTEGER},
       user_id = #{userId,jdbcType=INTEGER},
@@ -344,7 +344,7 @@
       describle = #{describle,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateGoodsByGoodsId" parameterType="com.ldu.pojo.Goods" >
+  <update id="updateGoodsByGoodsId" parameterType="com.kath.pojo.Goods" >
     update goods
     set status = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ldu.dao.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.ldu.pojo.User" >
+<mapper namespace="com.kath.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.kath.pojo.User" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="phone" property="phone" jdbcType="CHAR" />
     <result column="username" property="username" jdbcType="VARCHAR" />
@@ -59,7 +59,7 @@
     delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.ldu.pojo.User" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insert" parameterType="com.kath.pojo.User" useGeneratedKeys="true" keyProperty="id">
     insert into user (id, phone, username, 
       password, QQ, create_at, 
       goods_num, power, last_login, 
@@ -69,7 +69,7 @@
       #{goodsNum,jdbcType=INTEGER}, #{power,jdbcType=INTEGER}, #{lastLogin,jdbcType=VARCHAR}, 
       #{status,jdbcType=TINYINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.ldu.pojo.User" >
+  <insert id="insertSelective" parameterType="com.kath.pojo.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -136,7 +136,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ldu.pojo.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.kath.pojo.User" >
     update user
     <set >
       <if test="phone != null" >
@@ -169,7 +169,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ldu.pojo.User" >
+  <update id="updateByPrimaryKey" parameterType="com.kath.pojo.User" >
     update user
     set phone = #{phone,jdbcType=CHAR},
       username = #{username,jdbcType=VARCHAR},
