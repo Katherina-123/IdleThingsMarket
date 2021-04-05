@@ -26,7 +26,7 @@
 	   	<p style="font-size:30px;text-align:center;">首页</p>
 	   	</a>
 	   	</div>
-	   	<h1 style="text-align:center;margin-top: 10px;margin-bottom: 0px;">猿来入此校园二手市场管理系统</h1>
+	   	<h1 style="text-align:center;margin-top: 10px;margin-bottom: 0px;">轻松闲置交易市场管理系统</h1>
 	   	</div>
 	    
 	  

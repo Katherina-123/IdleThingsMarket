@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>猿来入此校园二手市场</title>
+    <title>轻松闲置交易市场</title>
     <link rel="icon" href="<%=basePath%>img/logo.jpg" type="image/x-icon"/>
     <link rel="stylesheet" href="<%=basePath%>css/index.css" />
     <script type="text/javascript" src="<%=basePath%>js/jquery.js" ></script>
@@ -47,24 +47,24 @@
     </script>
 <body ng-view="ng-view">
 <!--
-   猿来入此
-    时间：2018-2-24 13:28:16
+   轻松闲置
+    时间：2021-2-24 13:28:16
     描述：顶部
 -->
 <div ng-controller="headerController" class="header stark-components navbar-fixed ng-scope">
     <nav class="white nav1">
         <div class="nav-wrapper">
             <a href="<%=basePath%>goods/homeGoods" class="logo">
-                <em class="em1">猿来入此</em>
+                <em class="em1">轻松闲置</em>
                 <em class="em2">校园二手市场</em>
                 <em class="em3"></em>
             </a>
             <div class="nav-wrapper search-bar">
                 <form ng-submit="search()" class="ng-pristine ng-invalid ng-invalid-required" action="">
                     <div class="input-field">
-                        <input id="search" name="str" value="<c:out value="${search}"></c:out>" placeholder="搜点什么吧..." style="height: 40px;"
+                        <input id="search" name="str" value="<c:out value="${search}"></c:out>" placeholder="搜点什么吧..." style="height: 40px;margin-right: 10px;"
                                class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
-                        <input type="submit" class="btn"value="搜索"></input>
+                        <input type="submit" class="btn"value="搜索";style="height: 35px;width: 80px";></input>
                         <label for="search" class="active">
                             <i ng-click="search()" class="iconfont"></i>
                         </label>
@@ -274,7 +274,7 @@
     <div class="info">
         <a href="" target="_blank">关于我们</a><em>-</em>
         <a href="">联系我们</a>
-        <p>©2018 猿来入此校园二手市场</p>
+        <p>©2021 轻松闲置交易市场</p>
     </div>
 </div>
 <!--
@@ -305,7 +305,7 @@
                             <p><c:out value="${item.goods.name}"></c:out></p>
                         </div>
                         <div class="card-content item-location">
-                            <p>东华大学</p>
+                            <p>四川省成都市</p>
                             <p><c:out value="${item.goods.startTime}"></c:out></p>
                         </div>
                     </a>

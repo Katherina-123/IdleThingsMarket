@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>猿来入此校园二手市场</title>
+    <title>轻松闲置交易市场</title>
     <link rel="icon" href="<%=basePath%>img/logo.jpg" type="image/x-icon"/>
     <link rel="stylesheet" href="<%=basePath%>css/index.css" />
     <script type="text/javascript" src="<%=basePath%>js/jquery.js" ></script>
@@ -54,7 +54,7 @@
     <nav class="white nav1">
         <div class="nav-wrapper">
             <a href="<%=basePath%>goods/homeGoods" class="logo">
-                <em class="em1">猿来入此</em>
+                <em class="em1">轻松闲置</em>
                 <em class="em2">校园二手市场</em>
                 <em class="em3"></em>
             </a>
@@ -275,7 +275,7 @@
     <div class="info">
         <a href="" target="_blank">关于我们</a><em>-</em>
         <a href="">联系我们</a>
-        <p>©2018 PTUACM工作室</p>
+        <p>©2021 PTUACM工作室</p>
     </div>
 </div>
 <!--

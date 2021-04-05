@@ -9,7 +9,8 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>【猿来入此】校园校园二手市场</title>
+<%--    <title>【轻松闲置】校园校园二手市场</title>--%>
+    <title>【轻松闲置】交易市场</title>
     <link rel="icon" href="<%=basePath%>img/logo.jpg" type="image/x-icon"/>
     <link rel="stylesheet" href="<%=basePath%>css/index.css" />
     <script type="text/javascript" src="<%=basePath%>js/jquery.js" ></script>
@@ -117,7 +118,7 @@
     <nav class="white nav1">
         <div class="nav-wrapper">
             <a href="<%=basePath%>goods/homeGoods" class="logo">
-                <em class="em1">猿来入此</em>
+                <em class="em1">轻松闲置</em>
                 <em class="em2">校园二手市场</em>
                 <em class="em3"></em>
             </a>
@@ -126,7 +127,7 @@
                     <div class="input-field">
                         <input id="search" name="str" placeholder="搜点什么吧..." style="height: 40px;"
                                class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
-                      	<input type="submit" class="btn"value="搜索"></input>
+                      	<input type="submit" class="button button2"value="搜索"></input>
                         <label for="search" class="active">
                             <i ng-click="search()" class="iconfont"></i>
                         </label>
@@ -285,7 +286,7 @@
 </div>
 
 <!--
-    描述：左侧导航条
+    左侧导航条
 -->
 <div ng-controller="sidebarController" class="sidebar stark-components ng-scope">
     <li ng-class="{true: 'active'}[isAll]">
@@ -339,7 +340,7 @@
     <div class="info">
         <a href="#">关于我们</a><em>-</em>
         <a href="#">联系我们</a>
-        <p>©2018 猿来入此校园二手市场</p>
+        <p>©2021 轻松闲置交易市场</p>
     </div>
 </div>
 <!--
@@ -359,11 +360,11 @@
                         <div class="bannerimg">
                             <ul class="bannerul">
                                 <p class="text1">Hello：</p>
-                                <p class="text2">欢迎来到【猿来入此】校园二手市场。临近毕业季的</p>
+                                <p class="text2">欢迎来到【轻松闲置】校园二手市场。临近毕业季的</p>
                                 <p class="text3">你，是否有太多的闲置与校友分享，为了追求更好的校园服</p>
-                                <p class="text4">务，我们打造了一个全新的校园平台——<span>猿来入此校园二手市场</p>
+                                <p class="text4">务，我们打造了一个全新的校园平台——<span>轻松闲置交易市场</p>
                                 <p class="text5">这里有更多的闲置分享，更自由的校园话题讨论，你想要的，都在这里。</p>
-                                <p class="text6">加入猿来入此校园二手市场，你的大学，应更精彩。</p>
+                                <p class="text6">加入轻松闲置交易市场，你的大学，应更精彩。</p>
                             </ul>
                           <!--   <div class="logoimg">
                                 <img src="../img/p_logo.jpg" />
@@ -396,7 +397,7 @@
                             <p><c:out value="${item.goods.name}"></c:out></p>
                         </div>
                         <div class="card-content item-location">
-                            <p>猿来入此</p>
+                            <p>轻松闲置</p>
                             <p><c:out value="${item.goods.startTime}"></c:out></p>
                         </div>
                     </a>
@@ -426,7 +427,7 @@
                             <p><c:out value="${item.goods.name}"></c:out></p>
                         </div>
                         <div class="card-content item-location">
-                            <p>猿来入此</p>
+                            <p>轻松闲置</p>
                             <p><c:out value="${item.goods.startTime}"></c:out></p>
                         </div>
                     </a>
@@ -456,7 +457,7 @@
                             <p><c:out value="${item.goods.name}"></c:out></p>
                         </div>
                         <div class="card-content item-location">
-                            <p>猿来入此</p>
+                            <p>轻松闲置</p>
                             <p><c:out value="${item.goods.startTime}"></c:out></p>
                         </div>
                     </a>
@@ -482,7 +483,7 @@
                             <p><c:out value="${item.goods.name}"></c:out></p>
                         </div>
                         <div class="card-content item-location">
-                            <p>猿来入此</p>
+                            <p>轻松闲置</p>
                             <p><c:out value="${item.goods.startTime}"></c:out></p>
                         </div>
                     </a>
@@ -508,7 +509,7 @@
                             <p><c:out value="${item.goods.name}"></c:out></p>
                         </div>
                         <div class="card-content item-location">
-                            <p>猿来入此</p>
+                            <p>轻松闲置</p>
                             <p><c:out value="${item.goods.startTime}"></c:out></p>
                         </div>
                     </a>
@@ -534,7 +535,7 @@
                             <p><c:out value="${item.goods.name}"></c:out></p>
                         </div>
                         <div class="card-content item-location">
-                            <p>猿来入此</p>
+                            <p>轻松闲置</p>
                             <p><c:out value="${item.goods.startTime}"></c:out></p>
                         </div>
                     </a>
@@ -560,7 +561,7 @@
                             <p><c:out value="${item.goods.name}"></c:out></p>
                         </div>
                         <div class="card-content item-location">
-                            <p>猿来入此</p>
+                            <p>轻松闲置</p>
                             <p><c:out value="${item.goods.startTime}"></c:out></p>
                         </div>
                     </a>
@@ -586,7 +587,7 @@
                             <p><c:out value="${item.goods.name}"></c:out></p>
                         </div>
                         <div class="card-content item-location">
-                            <p>猿来入此</p>
+                            <p>轻松闲置</p>
                             <p><c:out value="${item.goods.startTime}"></c:out></p>
                         </div>
                     </a>
