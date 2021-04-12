@@ -56,7 +56,7 @@
         <div class="nav-wrapper">
             <a href="<%=basePath%>goods/homeGoods" class="logo">
                 <em class="em1">轻松闲置</em>
-                <em class="em2">校园二手市场</em>
+                <em class="em2">闲置物品交易市场</em>
                 <em class="em3"></em>
             </a>
             <div class="nav-wrapper search-bar">
@@ -64,7 +64,7 @@
                     <div class="input-field">
                         <input id="search" name="str" value="<c:out value="${search}"></c:out>" placeholder="搜点什么吧..." style="height: 40px;margin-right: 10px;"
                                class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
-                        <input type="submit" class="btn"value="搜索";style="height: 35px;width: 80px";></input>
+                        <input type="submit" class="button button2"value="搜索";style="height: 35px;width: 80px";></input>
                         <label for="search" class="active">
                             <i ng-click="search()" class="iconfont"></i>
                         </label>

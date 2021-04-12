@@ -9,7 +9,6 @@
 <html>
 <head>
     <meta charset="utf-8" />
-<%--    <title>【轻松闲置】校园校园二手市场</title>--%>
     <title>【轻松闲置】交易市场</title>
     <link rel="icon" href="<%=basePath%>img/logo.jpg" type="image/x-icon"/>
     <link rel="stylesheet" href="<%=basePath%>css/index.css" />
@@ -119,7 +118,7 @@
         <div class="nav-wrapper">
             <a href="<%=basePath%>goods/homeGoods" class="logo">
                 <em class="em1">轻松闲置</em>
-                <em class="em2">校园二手市场</em>
+                <em class="em2">二手交易市场</em>
                 <em class="em3"></em>
             </a>
             <div class="nav-wrapper search-bar">

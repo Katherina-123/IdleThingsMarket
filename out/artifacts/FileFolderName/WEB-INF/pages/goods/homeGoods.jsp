@@ -16,6 +16,7 @@
     <script type="text/javascript" src="<%=basePath%>js/jquery.js" ></script>
     <script type="text/javascript" src="<%=basePath%>js/materialize.min.js" ></script>
     <script type="text/javascript" src="<%=basePath%>js/index.bundle.js" ></script>
+    <script type="text/javascript" src="<%=basePath%>js/myjquery.js" ></script>
     <link rel="stylesheet" href="<%=basePath%>css/materialize-icon.css" />
     <link rel="stylesheet" href="<%=basePath%>css/user.css" />
     <script>
@@ -125,11 +126,12 @@
             <div class="nav-wrapper search-bar">
                 <form class="ng-pristine ng-invalid ng-invalid-required" action="<%=basePath%>goods/search">
                     <div class="input-field">
-                        <input id="search" name="str" placeholder="搜点什么吧..." style="height: 40px;"
+                        <input id="search" name="str" placeholder="快来找闲置吧..." style="height: 40px;"
                                class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
                       	<input type="submit" class="button button2"value="搜索"></input>
                         <label for="search" class="active">
-                            <i ng-click="search()" class="iconfont"></i>
+<%--                            <i ng-click="search()" class="iconfont"></i>--%>
+                            <i onclick="search()" class="iconfont"></i>
                         </label>
                     </div>
                 </form>
@@ -352,29 +354,50 @@
 
         描述：右侧banner（图片）部分
     -->
+<%--    <div class="slider-wapper">--%>
+<%--        <div class="slider" style="height: 440px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">--%>
+<%--            <ul class="slides" style="height: 400px;">--%>
+<%--                <li class="active" style="opacity: 1;">--%>
+<%--                    <a href="<%=basePath%>goods/homeGoods">--%>
+<%--                        <div class="bannerimg">--%>
+<%--                            <ul class="bannerul">--%>
+<%--                                <p class="text1">Hello：</p>--%>
+<%--                                <p class="text2">欢迎来到【轻松闲置】校园二手市场。临近毕业季的</p>--%>
+<%--                                <p class="text3">你，是否有太多的闲置与校友分享，为了追求更好的校园服</p>--%>
+<%--                                <p class="text4">务，我们打造了一个全新的校园平台——<span>轻松闲置交易市场</p>--%>
+<%--                                <p class="text5">这里有更多的闲置分享，更自由的校园话题讨论，你想要的，都在这里。</p>--%>
+<%--                                <p class="text6">加入轻松闲置交易市场，你的大学，应更精彩。</p>--%>
+<%--                            </ul>--%>
+<%--                          <!--   <div class="logoimg">--%>
+<%--                                <img src="../img/p_logo.jpg" />--%>
+<%--                            </div> -->--%>
+<%--                        </div>--%>
+<%--                    </a>--%>
+<%--                </li>--%>
+<%--            </ul>--%>
+<%--        </div>--%>
+<%--    </div>--%>
     <div class="slider-wapper">
-        <div class="slider" style="height: 440px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-            <ul class="slides" style="height: 400px;">
-                <li class="active" style="opacity: 1;">
-                    <a href="<%=basePath%>goods/homeGoods">
-                        <div class="bannerimg">
-                            <ul class="bannerul">
-                                <p class="text1">Hello：</p>
-                                <p class="text2">欢迎来到【轻松闲置】校园二手市场。临近毕业季的</p>
-                                <p class="text3">你，是否有太多的闲置与校友分享，为了追求更好的校园服</p>
-                                <p class="text4">务，我们打造了一个全新的校园平台——<span>轻松闲置交易市场</p>
-                                <p class="text5">这里有更多的闲置分享，更自由的校园话题讨论，你想要的，都在这里。</p>
-                                <p class="text6">加入轻松闲置交易市场，你的大学，应更精彩。</p>
-                            </ul>
-                          <!--   <div class="logoimg">
-                                <img src="../img/p_logo.jpg" />
-                            </div> -->
-                        </div>
-                    </a>
-                </li>
+        <div class="slideshow">
+            <div id="sli_img">
+                <img src="../img/home-banner-1.png" width="920px" height="400px" />
+                <img src="../img/home-banner-2.png" width="920px" height="400px" />
+                <img src="../img/home-banner-3.jpg" width="920px" height="400px" />
+                <img src="../img/home-banner-4.jpg" width="920px" height="400px" />
+            </div>
+            <ul class="page" id="page">
+                <li class="active">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
             </ul>
+            <div id="control">
+                <button type="button" id="prev">&lt;&lt;</button>
+                <button type="button" id="next">&gt;&gt;</button>
+            </div>
         </div>
     </div>
+
     <!--
 
         描述：最新发布

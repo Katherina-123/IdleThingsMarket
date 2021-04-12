@@ -61,9 +61,9 @@
             <div class="nav-wrapper search-bar">
                 <form submit="search()" class="ng-pristine ng-invalid ng-invalid-required" action="<%=basePath%>goods/search">
                     <div class="input-field">
-                        <input id="search" placeholder="搜点什么吧..." name="str" style="height: 40px;"
+                        <input id="search" placeholder="快来找闲置吧..." name="str" style="height: 40px;"
                                class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" value="<c:out value="${search}"></c:out>"/>
-                        <input type="submit" class="btn"value="搜索"></input>
+                        <input type="submit" class="button button2" value="搜索"></input>
                         <label for="search" class="active">
                             <i onclick="search()" class="iconfont"></i>
                         </label>
@@ -275,7 +275,6 @@
     <div class="info">
         <a href="" target="_blank">关于我们</a><em>-</em>
         <a href="">联系我们</a>
-        <p>©2021 PTUACM工作室</p>
     </div>
 </div>
 <!--
