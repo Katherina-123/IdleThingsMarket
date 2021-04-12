@@ -9,14 +9,80 @@
 <html>
 <head>
     <meta charset="utf-8" />
-<%--    <title>【轻松闲置】校园校园二手市场</title>--%>
     <title>【轻松闲置】交易市场</title>
+    <style type="text/css">
+        .slideshow{
+            width: 900px;
+            height: 400px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .slideshow #sli_img img{
+            position: absolute;
+            display: none;
+        }
+        .slideshow #sli_img :first-child{
+            display: block;
+        }
+        .slideshow .page{
+            list-style: none;
+            display: flex;
+            width: 160px;
+            justify-content: space-around;
+            position: absolute;
+            margin-top: 400px;
+            margin-left: 50%;
+            /*float: left;*/
+            /*border: 1px solid rebeccapurple;*/
+        }
+        .slideshow .page li{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            color: lavenderblush;
+            border: 1px solid white;
+            cursor: pointer;
+        }
+        .slideshow .page .active{
+            background-color: cadetblue;
+        }
+        .slideshow #control #prev{
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            outline: none;
+            width: 30px;
+            height: 20px;
+            margin-left: 20px;
+            /* display:flex; */
+            /* justify-content: space-between; */
+            position: absolute;
+            margin-top: 250px;
+        }
+        .slideshow #control #next{
+            background: none;
+            border: none;
+            color: deeppink;
+            font-size: 50px;
+            outline: none;
+            width: 30px;
+            height: 20px;
+            margin-left: 800px;
+            /* display:flex; */
+            /* justify-content: space-between; */
+            position: absolute;
+            margin-top: 250px;
+        }
+    </style>
     <link rel="icon" href="<%=basePath%>img/logo.jpg" type="image/x-icon"/>
     <link rel="stylesheet" href="<%=basePath%>css/index.css" />
     <script type="text/javascript" src="<%=basePath%>js/jquery.js" ></script>
     <script type="text/javascript" src="<%=basePath%>js/materialize.min.js" ></script>
     <script type="text/javascript" src="<%=basePath%>js/index.bundle.js" ></script>
-    <script type="text/javascript" src="<%=basePath%>js/myjquery.js" ></script>
+<%--    <script type="text/javascript" src="<%=basePath%>js/myjquery.js" ></script>--%>
     <link rel="stylesheet" href="<%=basePath%>css/materialize-icon.css" />
     <link rel="stylesheet" href="<%=basePath%>css/user.css" />
     <script>
@@ -120,18 +186,17 @@
         <div class="nav-wrapper">
             <a href="<%=basePath%>goods/homeGoods" class="logo">
                 <em class="em1">轻松闲置</em>
-                <em class="em2">校园二手市场</em>
+                <em class="em2">二手交易市场</em>
                 <em class="em3"></em>
             </a>
             <div class="nav-wrapper search-bar">
                 <form class="ng-pristine ng-invalid ng-invalid-required" action="<%=basePath%>goods/search">
                     <div class="input-field">
-                        <input id="search" name="str" placeholder="快来找闲置吧..." style="height: 40px;"
+                        <input id="search" name="str" placeholder="搜点什么吧..." style="height: 40px;"
                                class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
                       	<input type="submit" class="button button2"value="搜索"></input>
                         <label for="search" class="active">
-<%--                            <i ng-click="search()" class="iconfont"></i>--%>
-                            <i onclick="search()" class="iconfont"></i>
+                            <i ng-click="search()" class="iconfont"></i>
                         </label>
                     </div>
                 </form>
@@ -354,7 +419,7 @@
 
         描述：右侧banner（图片）部分
     -->
-<%--    <div class="slider-wapper">--%>
+    <div class="slider-wapper">
 <%--        <div class="slider" style="height: 440px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">--%>
 <%--            <ul class="slides" style="height: 400px;">--%>
 <%--                <li class="active" style="opacity: 1;">--%>
@@ -376,7 +441,6 @@
 <%--                </li>--%>
 <%--            </ul>--%>
 <%--        </div>--%>
-<%--    </div>--%>
     <div class="slider-wapper">
         <div class="slideshow">
             <div id="sli_img">
@@ -397,7 +461,7 @@
             </div>
         </div>
     </div>
-
+    </div>
     <!--
 
         描述：最新发布
@@ -620,4 +684,46 @@
     </div>
 </div>
 </body>
+<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    // 图片绝对定位
+    // 通过下标，显示当前，隐藏其他兄弟图片
+    var index = 0;
+    function move(){
+        index++;
+        if(index >= $("#sli_img img").length){
+            index = 0;
+        }
+        $("#sli_img img").eq(index).show().siblings().hide();
+        $("#page li").eq(index).addClass("active").siblings().removeClass("active");
+    }
+    // 每隔两秒轮播
+    var t = setInterval(move,2000);
+    // 鼠标滑入停止播放（移除定时器）
+    // 鼠标滑出继续播放（开启定时器）
+    $("#sli_img").hover(function(){
+        clearInterval(t);
+    },function(){
+        t = setInterval(move,2000);
+    })
+    // 点击圆点时显示对应的图片
+    $("#page li").click(function(){
+        index = $(this).index();
+        $("#sli_img img").eq(index).show().siblings().hide();
+        $("#page li").eq(index).addClass("active").siblings().removeClass("active");
+    })
+    // 上一张
+    $("#prev").click(function(){
+        index--;
+        if(index<0){
+            index = $("#sli_img img").length-1;
+        }
+        $("#sli_img img").eq(index).show().siblings().hide();
+        $("#page li").eq(index).addClass("active").siblings().removeClass("active");
+    })
+    // 下一张
+    $("#next").click(function(){
+        move();
+    })
+</script>
 </html>

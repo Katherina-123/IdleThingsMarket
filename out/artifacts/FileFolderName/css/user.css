@@ -300,6 +300,8 @@
     position: absolute;
     margin-top: 400px;
     margin-left: 50%;
+    float: left;
+    border: 1px solid rebeccapurple;
 }
 .slideshow .page li{
     width: 20px;
