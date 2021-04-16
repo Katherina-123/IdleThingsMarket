@@ -30,8 +30,8 @@
             width: 160px;
             justify-content: space-around;
             position: absolute;
-            margin-top: 400px;
-            margin-left: 50%;
+            margin-top: 360px;
+            margin-left: 30%;
             /*float: left;*/
             /*border: 1px solid rebeccapurple;*/
         }
@@ -65,12 +65,12 @@
         .slideshow #control #next{
             background: none;
             border: none;
-            color: deeppink;
-            font-size: 50px;
+            color: white;
+            font-size: 20px;
             outline: none;
             width: 30px;
             height: 20px;
-            margin-left: 800px;
+            margin-left: 860px;
             /* display:flex; */
             /* justify-content: space-between; */
             position: absolute;
@@ -185,19 +185,21 @@
     <nav class="white nav1">
         <div class="nav-wrapper">
             <a href="<%=basePath%>goods/homeGoods" class="logo">
-                <em class="em1">轻松闲置</em>
+                <img src="<%=basePath%>img/logo.png" style="width:50px;height:50px">
+                <em class="em1" style="color: #e76831">轻松闲置</em>
                 <em class="em2">二手交易市场</em>
                 <em class="em3"></em>
             </a>
             <div class="nav-wrapper search-bar">
                 <form class="ng-pristine ng-invalid ng-invalid-required" action="<%=basePath%>goods/search">
                     <div class="input-field">
-                        <input id="search" name="str" placeholder="搜点什么吧..." style="height: 40px;"
+                        <input type="submit" class="button button2"value="搜索" style="height: 45px">
+                        <input id="search" name="str" placeholder="搜索看看已有闲置吧..." style="height: 40px;width: 250px"
                                class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
-                      	<input type="submit" class="button button2"value="搜索"></input>
-                        <label for="search" class="active">
-                            <i ng-click="search()" class="iconfont"></i>
-                        </label>
+                      	</input>
+<%--                        <label for="search" class="active">--%>
+<%--                            <i ng-click="search()" class="iconfont"></i>--%>
+<%--                        </label>--%>
                     </div>
                 </form>
             </div>
@@ -359,7 +361,7 @@
     <li ng-class="{true: 'active'}[isAll]">
         <a href="<%=basePath%>goods/catelog" class="index">
             <img src="<%=basePath%>img/index.png">
-            <em>最新发布</em>
+            <em >最新发布</em>
         </a>
     </li>
     <li ng-class="{true: 'active'}[isDigital]">
@@ -467,8 +469,8 @@
         描述：最新发布
     -->
     <div class="index-title">
-        <a href="">最新发布</a>
-        <hr class="hr1">
+        <a style="margin-left: 50%">最新发布</a>
+        <hr class="hr1" style="margin-left: 49%">
         <hr class="hr2">
     </div>
     <div class="waterfoo stark-components row">
@@ -497,8 +499,8 @@
         描述：闲置数码
     -->
     <div class="index-title">
-        <a href="">闲置数码</a>
-        <hr class="hr1">
+        <a style="margin-left: 50%">闲置数码</a>
+        <hr class="hr1" style="margin-left: 49%">
         <hr class="hr2">
     </div>
     <div class="waterfoo stark-components row">
@@ -527,8 +529,8 @@
         描述：校园代步
     -->
     <div class="index-title">
-        <a href="">校园代步</a>
-        <hr class="hr1">
+        <a style="margin-left: 50%">校园代步</a>
+        <hr class="hr1" style="margin-left: 49%">
         <hr class="hr2">
     </div>
     <div class="waterfoo stark-components row">
@@ -553,8 +555,8 @@
         </div>
     </div>
     <div class="index-title">
-        <a href="">电器日用</a>
-        <hr class="hr1">
+        <a style="margin-left: 50%">电器日用</a>
+        <hr class="hr1" style="margin-left: 49%">
         <hr class="hr2">
     </div>
     <div class="waterfoo stark-components row">
@@ -579,8 +581,8 @@
         </div>
     </div>
     <div class="index-title">
-        <a href="">图书教材</a>
-        <hr class="hr1">
+        <a style="margin-left: 50%">图书教材</a>
+        <hr class="hr1" style="margin-left: 49%">
         <hr class="hr2">
     </div>
     <div class="waterfoo stark-components row">
@@ -605,8 +607,8 @@
         </div>
     </div>
     <div class="index-title">
-        <a href="">美妆衣物</a>
-        <hr class="hr1">
+        <a style="margin-left: 50%">美妆衣物</a>
+        <hr class="hr1" style="margin-left: 49%">
         <hr class="hr2">
     </div>
     <div class="waterfoo stark-components row">
@@ -631,8 +633,8 @@
         </div>
     </div>
     <div class="index-title">
-        <a href="">运动棋牌</a>
-        <hr class="hr1">
+        <a style="margin-left: 50%">运动棋牌</a>
+        <hr class="hr1" style="margin-left: 49%">
         <hr class="hr2">
     </div>
     <div class="waterfoo stark-components row">
@@ -657,8 +659,8 @@
         </div>
     </div>
     <div class="index-title">
-        <a href="">票券小物</a>
-        <hr class="hr1">
+        <a style="margin-left: 50%">票券小物</a>
+        <hr class="hr1" style="margin-left: 49%">
         <hr class="hr2">
     </div>
     <div class="waterfoo stark-components row">

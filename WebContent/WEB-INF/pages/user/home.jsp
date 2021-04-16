@@ -96,7 +96,7 @@
 <%--                <h1 class="logo"></h1>--%>
 <%--            </a>--%>
             <a href="<%=basePath%>goods/homeGoods">
-                 <img src="<%=basePath%>img/home_header.jpg"  style="margin-left: 20px;" >
+                 <img src="<%=basePath%>img/home_header1.png"  >
             </a>
             <a href="<%=basePath%>user/home">
                 <div class="home"></div>

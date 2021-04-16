@@ -73,8 +73,8 @@ ul {
 	height: 50px;
 	border-radius: 25px;
 	position: absolute;
-	right: 10px;
-	top: 7px;
+	right: -30px;
+	top: 20px;
 	cursor: pointer;
 	background:
 		url(http://findfun.oss-cn-shanghai.aliyuncs.com/images/home_icon.png)
@@ -82,7 +82,7 @@ ul {
 }
 
 #user_nav {
-	margin-top: 66px;
+	margin-top: 140px;
 	display: block;
 	width: 200px;
 	float: left;
@@ -411,7 +411,8 @@ ul {
 
 #user_content .share .publish .text_pub {
 	width: 510px;
-	padding: 10px 20px
+	padding: 10px 20px;
+	margin-top: 40px
 }
 
 #user_content .share .publish .text_pub .tag {
