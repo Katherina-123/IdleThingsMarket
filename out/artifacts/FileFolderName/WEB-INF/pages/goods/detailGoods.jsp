@@ -73,7 +73,7 @@
         <div class="nav-wrapper">
             <a href="<%=basePath%>goods/homeGoods" class="logo">
                 <em class="em1">轻松闲置</em>
-                <em class="em2">校园二手市场</em>
+                <em class="em2">二手市场</em>
                 <em class="em3"></em>
             </a>
             <div class="nav-wrapper search-bar">

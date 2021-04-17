@@ -35,11 +35,11 @@
 <div id="cover" style="min-height: 639px;">
     <div id="user_area">
         <div id="home_header">
-            <a href="<%=basePath%>goods/homeGoods">
-                <h1 class="logo"></h1>
-            </a>
+<%--            <a href="<%=basePath%>goods/homeGoods">--%>
+<%--                <h1 class="logo"></h1>--%>
+<%--            </a>--%>
             <a href="<%=basePath%>user/home">
-                 <img src="<%=basePath%>img/home_header.png"  style="margin-left: 20px;" >
+                 <img src="<%=basePath%>img/home_header1.png"  style="margin-left: 20px;" >
             </a>
             <a href="<%=basePath%>user/home">
                 <div class="home"></div>
@@ -112,21 +112,21 @@
         <div id="user_content">
             <div class="basic">
                 <form:form action="../goods/publishGoodsSubmit" method="post" role="form" enctype="multipart/form-data">
-                    <h1 style="margin-left: 210px;">发布物品</h1><hr />
+                    <h1 style="margin-left: 210px;margin-top: 50px;">发布物品</h1><hr />
                     <div class="changeinfo">
                         <span>物品名：</span>
                         <input class="in_info" type="text" name="name" placeholder="请输入物品名"/>
-                        <span>(*必填)</span>
+                        <span style="margin-left: 120px">(*必填)</span>
                     </div>
                     <div class="changeinfo">
                         <span>出售价格：</span>
                         <input class="in_info" type="text" name="price" placeholder="请输入出售价格"/>
-                        <span>(*必填)</span>
+                        <span style="margin-left: 140px">(*必填)</span>
                     </div>
                     <div class="changeinfo">
                         <span>原价：</span>
                         <input class="in_info" type="text" name="realPrice" placeholder="请输入商品原价"/>
-                        <span id="checkphone">(*选填,请如实填写)</span>
+                        <span id="checkphone" style="margin-left: 110px">(*选填,请如实填写)</span>
                     </div>
                     <div class="changeinfo">
                         <span>物品类别：</span>
@@ -141,7 +141,7 @@
                         </select>
                     </div>
                     <div class="changeinfo" id="dir">
-                        <span>商品描述：</span>
+                        <span style="margin-left: -450px">商品描述：</span>
                         <div class="sha">
                             <div class="publ">
                                 <div class="pub_con">
@@ -169,7 +169,7 @@
                             </div>
                         </div>
                     </div>
-                    <input type="submit" class="setting-save" value="发布物品" style="margin-top: 20px;background-color: blue;"/>
+                    <input type="submit" class="setting-save" value="发布物品" style="margin-top: 20px;margin-left:43px;background-color: blue;"/>
                 </form:form>
             </div>
             <!--

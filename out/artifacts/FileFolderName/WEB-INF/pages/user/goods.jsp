@@ -33,7 +33,7 @@
                 <h1 class="logo"></h1>
             </a>
             <a href="<%=basePath%>goods/homeGoods">
-                 <img src="<%=basePath%>img/home_header.png"  style="margin-left: 20px;" >
+                 <img src="<%=basePath%>img/home_header1.png"  style="margin-left: 20px;" >
             </a>
             <a href="<%=basePath%>user/home">
                 <div class="home"></div>
@@ -109,7 +109,7 @@
 
                     描述：闲置商品展示
                 -->
-                <h1 style="text-align: center">我的闲置</h1>
+                <h1 style="text-align: center;margin-top: 50px;">我的闲置</h1>
 					<hr />
                 <div class="share_content">
                     <c:if test="${empty goodsAndImage}">

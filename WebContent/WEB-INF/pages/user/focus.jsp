@@ -29,11 +29,11 @@
 <div id="cover" style="min-height: 639px;">
     <div id="user_area">
         <div id="home_header">
-            <a href="<%=basePath%>goods/homeGoods">
-                <h1 class="logo"></h1>
-            </a>
+<%--            <a href="<%=basePath%>goods/homeGoods">--%>
+<%--                <h1 class="logo"></h1>--%>
+<%--            </a>--%>
             <a href="<%=basePath%>goods/homeGoodse">
-                 <img src="<%=basePath%>img/home_header.png"  style="margin-left: 20px;" >
+                 <img src="<%=basePath%>img/home_header1.png"  style="margin-left: 20px;" >
             </a>
             <a href="<%=basePath%>user/home">
                 <div class="home"></div>
@@ -110,7 +110,7 @@
 
                     描述：关注商品展示
                 -->
-                <h1 style="text-align: center">关注列表</h1>
+                <h1 style="text-align: center;margin-top: 50px">关注列表</h1>
 					<hr />
                 <div class="share_content">
                     <c:if test="${empty goodsAndImage}">

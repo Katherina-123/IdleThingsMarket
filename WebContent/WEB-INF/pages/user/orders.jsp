@@ -48,11 +48,11 @@
 <div id="cover" style="min-height: 639px;">
     <div id="user_area">
         <div id="home_header">
+<%--            <a href="<%=basePath%>goods/homeGoods">--%>
+<%--                <h1 class="logo"></h1>--%>
+<%--            </a>--%>
             <a href="<%=basePath%>goods/homeGoods">
-                <h1 class="logo"></h1>
-            </a>
-            <a href="<%=basePath%>goods/homeGoods">
-                 <img src="<%=basePath%>img/home_header.png"  style="margin-left: 20px;" >
+                 <img src="<%=basePath%>img/home_header1.png">
             </a>
             <a href="<%=basePath%>user/home">
                 <div class="home"></div>
@@ -130,7 +130,7 @@
 
                     描述：订单展示
                 -->
-					<h1 style="text-align: center">订单中心</h1>
+					<h1 style="text-align: center;margin-top: 50px;">订单中心</h1>
 					<hr />
 					<div class="share_content">
 						  <c:if test="${empty orders and empty ordersOfSell}">

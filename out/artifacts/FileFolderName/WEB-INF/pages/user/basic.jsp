@@ -30,7 +30,7 @@
 <%--                <h1 class="logo"></h1>--%>
 <%--            </a>--%>
             <a href="<%=basePath%>goods/homeGoods">
-                 <img src="<%=basePath%>img/home_header.jpg"  style="margin-left: 200px;" >
+                 <img src="<%=basePath%>img/home_header1.png">
             </a>
             <a href="<%=basePath%>user/home">
                 <div class="home"></div>
@@ -49,7 +49,6 @@
                     <img src="">
                 </div>
                 <span class="name">${cur_user.username}</span><hr>
-              <!--   <span class="school">东华大学</span> -->
                   <a class="btn" style="width: 98%;background-color: rgb(79, 190, 246);color:rgba(255, 255, 255, 1);" href="<%=basePath%>user/myPurse">我的钱包：￥${myPurse.balance}</a>
                 <input type="hidden" value="${myPurse.recharge}" id="recharge"/>
                 <input type="hidden" value="${myPurse.withdrawals}" id="withdrawals"/>
@@ -103,7 +102,7 @@
         <div id="user_content">
             <div class="basic">
                 <form:form action="../user/updateInfo" method="post" commandName="user" role="form">
-                    <h1>完善与修改个人信息</h1><hr />
+                    <h1 style="margin-top: 50px">完善与修改个人信息</h1><hr />
                     <div class="changeinfo">
                         <span>昵称：</span>
                         <input class="in_info" type="text" name="username" placeholder="请输入昵称" value="${cur_user.username}"/>

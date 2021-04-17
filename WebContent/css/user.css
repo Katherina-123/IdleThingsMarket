@@ -156,6 +156,8 @@
 .sha .publ .text_pu {
     width: 400px;
     padding: 10px 20px;
+    margin-top: 20px;
+    margin-left: 43px;
 }
 .sha .publ .text_pu .emoji-wysiwyg-editor {
     position: relative;

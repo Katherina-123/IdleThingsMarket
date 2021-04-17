@@ -39,7 +39,7 @@
                 <h1 class="logo"></h1>
             </a>
             <a href="<%=basePath%>user/home">
-                 <img src="<%=basePath%>img/home_header.png"  style="margin-left: 20px;" >
+                 <img src="<%=basePath%>img/home_header1.png"  style="margin-left: 20px;" >
             </a>
             <a href="<%=basePath%>user/home">
                 <div class="home"></div>
@@ -112,7 +112,7 @@
         <div id="user_content">
             <div class="basic">
                 <form:form action="../goods/publishGoodsSubmit" method="post" role="form" enctype="multipart/form-data">
-                    <h1 style="margin-left: 210px;">发布物品</h1><hr />
+                    <h1 style="margin-left: 210px;margin-top: 50px;">发布物品</h1><hr />
                     <div class="changeinfo">
                         <span>物品名：</span>
                         <input class="in_info" type="text" name="name" placeholder="请输入物品名"/>
