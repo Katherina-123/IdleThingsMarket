@@ -27,7 +27,7 @@
     position: absolute;
     float: left;
     margin-top: 5px;
-    margin-left: 70px;
+    margin-left: -300px;
     font-size: 15px;
     color: #969696;
 
@@ -44,6 +44,7 @@
     background-color: #3db922;
     color: #fff;
     padding: 10px 10px;
+    margin-left: 38%;
 }
 .setting-save:hover {
     cursor: pointer;
@@ -168,6 +169,7 @@
     line-height: 25px;
     color: #333;
     font-size: 16px;
+
     font-family: "Avenir Next",Avenir,"Helvetica Neue",Helvetica,"Lantinghei SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",STHeiti,"WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 #dir {
@@ -300,10 +302,8 @@
     width: 160px;
     justify-content: space-around;
     position: absolute;
-    margin-top: 400px;
-    margin-left: 50%;
-    float: left;
-    border: 1px solid rebeccapurple;
+    margin-top: 360px;
+    margin-left: 30%;
 }
 .slideshow .page li{
     width: 20px;
@@ -330,7 +330,8 @@
     /* display:flex; */
     /* justify-content: space-between; */
     position: absolute;
-    margin-top: 250px;
+    margin-top: 270px;
+
 }
 .slideshow #control #next{
     background: none;
@@ -340,9 +341,9 @@
     outline: none;
     width: 30px;
     height: 20px;
-    margin-left: 1480px;
+    margin-left: 860px;
     /* display:flex; */
     /* justify-content: space-between; */
     position: absolute;
-    margin-top: 250px;
+    margin-top: 270px;
 }

@@ -279,7 +279,7 @@ public class GoodsController {
 		goods.setPolishTime(polish_time);
 		goods.setStatus(1);
 		goodsService.updateGoodsByPrimaryKeyWithBLOBs(goods.getId(), goods);
-		return "redirect:/user/allGoods";
+		return "user/goods";
 	}
 
 	/**
@@ -315,7 +315,7 @@ public class GoodsController {
 		request.getSession().setAttribute("cur_user", cur_user);// 修改session值
 		//imageService.deleteImagesByGoodsPrimaryKey(id);
 		goodsService.deleteGoodsByPrimaryKey(id);
-		return "redirect:/user/allGoods";
+		return "user/goods";
 	}
 
 	/**
@@ -364,7 +364,7 @@ public class GoodsController {
 		userService.updateGoodsNum(cur_user.getId(), number + 1);
 		cur_user.setGoodsNum(number + 1);
 		request.getSession().setAttribute("cur_user", cur_user);// 修改session值
-		return "redirect:/user/allGoods";
+		return "user/goods";
 	}
 
 	/**

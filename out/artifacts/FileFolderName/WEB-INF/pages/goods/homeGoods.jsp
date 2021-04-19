@@ -10,73 +10,73 @@
 <head>
     <meta charset="utf-8" />
     <title>【轻松闲置】交易市场</title>
-    <style type="text/css">
-        .slideshow{
-            width: 900px;
-            height: 400px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-        .slideshow #sli_img img{
-            position: absolute;
-            display: none;
-        }
-        .slideshow #sli_img :first-child{
-            display: block;
-        }
-        .slideshow .page{
-            list-style: none;
-            display: flex;
-            width: 160px;
-            justify-content: space-around;
-            position: absolute;
-            margin-top: 360px;
-            margin-left: 30%;
-            /*float: left;*/
-            /*border: 1px solid rebeccapurple;*/
-        }
-        .slideshow .page li{
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 20px;
-            color: lavenderblush;
-            border: 1px solid white;
-            cursor: pointer;
-        }
-        .slideshow .page .active{
-            background-color: cadetblue;
-        }
-        .slideshow #control #prev{
-            background: none;
-            border: none;
-            color: white;
-            font-size: 18px;
-            outline: none;
-            width: 30px;
-            height: 20px;
-            margin-left: 20px;
-            /* display:flex; */
-            /* justify-content: space-between; */
-            position: absolute;
-            margin-top: 250px;
-        }
-        .slideshow #control #next{
-            background: none;
-            border: none;
-            color: white;
-            font-size: 20px;
-            outline: none;
-            width: 30px;
-            height: 20px;
-            margin-left: 860px;
-            /* display:flex; */
-            /* justify-content: space-between; */
-            position: absolute;
-            margin-top: 250px;
-        }
-    </style>
+<%--    <style type="text/css">--%>
+<%--        .slideshow{--%>
+<%--            width: 900px;--%>
+<%--            height: 400px;--%>
+<%--            margin: 0 auto;--%>
+<%--            overflow: hidden;--%>
+<%--        }--%>
+<%--        .slideshow #sli_img img{--%>
+<%--            position: absolute;--%>
+<%--            display: none;--%>
+<%--        }--%>
+<%--        .slideshow #sli_img :first-child{--%>
+<%--            display: block;--%>
+<%--        }--%>
+<%--        .slideshow .page{--%>
+<%--            list-style: none;--%>
+<%--            display: flex;--%>
+<%--            width: 160px;--%>
+<%--            justify-content: space-around;--%>
+<%--            position: absolute;--%>
+<%--            margin-top: 360px;--%>
+<%--            margin-left: 30%;--%>
+<%--            /*float: left;*/--%>
+<%--            /*border: 1px solid rebeccapurple;*/--%>
+<%--        }--%>
+<%--        .slideshow .page li{--%>
+<%--            width: 20px;--%>
+<%--            height: 20px;--%>
+<%--            border-radius: 50%;--%>
+<%--            text-align: center;--%>
+<%--            line-height: 20px;--%>
+<%--            color: lavenderblush;--%>
+<%--            border: 1px solid white;--%>
+<%--            cursor: pointer;--%>
+<%--        }--%>
+<%--        .slideshow .page .active{--%>
+<%--            background-color: cadetblue;--%>
+<%--        }--%>
+<%--        .slideshow #control #prev{--%>
+<%--            background: none;--%>
+<%--            border: none;--%>
+<%--            color: white;--%>
+<%--            font-size: 18px;--%>
+<%--            outline: none;--%>
+<%--            width: 30px;--%>
+<%--            height: 20px;--%>
+<%--            margin-left: 20px;--%>
+<%--            /* display:flex; */--%>
+<%--            /* justify-content: space-between; */--%>
+<%--            position: absolute;--%>
+<%--            margin-top: 250px;--%>
+<%--        }--%>
+<%--        .slideshow #control #next{--%>
+<%--            background: none;--%>
+<%--            border: none;--%>
+<%--            color: white;--%>
+<%--            font-size: 20px;--%>
+<%--            outline: none;--%>
+<%--            width: 30px;--%>
+<%--            height: 20px;--%>
+<%--            margin-left: 860px;--%>
+<%--            /* display:flex; */--%>
+<%--            /* justify-content: space-between; */--%>
+<%--            position: absolute;--%>
+<%--            margin-top: 250px;--%>
+<%--        }in
+<%--    </style>--%>
     <link rel="icon" href="<%=basePath%>img/logo.jpg" type="image/x-icon"/>
     <link rel="stylesheet" href="<%=basePath%>css/index.css" />
     <script type="text/javascript" src="<%=basePath%>js/jquery.js" ></script>
