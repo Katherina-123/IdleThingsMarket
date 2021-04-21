@@ -35,9 +35,9 @@
 <div id="cover" style="min-height: 639px;">
     <div id="user_area">
         <div id="home_header">
-            <a href="<%=basePath%>goods/homeGoods">
-                <h1 class="logo"></h1>
-            </a>
+<%--            <a href="<%=basePath%>goods/homeGoods">--%>
+<%--                <h1 class="logo"></h1>--%>
+<%--            </a>--%>
             <a href="<%=basePath%>user/home">
                  <img src="<%=basePath%>img/home_header1.png"  style="margin-left: 20px;" >
             </a>
@@ -116,12 +116,12 @@
                     <div class="changeinfo">
                         <span>物品名：</span>
                         <input class="in_info" type="text" name="name" placeholder="请输入物品名"/>
-                        <span>(*必填)</span>
+                        <span style="margin-left: 20px;color: red">(*必填)</span>
                     </div>
                     <div class="changeinfo">
                         <span>出售价格：</span>
                         <input class="in_info" type="text" name="price" placeholder="请输入出售价格"/>
-                        <span>(*必填)</span>
+                        <span style="margin-left: 20px;color: red">(*必填)</span>
                     </div>
                     <div class="changeinfo">
                         <span>原价：</span>
@@ -129,7 +129,7 @@
                         <span id="checkphone">(*选填,请如实填写)</span>
                     </div>
                     <div class="changeinfo">
-                        <span>物品类别：</span>
+                        <span style="margin-left: -227px;">物品类别：</span>
                         <select class="in_info" name="catelogId">
                             <option value="1">闲置数码</option>
                             <option value="2">校园代步</option>
@@ -141,10 +141,10 @@
                         </select>
                     </div>
                     <div class="changeinfo" id="dir">
-                        <span>商品描述：</span>
+                        <span style="margin-left: -450px;">商品描述：</span>
                         <div class="sha">
                             <div class="publ">
-                                <div class="pub_con">
+                                <div class="pub_con" style="margin-left: -50px;">
                                     <div class="text_pu">
                                         <textarea name="describle" class="emoji-wysiwyg-editor"></textarea>
                                     </div>
@@ -155,7 +155,7 @@
                     <br />
                     <hr />
                     <div class="changeinfo">
-                        <span>商品图片：</span>
+                        <span style="margin-left: 50px;">商品图片：</span>
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-6 col-sm-offset-1">
@@ -169,7 +169,7 @@
                             </div>
                         </div>
                     </div>
-                    <input type="submit" class="setting-save" value="发布物品" style="margin-top: 20px;background-color: blue;"/>
+                    <input type="submit" class="setting-save" value="发布物品" style="margin-top: 20px;background-color:#3e90c8;"/>
                 </form:form>
             </div>
             <!--

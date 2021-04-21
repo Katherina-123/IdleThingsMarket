@@ -35,7 +35,7 @@
             <a href="<%=basePath%>goods/homeGoodse">
                  <img src="<%=basePath%>img/home_header1.png"  style="margin-left: 20px;" >
             </a>
-            <a href="<%=basePath%>user/home">
+            <a href="<%=basePath%>goods/homeGoods">
                 <div class="home"></div>
             </a>
         </div>

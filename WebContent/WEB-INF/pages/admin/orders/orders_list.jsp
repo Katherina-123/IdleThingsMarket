@@ -83,7 +83,7 @@ table td {
 			</form>
 
 			<!--表格显示-->
-			<table class="table table-bordered">
+			<table style="width: 90%" class="table table-bordered">
 				<thead>
 					<tr>
 						<th><input type="checkbox" id="selectAllButton"></th>

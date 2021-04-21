@@ -9,9 +9,8 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
-/**
- * Created by lenovo on 2017/5/12.
- */
+
+
 @Service("imageService")
 public class ImageServiceImpl implements ImageService {
     @Resource

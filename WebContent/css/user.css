@@ -330,7 +330,7 @@
     /* display:flex; */
     /* justify-content: space-between; */
     position: absolute;
-    margin-top: 270px;
+    margin-top: 180px;
 
 }
 .slideshow #control #next{
@@ -345,5 +345,5 @@
     /* display:flex; */
     /* justify-content: space-between; */
     position: absolute;
-    margin-top: 270px;
+    margin-top: 180px;
 }

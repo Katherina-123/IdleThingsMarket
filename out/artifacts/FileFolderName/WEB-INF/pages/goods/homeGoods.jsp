@@ -10,73 +10,6 @@
 <head>
     <meta charset="utf-8" />
     <title>【轻松闲置】交易市场</title>
-<%--    <style type="text/css">--%>
-<%--        .slideshow{--%>
-<%--            width: 900px;--%>
-<%--            height: 400px;--%>
-<%--            margin: 0 auto;--%>
-<%--            overflow: hidden;--%>
-<%--        }--%>
-<%--        .slideshow #sli_img img{--%>
-<%--            position: absolute;--%>
-<%--            display: none;--%>
-<%--        }--%>
-<%--        .slideshow #sli_img :first-child{--%>
-<%--            display: block;--%>
-<%--        }--%>
-<%--        .slideshow .page{--%>
-<%--            list-style: none;--%>
-<%--            display: flex;--%>
-<%--            width: 160px;--%>
-<%--            justify-content: space-around;--%>
-<%--            position: absolute;--%>
-<%--            margin-top: 360px;--%>
-<%--            margin-left: 30%;--%>
-<%--            /*float: left;*/--%>
-<%--            /*border: 1px solid rebeccapurple;*/--%>
-<%--        }--%>
-<%--        .slideshow .page li{--%>
-<%--            width: 20px;--%>
-<%--            height: 20px;--%>
-<%--            border-radius: 50%;--%>
-<%--            text-align: center;--%>
-<%--            line-height: 20px;--%>
-<%--            color: lavenderblush;--%>
-<%--            border: 1px solid white;--%>
-<%--            cursor: pointer;--%>
-<%--        }--%>
-<%--        .slideshow .page .active{--%>
-<%--            background-color: cadetblue;--%>
-<%--        }--%>
-<%--        .slideshow #control #prev{--%>
-<%--            background: none;--%>
-<%--            border: none;--%>
-<%--            color: white;--%>
-<%--            font-size: 18px;--%>
-<%--            outline: none;--%>
-<%--            width: 30px;--%>
-<%--            height: 20px;--%>
-<%--            margin-left: 20px;--%>
-<%--            /* display:flex; */--%>
-<%--            /* justify-content: space-between; */--%>
-<%--            position: absolute;--%>
-<%--            margin-top: 250px;--%>
-<%--        }--%>
-<%--        .slideshow #control #next{--%>
-<%--            background: none;--%>
-<%--            border: none;--%>
-<%--            color: white;--%>
-<%--            font-size: 20px;--%>
-<%--            outline: none;--%>
-<%--            width: 30px;--%>
-<%--            height: 20px;--%>
-<%--            margin-left: 860px;--%>
-<%--            /* display:flex; */--%>
-<%--            /* justify-content: space-between; */--%>
-<%--            position: absolute;--%>
-<%--            margin-top: 250px;--%>
-<%--        }in
-<%--    </style>--%>
     <link rel="icon" href="<%=basePath%>img/logo.jpg" type="image/x-icon"/>
     <link rel="stylesheet" href="<%=basePath%>css/index.css" />
     <script type="text/javascript" src="<%=basePath%>js/jquery.js" ></script>
@@ -95,6 +28,9 @@
             }else{
                 $("#login-show").css("display","none");
             }
+        }
+        function NoshowLogin() {
+            $("#login-show").css("display","none");
         }
         function showSignup() {
             if($("#login-show").css("display")=='block'){
@@ -138,41 +74,6 @@
     			});
                
             });
-            
-         <%--    $("#login_password").blur(function(){
-            	var phone=$("#login_phone").val();
-                var password=$(this).val();
-                $.ajax({
-      				url:'<%=basePath%>user/password',
-      				type:'POST',
-      				data:{phone:phone,password:password},
-      				dataType:'json',
-      				success:function(json){
-      				if(json){
-      					if(json.flag){
-      						 $("#errorPassword").html("请核对账号密码，再重新输入!");
-      						 $("#loginIn").attr("disabled",true);
-      					}else{
-      						 $("#errorPassword").empty();
-      						 $("#loginIn").attr("disabled",false);
-      					}
-      				}else{
-      					if(json.flag){
-    						 $("#errorPassword").html("请输入的密码有误!");
-    						 $("#loginIn").attr("disabled",true);
-    					}if(json.flag==false){
-    						 $("#login_errorPhone").html("您输入的在账号有误!");
-    						 $("#loginIn").attr("disabled",true);
-    					}
-      				}
-      				},
-      				error:function(json){
-     					alert("系统出错啦")
-      				}
-      			});
-                 
-              }); --%>
-            
         });
         
         
@@ -194,7 +95,8 @@
                 <form class="ng-pristine ng-invalid ng-invalid-required" action="<%=basePath%>goods/search">
                     <div class="input-field">
                         <input type="submit" class="button button2"value="搜索" style="height: 45px;width:80px;background-color:green;margin-top: -20px;">
-                        <input id="search" name="str" placeholder="搜索看看已有闲置吧..." style="height: 40px;width: 250px"
+<%--                        <input type="submit" class="red lighten-1 waves-effect waves-light btn" value="搜索">--%>
+                        <input id="search" name="str" placeholder="  搜索看看已有闲置吧..." style="height: 40px;width: 250px"
                                class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
                       	</input>
 <%--                        <label for="search" class="active">--%>
@@ -277,10 +179,16 @@
                         <i class="iconfont left"></i>
                         <em>登录</em>
                     </button>
+<%--                    <button id="loginResign" onclick="NoshowLogin()">--%>
+<%--                        <em>先逛逛</em>--%>
+<%--                    </button>--%>
                     <div class="col s12 signup-area">
                         <em>没有账号？赶快</em>
                         <a onclick="showSignup()" class="signup-btn">注册</a>
                         <em>吧！</em>
+                    </div>
+                    <div class="col s12 signup-area">
+                        <a onclick="NoshowLogin()" class="signup-btn">先逛逛</a>
                     </div>
                 </form>
             </div>

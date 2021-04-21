@@ -254,7 +254,7 @@ public class UserController {
 		Purse myPurse = purseService.getPurseByUserId(userId);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("goodsAndImage", goodsAndImage);
-		mv.setViewName("allgoods");
+		mv.setViewName("/user/goods");
 		mv.addObject("myPurse", myPurse);
 		return mv;
 	}

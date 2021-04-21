@@ -62,12 +62,20 @@
             <div class="nav-wrapper search-bar">
                 <form ng-submit="search()" class="ng-pristine ng-invalid ng-invalid-required" action="">
                     <div class="input-field">
-                        <input id="search" name="str" value="<c:out value="${search}"></c:out>" placeholder="搜点什么吧..." style="height: 40px;margin-right: 10px;"
+                        <input type="submit" class="button button2"value="搜索" style="height: 45px;width:80px;background-color:green;margin-top: -20px;">
+                        <%--                        <input type="submit" class="red lighten-1 waves-effect waves-light btn" value="搜索">--%>
+                        <input id="search" name="str" placeholder="  搜索看看已有闲置吧..." style="height: 40px;width: 250px"
                                class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
-                        <input type="submit" class="button button2"value="搜索";style="height: 35px;width: 80px";></input>
-                        <label for="search" class="active">
-                            <i ng-click="search()" class="iconfont"></i>
-                        </label>
+                        </input>
+                        <%--                        <label for="search" class="active">--%>
+                        <%--                            <i ng-click="search()" class="iconfont"></i>--%>
+                        <%--                        </label>--%>
+<%--                        <input id="search" name="str" value="<c:out value="${search}"></c:out>" placeholder="搜点什么吧..." style="height: 40px;margin-right: 10px;"--%>
+<%--                               class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>--%>
+<%--                        <input type="submit" class="button button2"value="搜索";style="height: 35px;width: 80px";></input>--%>
+<%--                        <label for="search" class="active">--%>
+<%--                            <i ng-click="search()" class="iconfont"></i>--%>
+<%--                        </label>--%>
                     </div>
                 </form>
             </div>

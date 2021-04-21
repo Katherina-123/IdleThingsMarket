@@ -79,13 +79,11 @@
             <div class="nav-wrapper search-bar">
                 <form ng-submit="search()" class="ng-pristine ng-invalid ng-invalid-required" action="<%=basePath%>goods/search">
                     <div class="input-field">
-                        <input id="search" name="str" placeholder="搜点什么吧..." style="height: 40px;"
+                        <input type="submit" class="button button2"value="搜索" style="height: 45px;width:80px;background-color:green;margin-top: -20px;">
+                        <%--                        <input type="submit" class="red lighten-1 waves-effect waves-light btn" value="搜索">--%>
+                        <input id="search" name="str" placeholder="  搜索看看已有闲置吧..." style="height: 40px;width: 250px"
                                class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
-                        <input type="submit" class="btn"value="搜索"></input>
-                        <label for="search" class="active">
-                            <i ng-click="search()" class="iconfont"></i>
-                        </label>
-                         
+                        </input>
                     </div>
                    
                 </form>
@@ -266,10 +264,10 @@
         <h2 class="publisher-info-title">原价：<span style="text-decoration:line-through;">${goodsExtend.goods.realPrice}</span></h2>
         <div class="item-public-info">
             <p class="bargain">可讲价</p>
-            <p>
-                <i class="iconfont"></i>
-                <em class="item-location">东华大学</em>
-            </p>
+<%--            <p>--%>
+<%--                <i class="iconfont"></i>--%>
+<%--                <em class="item-location">东华大学</em>--%>
+<%--            </p>--%>
         </div>
         <div class="publisher-info-title">
             <em>卖家信息</em><hr>
