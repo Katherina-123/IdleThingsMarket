@@ -72,8 +72,9 @@
     <nav class="white nav1">
         <div class="nav-wrapper">
             <a href="<%=basePath%>goods/homeGoods" class="logo">
-                <em class="em1">轻松闲置</em>
-                <em class="em2">二手市场</em>
+                <img src="<%=basePath%>img/logo.png" style="width:50px;height:50px">
+                <em class="em1" style="color: #e76831">轻松闲置</em>
+                <em class="em2">校园二手市场</em>
                 <em class="em3"></em>
             </a>
             <div class="nav-wrapper search-bar">
@@ -84,6 +85,7 @@
                         <input id="search" name="str" placeholder="  搜索看看已有闲置吧..." style="height: 40px;width: 250px"
                                class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
                         </input>
+                         
                     </div>
                    
                 </form>
@@ -264,10 +266,10 @@
         <h2 class="publisher-info-title">原价：<span style="text-decoration:line-through;">${goodsExtend.goods.realPrice}</span></h2>
         <div class="item-public-info">
             <p class="bargain">可讲价</p>
-<%--            <p>--%>
-<%--                <i class="iconfont"></i>--%>
-<%--                <em class="item-location">东华大学</em>--%>
-<%--            </p>--%>
+            <p>
+                <i class="iconfont"></i>
+                <em class="item-location">东华大学</em>
+            </p>
         </div>
         <div class="publisher-info-title">
             <em>卖家信息</em><hr>

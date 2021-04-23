@@ -54,19 +54,19 @@
     <nav class="white nav1">
         <div class="nav-wrapper">
             <a href="<%=basePath%>goods/homeGoods" class="logo">
-                <em class="em1">轻松闲置</em>
-                <em class="em2">校园二手市场</em>
+                <img src="<%=basePath%>img/logo.png" style="width:50px;height:50px">
+                <em class="em1" style="color: #e76831">轻松闲置</em>
+                <em class="em2">二手交易市场</em>
                 <em class="em3"></em>
             </a>
             <div class="nav-wrapper search-bar">
                 <form submit="search()" class="ng-pristine ng-invalid ng-invalid-required" action="<%=basePath%>goods/search">
                     <div class="input-field">
-                        <input id="search" placeholder="搜点什么吧..." name="str" style="height: 40px;"
-                               class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" value="<c:out value="${search}"></c:out>"/>
-                        <input type="submit" class="btn"value="搜索"></input>
-                        <label for="search" class="active">
-                            <i onclick="search()" class="iconfont"></i>
-                        </label>
+                        <input type="submit" class="button button2"value="搜索" style="height: 45px;width:80px;background-color:green;margin-top: -20px;">
+                        <%--                        <input type="submit" class="red lighten-1 waves-effect waves-light btn" value="搜索">--%>
+                        <input id="search" name="str" placeholder="  搜索看看已有闲置吧..." style="height: 40px;width: 250px"
+                               class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
+                        </input>
                     </div>
                 </form>
             </div>
@@ -239,7 +239,7 @@
     <li ng-class="{true: 'active'}[isRide]">
         <a href="<%=basePath%>goods/catelog/2" class="ride">
             <img src="<%=basePath%>img/ride.png"/>
-            <em>校园代步</em>
+            <em>日常代步</em>
         </a>
     </li>
     <li ng-class="{true: 'active'}[isCommodity]">

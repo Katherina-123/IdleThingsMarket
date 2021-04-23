@@ -287,9 +287,9 @@
         描述：最新发布
     -->
     <div class="index-title">
-        <c:if test="${empty catelog.name}"><a href="">最新发布</a></c:if>
-         <c:if test="${!empty catelog.name}"><a href="">${catelog.name}</a></c:if>
-        <hr class="hr1">
+        <c:if test="${empty catelog.name}"><a href="" style="margin-left: 50%">最新发布</a></c:if>
+         <c:if test="${!empty catelog.name}"><a href="" style="margin-left: 50%">${catelog.name}</a></c:if>
+        <hr class="hr1" style="margin-left: 50%">
         <hr class="hr2">
     </div>
     <div class="waterfoo stark-components row">
