@@ -28,6 +28,9 @@
                 $("#login-show").css("display","none");
             }
         }
+       function NoshowLogin() {
+           $("#login-show").css("display","none");
+       }
         function showSignup() {
             if($("#login-show").css("display")=='block'){
                 $("#login-show").css("display","none");
@@ -74,7 +77,7 @@
             <a href="<%=basePath%>goods/homeGoods" class="logo">
                 <img src="<%=basePath%>img/logo.png" style="width:50px;height:50px">
                 <em class="em1" style="color: #e76831">轻松闲置</em>
-                <em class="em2">校园二手市场</em>
+                <em class="em2">二手交易市场</em>
                 <em class="em3"></em>
             </a>
             <div class="nav-wrapper search-bar">
@@ -172,6 +175,9 @@
                         <a onclick="showSignup()" class="signup-btn">注册</a>
                         <em>吧！</em>
                     </div>
+                    <div class="col s12 signup-area">
+                        <a onclick="NoshowLogin()" class="signup-btn">先逛逛</a>
+                    </div>
                 </form>
             </div>
         </div>
@@ -268,7 +274,7 @@
             <p class="bargain">可讲价</p>
             <p>
                 <i class="iconfont"></i>
-                <em class="item-location">东华大学</em>
+                <em class="item-location">城北玫瑰花园小区</em>
             </p>
         </div>
         <div class="publisher-info-title">

@@ -111,7 +111,7 @@ table td{
 							<span>校园代步 </span>
 							</c:if>
 							<c:if test="${item.catelogId == 3}">  
-							<span> 电器日用  </span>
+							<span> 日用电器  </span>
 							</c:if>
 							<c:if test="${item.catelogId == 4}">  
 							<span> 图书教材  </span>

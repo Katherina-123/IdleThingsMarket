@@ -28,6 +28,9 @@
                 $("#login-show").css("display","none");
             }
         }
+       function NoshowLogin() {
+           $("#login-show").css("display","none");
+       }
         function showSignup() {
             if($("#login-show").css("display")=='block'){
                 $("#login-show").css("display","none");
@@ -172,6 +175,9 @@
                         <a onclick="showSignup()" class="signup-btn">注册</a>
                         <em>吧！</em>
                     </div>
+                    <div class="col s12 signup-area">
+                        <a onclick="NoshowLogin()" class="signup-btn">先逛逛</a>
+                    </div>
                 </form>
             </div>
         </div>
@@ -268,7 +274,7 @@
             <p class="bargain">可讲价</p>
             <p>
                 <i class="iconfont"></i>
-                <em class="item-location">东华大学</em>
+                <em class="item-location">城北玫瑰花园小区</em>
             </p>
         </div>
         <div class="publisher-info-title">

@@ -379,7 +379,7 @@
     <li ng-class="{true: 'active'}[isCommodity]">
         <a href="<%=basePath%>goods/catelog/3" class="commodity">
             <img src="<%=basePath%>img/commodity.png"/>
-            <em>电器日用</em>
+            <em>日用电器</em>
         </a>
     </li>
     <li ng-class="{true: 'active'}[isBook]">
@@ -555,7 +555,7 @@
         </div>
     </div>
     <div class="index-title">
-        <a style="margin-left: 50%">电器日用</a>
+        <a style="margin-left: 50%">日用电器</a>
         <hr class="hr1" style="margin-left: 49%">
         <hr class="hr2">
     </div>

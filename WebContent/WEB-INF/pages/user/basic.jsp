@@ -121,6 +121,10 @@
                         <span>QQ：</span>
                         <input class="in_info" type="text" name="qq" placeholder="请输入QQ" value="${cur_user.qq}"/>
                     </div>
+                    <div class="changeinfo">
+                        <span>收货地址：</span>
+                        <input class="in_info" type="text" name="address" placeholder="请输入收货地址" value="${cur_user.username}"/>
+                    </div><hr />
                     <input type="submit" class="setting-save" value="保存修改信息" />
                 </form:form>
             </div>

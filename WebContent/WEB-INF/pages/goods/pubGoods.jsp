@@ -133,7 +133,7 @@
                         <select class="in_info" name="catelogId">
                             <option value="1">闲置数码</option>
                             <option value="2">校园代步</option>
-                            <option value="3">电器日用</option>
+                            <option value="3">日用电器</option>
                             <option value="4">图书教材</option>
                             <option value="5">美妆衣物</option>
                             <option value="6">运动棋牌</option>
@@ -234,12 +234,18 @@
         showCaption: true,//是否显示标题,就是那个文本框
         showPreview : true, //是否显示预览,不写默认为true
         dropZoneEnabled: true,//是否显示拖拽区域，默认不写为true，但是会占用很大区域
-        //minImageWidth: 50, //图片的最小宽度
-        //minImageHeight: 50,//图片的最小高度
-        //maxImageWidth: 1000,//图片的最大宽度
-        //maxImageHeight: 1000,//图片的最大高度
-        //maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
-        //minFileCount: 0,
+        // minImageWidth: 50, //图片的最小宽度
+        // minImageHeight: 50,//图片的最小高度
+        // maxImageWidth: 1000,//图片的最大宽度
+        // maxImageHeight: 1000,//图片的最大高度
+        // maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
+        // minFileCount: 0,
+        minImageWidth: 50, //图片的最小宽度
+        minImageHeight: 50,//图片的最小高度
+        maxImageWidth: 1000,//图片的最大宽度
+        maxImageHeight: 1000,//图片的最大高度
+        maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
+        minFileCount: 0,
         maxFileCount: 3, //表示允许同时上传的最大文件个数
         enctype: 'multipart/form-data',
         validateInitialCount:true,

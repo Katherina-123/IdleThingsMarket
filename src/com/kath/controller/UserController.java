@@ -177,6 +177,7 @@ public class UserController {
 		User cur_user = (User) request.getSession().getAttribute("cur_user");
 		cur_user.setUsername(user.getUsername());
 		cur_user.setQq(user.getQq());
+		cur_user.setAddress(user.getAddress());
 		userService.updateUserName(cur_user);// 执行修改操作
 		request.getSession().setAttribute("cur_user", cur_user);// 修改session值
 		return new ModelAndView("redirect:/user/basic");

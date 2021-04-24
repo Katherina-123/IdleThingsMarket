@@ -27,6 +27,9 @@
                 $("#login-show").css("display","none");
             }
         }
+        function NoshowLogin() {
+            $("#login-show").css("display","none");
+        }
         function showSignup() {
             if($("#login-show").css("display")=='block'){
                 $("#login-show").css("display","none");
@@ -55,19 +58,26 @@
     <nav class="white nav1">
         <div class="nav-wrapper">
             <a href="<%=basePath%>goods/homeGoods" class="logo">
+                <img src="<%=basePath%>img/logo.png" style="width:50px;height:50px">
                 <em class="em1">轻松闲置</em>
-                <em class="em2">闲置物品交易市场</em>
+                <em class="em2">二手交易市场</em>
                 <em class="em3"></em>
             </a>
             <div class="nav-wrapper search-bar">
                 <form ng-submit="search()" class="ng-pristine ng-invalid ng-invalid-required" action="">
                     <div class="input-field">
-                        <input id="search" name="str" value="<c:out value="${search}"></c:out>" placeholder="搜点什么吧..." style="height: 40px;margin-right: 10px;"
+                        <input type="submit" class="button button2"value="搜索" style="height: 45px;width:80px;background-color:green;margin-top: -20px;">
+                        <%--                        <input type="submit" class="red lighten-1 waves-effect waves-light btn" value="搜索">--%>
+                        <input id="search" name="str" placeholder="  搜索看看已有闲置吧..." style="height: 40px;width: 250px"
                                class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
-                        <input type="submit" class="button button2"value="搜索";style="height: 35px;width: 80px";></input>
-                        <label for="search" class="active">
-                            <i ng-click="search()" class="iconfont"></i>
-                        </label>
+                        </input>
+<%--                        <input id="search" name="str" value="<c:out value="${search}"></c:out>" placeholder="搜点什么吧..." style="height: 40px;margin-right: 10px;"--%>
+<%--                               class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>--%>
+<%--                        <input type="submit" class="button button2"value="搜索";style="height: 35px;width: 80px";></input>--%>
+<%--                        <label for="search" class="active">--%>
+<%--                            <i ng-click="search()" class="iconfont"></i>--%>
+<%--                        </label>--%>
+
                     </div>
                 </form>
             </div>
@@ -150,6 +160,9 @@
                         <em>没有账号？赶快</em>
                         <a onclick="showSignup()" class="signup-btn">注册</a>
                         <em>吧！</em>
+                    </div>
+                    <div class="col s12 signup-area">
+                        <a onclick="NoshowLogin()" class="signup-btn">先逛逛</a>
                     </div>
                 </form:form>
             </div>
@@ -244,7 +257,7 @@
     <li ng-class="{true: 'active'}[isCommodity]">
         <a href="<%=basePath%>goods/catelog/3" class="commodity">
             <img src="<%=basePath%>img/commodity.png"/>
-            <em>电器日用</em>
+            <em>日用电器</em>
         </a>
     </li>
     <li ng-class="{true: 'active'}[isBook]">
@@ -287,9 +300,9 @@
         描述：最新发布
     -->
     <div class="index-title">
-        <c:if test="${empty catelog.name}"><a href="" style="margin-left: 50%">最新发布</a></c:if>
-         <c:if test="${!empty catelog.name}"><a href="" style="margin-left: 50%">${catelog.name}</a></c:if>
-        <hr class="hr1" style="margin-left: 50%">
+        <c:if test="${empty catelog.name}"><a href="" style="margin-left: 48%">最新发布</a></c:if>
+         <c:if test="${!empty catelog.name}"><a href="" style="margin-left: 48%">${catelog.name}</a></c:if>
+        <hr class="hr1" style="margin-left: 47%">
         <hr class="hr2">
     </div>
     <div class="waterfoo stark-components row">

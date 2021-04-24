@@ -10348,7 +10348,7 @@ div.login.stark-components .publish-box {
 	left: 50%;
 	margin-left: -150px;
 	top: 20%;
-	background: #fff
+	background: #ecfcd3
 }
 
 div.login.stark-components .publish-box>.row {
@@ -10356,7 +10356,7 @@ div.login.stark-components .publish-box>.row {
 }
 
 div.login.stark-components .publish-box .title {
-	background: url(../img/title1.png);
+	background: url("../img/title1.png");
 	background-size: contain;
 	height: 100px
 }

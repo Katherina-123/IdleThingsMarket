@@ -10,6 +10,73 @@
 <head>
     <meta charset="utf-8" />
     <title>【轻松闲置】交易市场</title>
+    <style type="text/css">
+        .slideshow{
+            width: 900px;
+            height: 400px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .slideshow #sli_img img{
+            position: absolute;
+            display: none;
+        }
+        .slideshow #sli_img :first-child{
+            display: block;
+        }
+        .slideshow .page{
+            list-style: none;
+            display: flex;
+            width: 160px;
+            justify-content: space-around;
+            position: absolute;
+            margin-top: 360px;
+            margin-left: 30%;
+            /*float: left;*/
+            /*border: 1px solid rebeccapurple;*/
+        }
+        .slideshow .page li{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            color: lavenderblush;
+            border: 1px solid white;
+            cursor: pointer;
+        }
+        .slideshow .page .active{
+            background-color: cadetblue;
+        }
+        .slideshow #control #prev{
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            outline: none;
+            width: 30px;
+            height: 20px;
+            margin-left: 20px;
+            /* display:flex; */
+            /* justify-content: space-between; */
+            position: absolute;
+            margin-top: 250px;
+        }
+        .slideshow #control #next{
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            outline: none;
+            width: 30px;
+            height: 20px;
+            margin-left: 860px;
+            /* display:flex; */
+            /* justify-content: space-between; */
+            position: absolute;
+            margin-top: 250px;
+        }
+    </style>
     <link rel="icon" href="<%=basePath%>img/logo.jpg" type="image/x-icon"/>
     <link rel="stylesheet" href="<%=basePath%>css/index.css" />
     <script type="text/javascript" src="<%=basePath%>js/jquery.js" ></script>
@@ -28,9 +95,6 @@
             }else{
                 $("#login-show").css("display","none");
             }
-        }
-        function NoshowLogin() {
-            $("#login-show").css("display","none");
         }
         function showSignup() {
             if($("#login-show").css("display")=='block'){
@@ -74,6 +138,41 @@
     			});
                
             });
+            
+         <%--    $("#login_password").blur(function(){
+            	var phone=$("#login_phone").val();
+                var password=$(this).val();
+                $.ajax({
+      				url:'<%=basePath%>user/password',
+      				type:'POST',
+      				data:{phone:phone,password:password},
+      				dataType:'json',
+      				success:function(json){
+      				if(json){
+      					if(json.flag){
+      						 $("#errorPassword").html("请核对账号密码，再重新输入!");
+      						 $("#loginIn").attr("disabled",true);
+      					}else{
+      						 $("#errorPassword").empty();
+      						 $("#loginIn").attr("disabled",false);
+      					}
+      				}else{
+      					if(json.flag){
+    						 $("#errorPassword").html("请输入的密码有误!");
+    						 $("#loginIn").attr("disabled",true);
+    					}if(json.flag==false){
+    						 $("#login_errorPhone").html("您输入的在账号有误!");
+    						 $("#loginIn").attr("disabled",true);
+    					}
+      				}
+      				},
+      				error:function(json){
+     					alert("系统出错啦")
+      				}
+      			});
+                 
+              }); --%>
+            
         });
         
         
@@ -95,10 +194,12 @@
                 <form class="ng-pristine ng-invalid ng-invalid-required" action="<%=basePath%>goods/search">
                     <div class="input-field">
                         <input type="submit" class="button button2"value="搜索" style="height: 45px;width:80px;background-color:green;margin-top: -20px;">
-<%--                        <input type="submit" class="red lighten-1 waves-effect waves-light btn" value="搜索">--%>
-                        <input id="search" name="str" placeholder="  搜索看看已有闲置吧..." style="height: 40px;width: 250px"
+                        <input id="search" name="str" placeholder="搜索看看已有闲置吧..." style="height: 40px;width: 250px"
                                class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
                       	</input>
+<%--                        <label for="search" class="active">--%>
+<%--                            <i ng-click="search()" class="iconfont"></i>--%>
+<%--                        </label>--%>
                     </div>
                 </form>
             </div>
@@ -176,16 +277,10 @@
                         <i class="iconfont left"></i>
                         <em>登录</em>
                     </button>
-<%--                    <button id="loginResign" onclick="NoshowLogin()">--%>
-<%--                        <em>先逛逛</em>--%>
-<%--                    </button>--%>
                     <div class="col s12 signup-area">
                         <em>没有账号？赶快</em>
                         <a onclick="showSignup()" class="signup-btn">注册</a>
                         <em>吧！</em>
-                    </div>
-                    <div class="col s12 signup-area">
-                        <a onclick="NoshowLogin()" class="signup-btn">先逛逛</a>
                     </div>
                 </form>
             </div>
@@ -278,13 +373,13 @@
     <li ng-class="{true: 'active'}[isRide]">
         <a href="<%=basePath%>goods/catelog/2" class="ride">
             <img src="<%=basePath%>img/ride.png"/>
-            <em>日常代步</em>
+            <em>校园代步</em>
         </a>
     </li>
     <li ng-class="{true: 'active'}[isCommodity]">
         <a href="<%=basePath%>goods/catelog/3" class="commodity">
             <img src="<%=basePath%>img/commodity.png"/>
-            <em>电器日用</em>
+            <em>日用电器</em>
         </a>
     </li>
     <li ng-class="{true: 'active'}[isBook]">
@@ -327,6 +422,28 @@
         描述：右侧banner（图片）部分
     -->
     <div class="slider-wapper">
+<%--        <div class="slider" style="height: 440px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">--%>
+<%--            <ul class="slides" style="height: 400px;">--%>
+<%--                <li class="active" style="opacity: 1;">--%>
+<%--                    <a href="<%=basePath%>goods/homeGoods">--%>
+<%--                        <div class="bannerimg">--%>
+<%--                            <ul class="bannerul">--%>
+<%--                                <p class="text1">Hello：</p>--%>
+<%--                                <p class="text2">欢迎来到【轻松闲置】校园二手市场。临近毕业季的</p>--%>
+<%--                                <p class="text3">你，是否有太多的闲置与校友分享，为了追求更好的校园服</p>--%>
+<%--                                <p class="text4">务，我们打造了一个全新的校园平台——<span>轻松闲置交易市场</p>--%>
+<%--                                <p class="text5">这里有更多的闲置分享，更自由的校园话题讨论，你想要的，都在这里。</p>--%>
+<%--                                <p class="text6">加入轻松闲置交易市场，你的大学，应更精彩。</p>--%>
+<%--                            </ul>--%>
+<%--                          <!--   <div class="logoimg">--%>
+<%--                                <img src="../img/p_logo.jpg" />--%>
+<%--                            </div> -->--%>
+<%--                        </div>--%>
+<%--                    </a>--%>
+<%--                </li>--%>
+<%--            </ul>--%>
+<%--        </div>--%>
+    <div class="slider-wapper">
         <div class="slideshow">
             <div id="sli_img">
                 <img src="../img/home-banner-1.png" width="920px" height="400px" />
@@ -345,6 +462,7 @@
                 <button type="button" id="next">&gt;&gt;</button>
             </div>
         </div>
+    </div>
     </div>
     <!--
 
@@ -437,7 +555,7 @@
         </div>
     </div>
     <div class="index-title">
-        <a style="margin-left: 50%">电器日用</a>
+        <a style="margin-left: 50%">日用电器</a>
         <hr class="hr1" style="margin-left: 49%">
         <hr class="hr2">
     </div>

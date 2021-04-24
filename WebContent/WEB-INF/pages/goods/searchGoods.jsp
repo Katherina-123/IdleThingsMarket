@@ -245,7 +245,7 @@
     <li ng-class="{true: 'active'}[isCommodity]">
         <a href="<%=basePath%>goods/catelog/3" class="commodity">
             <img src="<%=basePath%>img/commodity.png"/>
-            <em>电器日用</em>
+            <em>日用电器</em>
         </a>
     </li>
     <li ng-class="{true: 'active'}[isBook]">
@@ -289,8 +289,8 @@
     -->
     <div class="index-title">
         
-        <c:if test="${empty catelog.name}"><a href="">最新发布</a></c:if>
- <c:if test="${!empty catelog.name}"><a href="">${catelog.name}</a></c:if>
+        <c:if test="${empty catelog.name}"><a href="" style="margin-left: 48%;">最新发布</a></c:if>
+ <c:if test="${!empty catelog.name}"><a href="" style="margin-left: 47%;">${catelog.name}</a></c:if>
         <hr class="hr1">
         <hr class="hr2">
     </div>
@@ -307,7 +307,7 @@
                             <p><c:out value="${item.goods.name}"></c:out></p>
                         </div>
                         <div class="card-content item-location">
-                            <p>东华大学</p>
+                            <p>四川师范大学</p>
                             <p><c:out value="${item.goods.startTime}"></c:out></p>
                         </div>
                     </a>
