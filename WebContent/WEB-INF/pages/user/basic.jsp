@@ -30,7 +30,7 @@
 <%--                <h1 class="logo"></h1>--%>
 <%--            </a>--%>
             <a href="<%=basePath%>goods/homeGoods">
-                 <img src="<%=basePath%>img/home_header.jpg"  style="margin-left: 200px;" >
+                <img src="<%=basePath%>img/home_header1.png"  style="margin-left: 20px;" >
             </a>
             <a href="<%=basePath%>user/home">
                 <div class="home"></div>
@@ -103,7 +103,7 @@
         <div id="user_content">
             <div class="basic">
                 <form:form action="../user/updateInfo" method="post" commandName="user" role="form">
-                    <h1>完善与修改个人信息</h1><hr />
+                    <h1 style="text-align: center;margin-top: 50px">完善与修改个人信息</h1><hr />
                     <div class="changeinfo">
                         <span>昵称：</span>
                         <input class="in_info" type="text" name="username" placeholder="请输入昵称" value="${cur_user.username}"/>
@@ -120,10 +120,10 @@
                     <div class="changeinfo">
                         <span>QQ：</span>
                         <input class="in_info" type="text" name="qq" placeholder="请输入QQ" value="${cur_user.qq}"/>
-                    </div>
+                    </div><hr />
                     <div class="changeinfo">
                         <span>收货地址：</span>
-                        <input class="in_info" type="text" name="address" placeholder="请输入收货地址" value="${cur_user.username}"/>
+                        <input class="in_info" type="text" name="address" placeholder="请输入收货地址" value="${cur_user.address}"/>
                     </div><hr />
                     <input type="submit" class="setting-save" value="保存修改信息" />
                 </form:form>

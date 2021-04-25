@@ -127,7 +127,7 @@
                         <span>物品类别：</span>
                         <select class="in_info" name="catelogId">
                             <option value="1">闲置数码</option>
-                            <option value="2">校园代步</option>
+                            <option value="2">出行代步</option>
                             <option value="3">日用电器</option>
                             <option value="4">图书教材</option>
                             <option value="5">美妆衣物</option>

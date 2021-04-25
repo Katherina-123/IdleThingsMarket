@@ -54,7 +54,7 @@
             <a href="<%=basePath%>goods/homeGoods">
                  <img src="<%=basePath%>img/home_header1.png">
             </a>
-            <a href="<%=basePath%>goods/homeGoods">
+            <a href="<%=basePath%>user/home">
                 <div class="home"></div>
             </a>
         </div>

@@ -6,6 +6,7 @@
     <result column="phone" property="phone" jdbcType="CHAR" />
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="CHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="QQ" property="qq" jdbcType="VARCHAR" />
     <result column="create_at" property="createAt" jdbcType="VARCHAR" />
     <result column="goods_num" property="goodsNum" jdbcType="INTEGER" />
@@ -14,7 +15,7 @@
     <result column="status" property="status" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, phone, username, password, QQ, create_at, goods_num, power, last_login, status
+    id, phone, username, password, address, QQ, create_at, goods_num, power, last_login, status
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -61,11 +62,11 @@
   </delete>
   <insert id="insert" parameterType="com.kath.pojo.User" useGeneratedKeys="true" keyProperty="id">
     insert into user (id, phone, username, 
-      password, QQ, create_at, 
+      password, address, QQ, create_at,
       goods_num, power, last_login, 
       status)
     values (#{id,jdbcType=INTEGER}, #{phone,jdbcType=CHAR}, #{username,jdbcType=VARCHAR}, 
-      #{password,jdbcType=CHAR}, #{qq,jdbcType=VARCHAR}, #{createAt,jdbcType=VARCHAR}, 
+      #{password,jdbcType=CHAR}, #{address,jdbcType=VARCHAR},#{qq,jdbcType=VARCHAR}, #{createAt,jdbcType=VARCHAR},
       #{goodsNum,jdbcType=INTEGER}, #{power,jdbcType=INTEGER}, #{lastLogin,jdbcType=VARCHAR}, 
       #{status,jdbcType=TINYINT})
   </insert>
@@ -83,6 +84,9 @@
       </if>
       <if test="password != null" >
         password,
+      </if>
+      <if test="address != null" >
+        address,
       </if>
       <if test="qq != null" >
         QQ,
@@ -116,6 +120,9 @@
       <if test="password != null" >
         #{password,jdbcType=CHAR},
       </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
       <if test="qq != null" >
         #{qq,jdbcType=VARCHAR},
       </if>
@@ -148,6 +155,9 @@
       <if test="password != null" >
         password = #{password,jdbcType=CHAR},
       </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
       <if test="qq != null" >
         QQ = #{qq,jdbcType=VARCHAR},
       </if>
@@ -174,6 +184,7 @@
     set phone = #{phone,jdbcType=CHAR},
       username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=CHAR},
+      address = #{address,jdbcType=VARCHAR},
       QQ = #{qq,jdbcType=VARCHAR},
       create_at = #{createAt,jdbcType=VARCHAR},
       goods_num = #{goodsNum,jdbcType=INTEGER},

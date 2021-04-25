@@ -30,7 +30,7 @@
 <%--                <h1 class="logo"></h1>--%>
 <%--            </a>--%>
             <a href="<%=basePath%>goods/homeGoods">
-                 <img src="<%=basePath%>img/home_header.jpg"  style="margin-left: 200px;" >
+                <img src="<%=basePath%>img/home_header1.png"  style="margin-left: 20px;" >
             </a>
             <a href="<%=basePath%>user/home">
                 <div class="home"></div>
@@ -123,7 +123,7 @@
                     </div>
                     <div class="changeinfo">
                         <span>收货地址：</span>
-                        <input class="in_info" type="text" name="address" placeholder="请输入收货地址" value="${cur_user.username}"/>
+                        <input class="in_info" type="text" name="address" placeholder="请输入收货地址" value="${cur_user.address}"/>
                     </div><hr />
                     <input type="submit" class="setting-save" value="保存修改信息" />
                 </form:form>

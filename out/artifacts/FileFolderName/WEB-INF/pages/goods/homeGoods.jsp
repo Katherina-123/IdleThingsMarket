@@ -196,7 +196,7 @@
             <div class="nav-wrapper search-bar">
                 <form class="ng-pristine ng-invalid ng-invalid-required" action="<%=basePath%>goods/search">
                     <div class="input-field">
-                        <input type="submit" class="button button2"value="搜索" style="height: 45px;width:80px;background-color:green;margin-top: -20px;">
+                        <input type="submit" class="button button2"value="搜索" style="height: 45px;width:80px;background-color:#ef5350;margin-top: -20px;">
                         <input id="search" name="str" placeholder="搜索看看已有闲置吧..." style="height: 40px;width: 250px"
                                class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
                       	</input>
@@ -379,7 +379,7 @@
     <li ng-class="{true: 'active'}[isRide]">
         <a href="<%=basePath%>goods/catelog/2" class="ride">
             <img src="<%=basePath%>img/ride.png"/>
-            <em>校园代步</em>
+            <em>出行代步</em>
         </a>
     </li>
     <li ng-class="{true: 'active'}[isCommodity]">
@@ -532,10 +532,10 @@
     </div>
     <!--
 
-        描述：校园代步
+        描述：出行代步
     -->
     <div class="index-title">
-        <a style="margin-left: 50%">校园代步</a>
+        <a style="margin-left: 50%">出行代步</a>
         <hr class="hr1" style="margin-left: 49%">
         <hr class="hr2">
     </div>
