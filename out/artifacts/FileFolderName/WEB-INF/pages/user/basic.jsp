@@ -103,7 +103,7 @@
         <div id="user_content">
             <div class="basic">
                 <form:form action="../user/updateInfo" method="post" commandName="user" role="form">
-                    <h1>完善与修改个人信息</h1><hr />
+                    <h1 style="text-align: center;margin-top: 50px">完善与修改个人信息</h1><hr />
                     <div class="changeinfo">
                         <span>昵称：</span>
                         <input class="in_info" type="text" name="username" placeholder="请输入昵称" value="${cur_user.username}"/>
@@ -120,7 +120,7 @@
                     <div class="changeinfo">
                         <span>QQ：</span>
                         <input class="in_info" type="text" name="qq" placeholder="请输入QQ" value="${cur_user.qq}"/>
-                    </div>
+                    </div><hr />
                     <div class="changeinfo">
                         <span>收货地址：</span>
                         <input class="in_info" type="text" name="address" placeholder="请输入收货地址" value="${cur_user.address}"/>
