@@ -274,8 +274,8 @@
     </li>
     <div class="info">
         <a href="" target="_blank">关于我们</a><em>-</em>
-        <a href="">联系我们</a>
-        <p>©2021 PTUACM工作室</p>
+        <a href="">联系我</a>
+        <p>©2021 Kath GraduationWork</p>
     </div>
 </div>
 <!--

@@ -31,12 +31,15 @@
 <div id="cover" style="min-height: 639px;">
     <div id="user_area">
         <div id="home_header">
-            <a href="<%=basePath%>goods/homeGoods">
-                <h1 class="logo"></h1>
-            </a>
-            <a href="/user/home">
-                <div class="home"></div>
-            </a>
+<%--            <a href="<%=basePath%>goods/homeGoods">--%>
+<%--                <h1 class="logo"></h1>--%>
+<%--            </a>--%>
+<%--            <a href="/user/home">--%>
+<%--                <div class="home"></div>--%>
+<%--            </a>--%>
+                <a href="<%=basePath%>goods/homeGoods">
+                    <img src="<%=basePath%>img/home_header1.png"  style="margin-left: 20px;" >
+                </a>
         </div>
         <!--
 
@@ -51,7 +54,6 @@
                     <img src="">
                 </div>
                 <span class="name">${cur_user.username}</span><hr>
-              <!--   <span class="school">莆田学院</span> -->
                 <a class="btn" style="width: 98%;background-color: rgb(79, 190, 246);color:rgba(255, 255, 255, 1);" href="<%=basePath%>user/myPurse">我的钱包：￥${myPurse.balance}</a>
                 <input type="hidden" value="${myPurse.recharge}" id="recharge"/>
                 <input type="hidden" value="${myPurse.withdrawals}" id="withdrawals"/>
@@ -79,7 +81,7 @@
                     <a href="<%=basePath%>goods/publishGoods">
                         <li class="store">
                             <div></div>
-                            <span>发布物品</span>
+                            <span>修改物品信息</span>
                             <strong></strong>
                         </li>
                     </a>
@@ -107,24 +109,24 @@
         <div id="user_content">
             <div class="basic">
                 <form:form action="../../goods/editGoodsSubmit" method="post" role="form" enctype="multipart/form-data">
-                    <h1 style="margin-left: 210px;">修改物品信息</h1><hr />
+                    <h1 style="margin-left: 210px;margin-top: 50px;">修改物品信息</h1><hr />
                     <div class="changeinfo">
                         <span>物品名：</span>
-                        <input class="in_info" type="text" name="name" placeholder="请输入物品名" value="${goodsExtend.goods.name}"/>
-                        <span>(*必填)</span>
+                        <input class="in_info" type="text" name="name" placeholder="请输入物品名"/>
+                        <span style="margin-left: 20px;color: red">(*必填)</span>
                     </div>
                     <div class="changeinfo">
                         <span>出售价格：</span>
-                        <input class="in_info" type="text" name="price" placeholder="请输入出售价格" value="${goodsExtend.goods.price}"/>
-                       <span>(*必填)</span>
-                   </div>
-                   <div class="changeinfo">
+                        <input class="in_info" type="text" name="price" placeholder="请输入出售价格"/>
+                        <span style="margin-left: 20px;color: red">(*必填)</span>
+                    </div>
+                    <div class="changeinfo">
                         <span>原价：</span>
-                        <input class="in_info" type="text" name="realPrice" placeholder="请输入商品原价" value="${goodsExtend.goods.realPrice}"/>
+                        <input class="in_info" type="text" name="realPrice" placeholder="请输入商品原价"/>
                         <span id="checkphone">(*选填,请如实填写)</span>
-                     </div>
-                     <div class="changeinfo">
-                        <span>物品类别：</span>
+                    </div>
+                    <div class="changeinfo">
+                        <span style="margin-left: -227px;">物品类别：</span>
                         <select class="in_info" name="catelogId">
                             <option value="1">闲置数码</option>
                             <option value="2">出行代步</option>
@@ -136,12 +138,12 @@
                         </select>
                     </div>
                     <div class="changeinfo" id="dir">
-                        <span>商品描述：</span>
+                        <span style="margin-left: -450px;">商品描述：</span>
                         <div class="sha">
                             <div class="publ">
-                                <div class="pub_con">
+                                <div class="pub_con" style="margin-left: -50px;">
                                     <div class="text_pu">
-                                        <textarea name="describle" class="emoji-wysiwyg-editor" >${goodsExtend.goods.describle}</textarea>
+                                        <textarea name="describle" class="emoji-wysiwyg-editor"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -170,55 +172,6 @@
                     <input type="submit" class="setting-save" value="提交修改" style="margin-top: 20px;background-color: blue;"/>
                 </form:form>
             </div>
-            <!--
-
-                描述：最右侧，可能认识的人
-            
-            <div class="recommend">
-                <div class="title">
-                    <span class="text">可能认识的人</span>
-                    <span class="change">换一组</span>
-                    <span class="underline"></span>
-                </div>
-                <ul>
-                    <li>
-                        <a href="" class="head_img">
-                            <img src="<%=basePath%>img/photo1.jpg">
-                        </a>
-                        <span>Brudce</span>
-                        <div class="fa fa-plus-square"></div>
-                    </li>
-                    <li>
-                        <a href="" class="head_img">
-                            <img src="<%=basePath%>img/photo2.jpg">
-                        </a>
-                        <span>Graham</span>
-                        <div class="fa fa-plus-square"></div>
-                    </li>
-                    <li>
-                        <a href="" class="head_img">
-                            <img src="<%=basePath%>img/photo3.jpg">
-                        </a>
-                        <span>hly</span>
-                        <div class="fa fa-plus-square"></div>
-                    </li>
-                    <li>
-                        <a href="" class="head_img">
-                            <img src="<%=basePath%>img/photo4.jpg">
-                        </a>
-                        <span>Danger-XFH</span>
-                        <div class="fa fa-plus-square"></div>
-                    </li>
-                    <li>
-                        <a href="" class="head_img">
-                            <img src="<%=basePath%>img/photo5.jpg">
-                        </a>
-                        <span>Keithw</span>
-                        <div class="fa fa-plus-square"></div>
-                    </li>
-                </ul>
-            </div>
-            -->
         </div>
     </div>
 </div>

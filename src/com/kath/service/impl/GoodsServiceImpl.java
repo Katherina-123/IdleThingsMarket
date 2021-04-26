@@ -16,7 +16,7 @@ import com.kath.util.DateUtil;
 /**
  * 对商品的操作类（增删改查）
  * @ClassName 	GoodServiceImpl
- * @date		2017-5-9下午9:22:24
+ * @date		2021-3-9下午9:22:24
  */
 
 @Service("goodsService")
