@@ -50,7 +50,7 @@ table td {
 		<!--End-breadcrumbs-->
 
 		<!-- Page table -->
-		<div class="container" style="width: 1000px;">
+		<div class="container" style="width: 900px;">
 			<!-- &lt;!&ndash; Marketing Icons Section &ndash;&gt;-->
 
 			<div class="col-lg-12">

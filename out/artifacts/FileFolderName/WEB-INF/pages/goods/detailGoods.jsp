@@ -174,8 +174,9 @@
                         <em>没有账号？赶快</em>
                         <a onclick="showSignup()" class="signup-btn">注册</a>
                         <em>吧！</em>
-                    </div>
-                    <div class="col s12 signup-area">
+                        <p>
+                            &nbsp;
+                        </p>
                         <a onclick="NoshowLogin()" class="signup-btn">先逛逛</a>
                     </div>
                 </form>

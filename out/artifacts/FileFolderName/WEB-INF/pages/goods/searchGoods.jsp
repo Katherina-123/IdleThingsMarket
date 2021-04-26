@@ -291,7 +291,7 @@
         
         <c:if test="${empty catelog.name}"><a href="" style="margin-left: 48%;">最新发布</a></c:if>
  <c:if test="${!empty catelog.name}"><a href="" style="margin-left: 47%;">${catelog.name}</a></c:if>
-        <hr class="hr1">
+        <hr class="hr1" style="margin-left: 47%;">
         <hr class="hr2">
     </div>
     <div class="waterfoo stark-components row">
