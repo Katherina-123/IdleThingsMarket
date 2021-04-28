@@ -5,7 +5,7 @@
 %>
 <html>
 <head>
-    <title>校园二手市场</title>
+    <title>[轻松闲置]二手市场</title>
     <link rel="icon" href="<%=basePath%>img/logo.jpg" type="image/x-icon"/>
     <META HTTP-EQUIV="Refresh" CONTENT="0;URL=<%=basePath%>goods/homeGoods">
 </head>

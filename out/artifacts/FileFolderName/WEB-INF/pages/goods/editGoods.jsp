@@ -81,7 +81,7 @@
                     <a href="<%=basePath%>goods/publishGoods">
                         <li class="store">
                             <div></div>
-                            <span>修改物品信息</span>
+                            <span>发布商品</span>
                             <strong></strong>
                         </li>
                     </a>
