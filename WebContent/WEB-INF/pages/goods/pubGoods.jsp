@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="<%=basePath%>css/bootstrap.min.css" />
     <script type="text/javascript" src="<%=basePath%>js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="<%=basePath%>js/bootstrap.min.js"></script>
-    <!-- 图片上传即使预览插件 -->
+    <!-- 图片上传即时预览插件 -->
     <link rel="stylesheet" href="<%=basePath%>css/fileinput.min.css">
     <script type="text/javascript" src="<%=basePath%>js/fileinput.min.js"></script>
     <script type="text/javascript" src="<%=basePath%>js/zh.js"></script>
@@ -111,7 +111,8 @@
         -->
         <div id="user_content">
             <div class="basic">
-                <form:form action="../goods/publishGoodsSubmit" method="post" role="form" enctype="multipart/form-data">
+<%--                <form:form action="../goods/publishGoodsSubmit" method="post" role="form" enctype="multipart/form-data">--%>
+                    <form:form action="../goods/publishGoodsSubmit" method="post" role="form" enctype="multipart/form-data">
                     <h1 style="margin-left: 210px;margin-top: 50px;">发布物品</h1><hr />
                     <div class="changeinfo">
                         <span>物品名：</span>
@@ -172,55 +173,6 @@
                     <input type="submit" class="setting-save" value="发布物品" style="margin-top: 20px;background-color:#3e90c8;"/>
                 </form:form>
             </div>
-            <!--
-
-                描述：最右侧，可能认识的人
-            
-            <div class="recommend">
-                <div class="title">
-                    <span class="text">可能认识的人</span>
-                    <span class="change">换一组</span>
-                    <span class="underline"></span>
-                </div>
-                <ul>
-                    <li>
-                        <a href="" class="head_img">
-                            <img src="<%=basePath%>img/photo1.jpg">
-                        </a>
-                        <span>Brudce</span>
-                        <div class="fa fa-plus-square"></div>
-                    </li>
-                    <li>
-                        <a href="" class="head_img">
-                            <img src="<%=basePath%>img/photo2.jpg">
-                        </a>
-                        <span>Graham</span>
-                        <div class="fa fa-plus-square"></div>
-                    </li>
-                    <li>
-                        <a href="" class="head_img">
-                            <img src="<%=basePath%>img/photo3.jpg">
-                        </a>
-                        <span>策马奔腾hly</span>
-                        <div class="fa fa-plus-square"></div>
-                    </li>
-                    <li>
-                        <a href="" class="head_img">
-                            <img src="<%=basePath%>img/photo4.jpg">
-                        </a>
-                        <span>Danger-XFH</span>
-                        <div class="fa fa-plus-square"></div>
-                    </li>
-                    <li>
-                        <a href="" class="head_img">
-                            <img src="<%=basePath%>img/photo5.jpg">
-                        </a>
-                        <span>Keithw</span>
-                        <div class="fa fa-plus-square"></div>
-                    </li>
-                </ul>
-            </div>
-            -->
         </div>
     </div>
 </div>

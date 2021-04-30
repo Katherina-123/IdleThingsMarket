@@ -29,7 +29,7 @@ public class GoodsServiceImpl implements GoodsService {
         String startTime = DateUtil.getNowDay();
         String endTime = DateUtil.getLastTime(startTime, duration);
         String polishTime = startTime;
-        //添加上架时间，下架时间，擦亮时间
+        //添加上架时间，下架时间，擦亮时间，擦亮时间未实现
         goods.setPolishTime(polishTime);
         goods.setEndTime(endTime);
         goods.setStartTime(startTime);

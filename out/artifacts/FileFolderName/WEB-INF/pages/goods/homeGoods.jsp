@@ -367,49 +367,49 @@
 <div ng-controller="sidebarController" class="sidebar stark-components ng-scope">
     <li ng-class="{true: 'active'}[isAll]">
         <a href="<%=basePath%>goods/catelog" class="index">
-            <img src="<%=basePath%>img/index.png">
+            <img src="<%=basePath%>img/navigator_pic.png">
             <em >最新发布</em>
         </a>
     </li>
     <li ng-class="{true: 'active'}[isDigital]">
         <a href="<%=basePath%>goods/catelog/1" class="digital">
-            <img src="<%=basePath%>img/digital.png"  />
+            <img src="<%=basePath%>img/navigator_pic.png"  />
             <em>闲置数码</em>
         </a>
     </li>
     <li ng-class="{true: 'active'}[isRide]">
         <a href="<%=basePath%>goods/catelog/2" class="ride">
-            <img src="<%=basePath%>img/ride.png"/>
+            <img src="<%=basePath%>img/navigator_pic.png"/>
             <em>出行代步</em>
         </a>
     </li>
     <li ng-class="{true: 'active'}[isCommodity]">
         <a href="<%=basePath%>goods/catelog/3" class="commodity">
-            <img src="<%=basePath%>img/commodity.png"/>
+            <img src="<%=basePath%>img/navigator_pic.png"/>
             <em>日用电器</em>
         </a>
     </li>
     <li ng-class="{true: 'active'}[isBook]">
         <a href="<%=basePath%>goods/catelog/4" class="book">
-            <img src="<%=basePath%>img/book.png"/>
+            <img src="<%=basePath%>img/navigator_pic.png"/>
             <em>图书教材</em>
         </a>
     </li>
     <li ng-class="{true: 'active'}[isMakeup]">
         <a href="<%=basePath%>goods/catelog/5" class="makeup">
-            <img src="<%=basePath%>img/makeup.png"/>
+            <img src="<%=basePath%>img/navigator_pic.png"/>
             <em>美妆衣物</em>
         </a>
     </li>
     <li ng-class="{true: 'active'}[isSport]">
         <a href="<%=basePath%>goods/catelog/6" class="sport">
-            <img src="<%=basePath%>img/sport.png"/>
+            <img src="<%=basePath%>img/navigator_pic.png"/>
             <em>运动棋牌</em>
         </a>
     </li>
     <li ng-class="{true: 'active'}[isSmallthing]">
         <a href="<%=basePath%>goods/catelog/7" class="smallthing">
-            <img src="<%=basePath%>img/smallthing.png"/>
+            <img src="<%=basePath%>img/navigator_pic.png"/>
             <em>票券小物</em>
         </a>
     </li>

@@ -32,9 +32,6 @@
 		<div id="user_area">
 			<div id="home_header">
 				<a href="<%=basePath%>goods/homeGoods">
-					<h1 class="logo"></h1>
-				</a> 
-				<a href="<%=basePath%>goods/homeGoods">
                  <img src="<%=basePath%>img/home_header1.png"  style="margin-left: 20px;" >
           		 </a>
 				<a href="<%=basePath%>user/home">
@@ -104,24 +101,26 @@
 
                     描述：关注商品展示
                 -->
-					<h1 style="text-align: center">我的钱包</h1>
+					<h1 style="text-align: center;margin-top: 50%">我的钱包</h1>
 					<hr />
 					<div class="share_content">
 						<div class="story">
 							<form id="myUpAndDwon" class="form-horizontal" role="form" action="<%=basePath%>user/updatePurse" >
 								<div class="form-group">
-									<div class="col-sm-12">
-                							<img  src="<%=basePath%>img/mypurse.jpg" />
-									</div>
+<%--									<div class="col-sm-12">--%>
+<%--                							<img  src="<%=basePath%>img/mypurse.jpg" />--%>
+<%--									</div>--%>
 									<label for="firstname" class="col-sm-2 control-label">余额：</label>
 									<div class="col-sm-10">
 										<input type="text" name="balance" class="form-control" disabled="disabled" style="border:0px;background:rgba(0, 0, 0, 0); " value="${myPurse.balance}" >
 									</div>
+									<hr/>
 									<label for="firstname" class="col-sm-2 control-label" >充值：</label>
 									<div class="col-sm-10">
 										<input name="recharge" type="number" class="form-control recharge" style="border:0px;background:rgba(0, 0, 0, 0); " value="${myPurse.recharge}" data-toggle="tooltip"  title="请输入整数金额！"/>
 									<%-- value="${myPurse.recharge}"  value="${myPurse.withdrawals}"--%>
 									</div>
+									<hr />
 									<label for="firstname" class="col-sm-2 control-label" >提现：</label>
 									<div class="col-sm-10">
 										<input name="withdrawals" type="number" class="form-control withdrawals" style="border:0px;background:rgba(0, 0, 0, 0); " value="${myPurse.withdrawals}" data-toggle="tooltip"  title="请输入整数金额！"/>

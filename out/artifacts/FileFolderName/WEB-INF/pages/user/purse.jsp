@@ -32,9 +32,6 @@
 		<div id="user_area">
 			<div id="home_header">
 				<a href="<%=basePath%>goods/homeGoods">
-					<h1 class="logo"></h1>
-				</a> 
-				<a href="<%=basePath%>goods/homeGoods">
                  <img src="<%=basePath%>img/home_header1.png"  style="margin-left: 20px;" >
           		 </a>
 				<a href="<%=basePath%>user/home">
@@ -110,9 +107,9 @@
 						<div class="story">
 							<form id="myUpAndDwon" class="form-horizontal" role="form" action="<%=basePath%>user/updatePurse" >
 								<div class="form-group">
-									<div class="col-sm-12">
-                							<img  src="<%=basePath%>img/mypurse.jpg" />
-									</div>
+<%--									<div class="col-sm-12">--%>
+<%--                							<img  src="<%=basePath%>img/mypurse.jpg" />--%>
+<%--									</div>--%>
 									<label for="firstname" class="col-sm-2 control-label">余额：</label>
 									<div class="col-sm-10">
 										<input type="text" name="balance" class="form-control" disabled="disabled" style="border:0px;background:rgba(0, 0, 0, 0); " value="${myPurse.balance}" >

@@ -239,8 +239,8 @@ public class DateUtil {
 
 	/**
 	 * 根据给定的时间得到n天后的时间
-	 * @param time
-	 * @param lastTime
+	 * @param time 商品上架的时间
+	 * @param lastTime 持续的时间，单位为秒
 	 * @return
 	 */
 	public static String getLastTime(String time,int lastTime){
@@ -249,6 +249,7 @@ public class DateUtil {
 		String newTime = time;
 		try {
 			date = sdf.parse(time);
+			//* 24 * 60 * 60是一天的秒数，*1000是？
 			Long lastTimeDay = lastTime * 24 * 60 * 60 * 1000l;
 			Long lastDay = date.getTime() + lastTimeDay;
 			Date newDate = new Date(lastDay);
