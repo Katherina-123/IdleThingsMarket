@@ -226,7 +226,7 @@
 <div ng-controller="sidebarController" class="sidebar stark-components ng-scope">
     <li ng-class="{true: 'active'}[isAll]">
         <a href="<%=basePath%>goods/catelog" class="index">
-            <img src="<%=basePath%>img/index.png">
+            <img src="<%=basePath%>img/navigator_pic.png">
             <em>最新发布</em>
         </a>
     </li>

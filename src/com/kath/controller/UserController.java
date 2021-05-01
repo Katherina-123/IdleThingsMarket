@@ -91,34 +91,6 @@ public class UserController {
 			return "{\"success\":true,\"flag\":true}";//用户不存在，可以注册
 		}
 	}
-	
-	/**
-	 * 登陆验证密码
-	 * @param request
-	 * @return
-	 */
-	/*@RequestMapping(value = "/password",method = RequestMethod.POST)
-	@ResponseBody
-	public String password(HttpServletRequest request){
-		String phone=request.getParameter("phone");
-		String password=request.getParameter("password");
-		if((phone==null||phone=="")&&(password==null||password=="")) {
-			return "{\"success\":false,\"flag\":true}";
-		}else {
-			User user = userService.getUserByPhone(phone);
-			if(user==null) {
-				return "{\"success\":false,\"flag\":false}";//账号错误
-			}
-			String pwd = MD5.md5(password);
-			if (pwd.equals(user.getPassword())) {
-				return "{\"success\":true,\"flag\":false}";//密码正确
-			}else {
-				return "{\"success\":true,\"flag\":true}";//密码错误
-			}
-		}
-		
-	}*/
-	
 
 	/**
 	 * 验证登录
@@ -128,19 +100,30 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value = "/login")
+	//Spring MVC中的ModelAndView构造方法可以指定返回的页面名称，通过setViewName()方法跳转到指定的页面
 	public ModelAndView loginValidate(HttpServletRequest request, HttpServletResponse response, User user,
 			ModelMap modelMap) {
+		//getUserByPhone返回的是User类：public User getUserByPhone(String phone);
 		User cur_user = userService.getUserByPhone(user.getPhone());
 		String url = request.getHeader("Referer");
 		if (cur_user != null) {
 			String pwd = MD5.md5(user.getPassword());
 			if (pwd.equals(cur_user.getPassword())) {
 				if(cur_user.getStatus()==1) {
-				request.getSession().setAttribute("cur_user", cur_user);
-				return new ModelAndView("redirect:" + url);
+					//request.getSession().setAttribute这个的生命周期是session级别的
+					request.getSession().setAttribute("cur_user", cur_user);
+					request.getSession().setAttribute("msg", "success");
+					return new ModelAndView("redirect:" + url);
+				}else {
+					request.getSession().setAttribute("msg", "ban");
+					return new ModelAndView("redirect:" + url);
 				}
+			}else{
+				request.getSession().setAttribute("msg", "wrong");
+				return new ModelAndView("redirect:" + url);
 			}
 		}
+		request.getSession().setAttribute("msg", "no");
 		return new ModelAndView("redirect:" + url);
 	}
 

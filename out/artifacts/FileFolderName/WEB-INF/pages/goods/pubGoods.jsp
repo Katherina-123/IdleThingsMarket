@@ -112,7 +112,7 @@
         <div id="user_content">
             <div class="basic">
 <%--                <form:form action="../goods/publishGoodsSubmit" method="post" role="form" enctype="multipart/form-data">--%>
-                    <form:form action="../user/allGoods" method="post" role="form" enctype="multipart/form-data">
+                    <form:form action="../goods/publishGoodsSubmit" method="post" role="form" enctype="multipart/form-data">
                     <h1 style="margin-left: 210px;margin-top: 50px;">发布物品</h1><hr />
                     <div class="changeinfo">
                         <span>物品名：</span>

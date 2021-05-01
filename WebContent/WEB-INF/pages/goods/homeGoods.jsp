@@ -116,6 +116,13 @@
                 $("#changeName").css("display","none");
             }
         }
+        function LoginSuc(){
+            alert("denglu")
+            // document.write("登录成功！")
+        }
+        function LoginFail(){
+            document.write("账号或密码错误！")
+        }
         
         $(document).ready(function(){
             //异步验证
@@ -141,45 +148,12 @@
     			});
                
             });
-            
-         <%--    $("#login_password").blur(function(){
-            	var phone=$("#login_phone").val();
-                var password=$(this).val();
-                $.ajax({
-      				url:'<%=basePath%>user/password',
-      				type:'POST',
-      				data:{phone:phone,password:password},
-      				dataType:'json',
-      				success:function(json){
-      				if(json){
-      					if(json.flag){
-      						 $("#errorPassword").html("请核对账号密码，再重新输入!");
-      						 $("#loginIn").attr("disabled",true);
-      					}else{
-      						 $("#errorPassword").empty();
-      						 $("#loginIn").attr("disabled",false);
-      					}
-      				}else{
-      					if(json.flag){
-    						 $("#errorPassword").html("请输入的密码有误!");
-    						 $("#loginIn").attr("disabled",true);
-    					}if(json.flag==false){
-    						 $("#login_errorPhone").html("您输入的在账号有误!");
-    						 $("#loginIn").attr("disabled",true);
-    					}
-      				}
-      				},
-      				error:function(json){
-     					alert("系统出错啦")
-      				}
-      			});
-                 
-              }); --%>
-            
         });
         
         
     </script>
+
+</head>
 <body ng-view="ng-view">
 <!--
     描述：顶部
@@ -274,7 +248,6 @@
                     <div class="input-field col s12">
                         <input type="password" id="login_password"  name="password" required="required" class="validate ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" />
                         <label>密码&nbsp;&nbsp;<div id="errorPassword" style="color:red;display:inline;"></div></label>
-                      <!--   <a ng-click="showForget()" class="forget-btn">忘记密码？</a> -->
                     </div>
                     <button type="submit" id="loginIn" class="waves-effect waves-light btn login-btn red lighten-1">
                         <i class="iconfont left"></i>
@@ -289,7 +262,12 @@
                         </p>
                         <a onclick="NoshowLogin()" class="signup-btn">先逛逛</a>
                     </div>
+
                 </form>
+<%--                <c:if test="${empty cur_user}">--%>
+
+<%--                </c:if>--%>
+
             </div>
         </div>
     </div>
@@ -712,4 +690,37 @@
         move();
     })
 </script>
+<script src="https://cdn.bootcdn.net/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+<script>
+    var msg = '<%=(String) request.getSession().getAttribute("msg")%>';
+    switch (msg) {
+        case "success":
+            // alert("登陆成功！");
+            swal({
+                title: "登录成功",
+                text: "欢迎您"
+            })
+            break;
+        case "wrong":
+            swal({
+                title: "密码错误",
+                text: "请重试"
+            })
+            break;
+        case "ban":
+            swal({
+                title: "该用户已停用",
+                text: "请联系管理人员"
+            })
+            break;
+        case "no":
+            swal({
+                title: "该手机号未注册",
+                text: "请先去注册"
+            })
+            break;
+    }
+    <%request.getSession().removeAttribute("msg");%>
+</script>
+
 </html>
