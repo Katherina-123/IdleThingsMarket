@@ -40,7 +40,15 @@
 		}
 	}
 </script>
-
+<script>
+	function ness_text(){
+		var str = document.getElementById("text").value;
+		if(str.length >0){
+			document.getElementById("sub").disabled=false;
+		}
+		return;
+	}
+</script>
 
 </head>
 <body>
@@ -52,10 +60,10 @@
 	<div id="cover" style="min-height: 639px;">
 		<div id="user_area">
 			<div id="home_header">
-				<a href="<%=basePath%>goods/homeGoods">
-					<h1 class="logo"></h1>
-				</a>
-				<a href="<%=basePath%>goods/homeGoods">
+<%--				<a href="<%=basePath%>goods/homeGoods">--%>
+<%--					<h1 class="logo"></h1>--%>
+<%--				</a>--%>
+<%--				<a href="<%=basePath%>goods/homeGoods">--%>
                  <img src="<%=basePath%>img/home_header1.png"  style="margin-left: 20px;" >
            		 </a> 
 				<a href="<%=basePath%>user/home">
@@ -125,11 +133,11 @@
 
                     描述：关注商品展示
                 -->
-					<h1 style="text-align: center">确认订单</h1>
+					<h1 style="text-align: center;margin-top: 50px">确认订单</h1>
 					<hr />
 					<div class="share_content">
 						<div class="story">
-							<form class="form-horizontal" role="form" action="<%=basePath%>orders/addOrders" >
+							<form class="form-horizontal" role="form" action="<%=basePath%>orders/addOrders">
 							<h4 >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;订单编号： <input name="orderNum" class="order-num" type="text" style="border:0px;background:rgba(0, 0, 0, 0);" value=""/>  <input name="goodsId" type="hidden" value="${goodsExtend.goods.id}"/> </h4>
 								<div class="form-group">
 									<label for="firstname" class="col-sm-2 control-label">图片:</label>
@@ -146,15 +154,19 @@
 									</div>
 									<label for="firstname" class="col-sm-2 control-label" >备注：</label>
 									<div class="col-sm-10">
-										<input type="text" class="form-control" 
-											placeholder="请输入备注（收获人信息 地址 联系方式等）" value="" name="orderInformation">
+										<input type="text" class="form-control" id="text"
+											placeholder="请输入备注（收获人信息 地址 联系方式等,必填）"
+											   value="" name="orderInformation" required="required"
+											   oninput="ness_text();"
+										>
 									</div>
 								</div>
 								<hr />
 								<div class="form-group">
 									<div class="col-sm-offset-4 col-sm-8">
 									    <a href="<%=basePath%>goods/goodsId/${goodsExtend.goods.id}" class="btn btn-danger">取消支付</a>
-										<c:if test="${myPurse.balance >= goodsExtend.goods.price}"><button type="submit" class="btn btn-info">立即支付</button></c:if>
+										<c:if test="${myPurse.balance >= goodsExtend.goods.price}">
+											<input type="submit" value="立即支付" class="btn btn-info" id="sub" disabled="disabled" /></c:if>
 										<c:if test="${myPurse.balance < goodsExtend.goods.price}"><button disabled="disabled" class="btn btn-danger">余额不足，请充值！</button></c:if>
 										
 									</div>

@@ -326,7 +326,7 @@ public class GoodsController {
 	 */
 	@RequestMapping(value = "/publishGoods")
 	public ModelAndView publishGoods(HttpServletRequest request) {
-		// 可以校验用户是否登录
+		// 校验用户是否登录
 		User cur_user = (User) request.getSession().getAttribute("cur_user");
 		// if (cur_user == null) {
 		// return "/goods/homeGoods";

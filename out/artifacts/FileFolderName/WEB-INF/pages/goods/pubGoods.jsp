@@ -27,6 +27,16 @@
     <style>
         .container{padding-top:10px}
     </style>
+    <script>
+        function ness_text(){
+            var str = document.getElementById("goods_name").value;
+            var str2 = document.getElementById("goods_name").value;
+            if(str.length >0 && str2.length >0){
+                document.getElementById("pub_but").disabled=false;
+            }
+            return;
+        }
+    </script>
 </head>
 <body>
 <div class="pre-2" id="big_img">
@@ -116,17 +126,17 @@
                     <h1 style="margin-left: 210px;margin-top: 50px;">发布物品</h1><hr />
                     <div class="changeinfo">
                         <span>物品名：</span>
-                        <input class="in_info" type="text" name="name" placeholder="请输入物品名"/>
+                        <input class="in_info" type="text" name="name" id="goods_name" oninput="ness_text();" placeholder="请输入物品名"/>
                         <span style="margin-left: 20px;color: red">(*必填)</span>
                     </div>
                     <div class="changeinfo">
                         <span>出售价格：</span>
-                        <input class="in_info" type="text" name="price" placeholder="请输入出售价格"/>
+                        <input class="in_info" type="text" name="price" id="goods_price" oninput="ness_text();" placeholder="请输入出售价格"/>
                         <span style="margin-left: 20px;color: red">(*必填)</span>
                     </div>
                     <div class="changeinfo">
                         <span>原价：</span>
-                        <input class="in_info" type="text" name="realPrice" placeholder="请输入商品原价"/>
+                        <input class="in_info" type="text" name="realPrice"  placeholder="请输入商品原价"/>
                         <span id="checkphone">(*选填,请如实填写)</span>
                     </div>
                     <div class="changeinfo">
@@ -170,7 +180,7 @@
                             </div>
                         </div>
                     </div>
-                    <input type="submit" class="setting-save" value="发布物品" style="margin-top: 20px;background-color:#3e90c8;"/>
+                    <input type="submit" class="setting-save"  id="pub_but" value="发布物品" disabled=true style="margin-top: 20px;background-color:#3e90c8;"/>
                 </form:form>
             </div>
         </div>

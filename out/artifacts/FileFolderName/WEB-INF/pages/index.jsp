@@ -7,6 +7,7 @@
 <head>
     <title>[轻松闲置]二手市场</title>
     <link rel="icon" href="<%=basePath%>img/logo.jpg" type="image/x-icon"/>
+<%--    实现网页自动跳转--%>
     <META HTTP-EQUIV="Refresh" CONTENT="0;URL=<%=basePath%>goods/homeGoods">
 </head>
 <body>

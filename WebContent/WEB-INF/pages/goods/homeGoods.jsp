@@ -2,6 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
+//    得到项目的名字
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
@@ -183,14 +184,14 @@
             <ul class="right">
                 <c:if test="${empty cur_user}">
                     <li class="publish-btn">
-                       <button onclick="showLogin()" data-toggle="tooltip" 
-                                title="您需要先登录哦！" class="red lighten-1 waves-effect waves-light btn" 	>
+                       <button onclick="showLogin()" data-toggle="tooltip" class="red lighten-1 waves-effect waves-light btn" 	>
                             我要发布</button>
                     </li>
                 </c:if>
                 <c:if test="${!empty cur_user}">
                     <li class="publish-btn">
                         <button data-position="bottom" class="red lighten-1 waves-effect waves-light btn">
+<%--                            首页点击我要发布按钮进入个人中心发布物品页面--%>
                             <a href="<%=basePath%>goods/publishGoods">我要发布</a>
                         </button>
                     </li>
@@ -648,7 +649,8 @@
     </div>
 </div>
 </body>
-<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+<%--<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>--%>
+<script type="text/javascript" src="<%=basePath%>js/jquery-3.1.1.min.js" ></script>
 <script type="text/javascript">
     // 图片绝对定位
     // 通过下标，显示当前，隐藏其他兄弟图片

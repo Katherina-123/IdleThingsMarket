@@ -101,7 +101,7 @@
 
                     描述：关注商品展示
                 -->
-					<h1 style="text-align: center;margin-top: 50%">我的钱包</h1>
+					<h1 style="text-align: center;margin-top: 50px">我的钱包</h1>
 					<hr />
 					<div class="share_content">
 						<div class="story">

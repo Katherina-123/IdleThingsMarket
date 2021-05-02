@@ -648,7 +648,8 @@
     </div>
 </div>
 </body>
-<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+<%--<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>--%>
+<script type="text/javascript" src="<%=basePath%>js/jquery-3.1.1.min.js" ></script>
 <script type="text/javascript">
     // 图片绝对定位
     // 通过下标，显示当前，隐藏其他兄弟图片
@@ -719,6 +720,17 @@
                 text: "请先去注册"
             })
             break;
+        case "reg_suc":
+            swal({
+                title:"注册成功！",
+                text:"您可以登录了"
+            })
+            break;
+        case "reg_fail":
+            swal({
+                title:"注册失败",
+                text:"账户已存在"
+            })
     }
     <%request.getSession().removeAttribute("msg");%>
 </script>

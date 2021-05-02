@@ -86,9 +86,13 @@ public class UserController {
 		String phone=request.getParameter("phone");
 		User user = userService.getUserByPhone(phone);
 		if(user==null) {
-			return "{\"success\":true,\"flag\":false}";//用户存在，注册失败
+			request.getSession().setAttribute("msg","reg_suc");
+//			return "{\"success\":true,\"flag\":false}";//用户存在，注册失败
+			return "{\"success\":true,\"flag\":false}";//用户不存在，注册成功
+
 		}else {
-			return "{\"success\":true,\"flag\":true}";//用户不存在，可以注册
+			request.getSession().setAttribute("msg","reg_fail");
+			return "{\"success\":true,\"flag\":true}";//用户存在，注册失败
 		}
 	}
 
