@@ -15,15 +15,15 @@
 
         <!--数据库连接 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/squirrel"
-                        userId="squirrel"
-                        password="lduyfla">
+                        connectionURL="jdbc:mysql://localhost:3306/db_secondhandmarketbak"
+                        userId="root"
+                        password="123456">
         </jdbcConnection>
         <javaTypeResolver >
             <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
 
-        <!--生成实体类） -->
+        <!--生成实体类 -->
         <javaModelGenerator targetPackage="com.kath.pojo" targetProject="E:/IntelliJ_Project/squirrel/src/main/java">
             <property name="enableSubPackages" value="false" />
             <property name="trimStrings" value="true" />

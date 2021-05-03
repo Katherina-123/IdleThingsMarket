@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--sql mapper（sql 映射文件）的位置，也可以在mybatis主配置文件里进行映射-->
 <mapper namespace="com.kath.dao.UserMapper" >
+<!--  建立sql查询结果字段与实体属性的映射关系，id属性是resultMap标签的标识-->
+<!--  type属性是返回值的全限定类名-->
   <resultMap id="BaseResultMap" type="com.kath.pojo.User" >
+<!--  property是需要映射到java bean的属性名称，column是数据表的列名或者标签别名  -->
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="phone" property="phone" jdbcType="CHAR" />
     <result column="username" property="username" jdbcType="VARCHAR" />
@@ -14,9 +18,12 @@
     <result column="last_login" property="lastLogin" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="TINYINT" />
   </resultMap>
+<!--  <sql>用来封装SQL语句，<include>来调用，
+即<include refid="Base_Column_List" />可以将<sql>封装的语句调过来-->
   <sql id="Base_Column_List" >
     id, phone, username, password, address, QQ, create_at, goods_num, power, last_login, status
   </sql>
+<!--  这里的BaseResultMap就是com.kath.pojo.User-->
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

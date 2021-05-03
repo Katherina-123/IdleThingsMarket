@@ -1,7 +1,7 @@
 package com.kath.pojo;
 /**
  * 管理员
- * @author lyq
+ * @author kath
  *
  */
 public class Admin {

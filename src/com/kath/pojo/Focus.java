@@ -1,7 +1,7 @@
 package com.kath.pojo;
 /**
  * 关注
- * @author lyq
+ * @author kath
  *
  */
 public class Focus {

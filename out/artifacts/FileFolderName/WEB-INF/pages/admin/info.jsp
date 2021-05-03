@@ -14,11 +14,11 @@
 </head>
 <link rel="stylesheet" href="<%=basePath%>css/info_main.css"/>
 <body>
-
+   <%--引入页面上部分和左边部分的设计页面--%>
 	<jsp:include page="main_top.jsp"></jsp:include>
 	<jsp:include page="main_left.jsp"></jsp:include>
 	<!--=============================================================================================================================================================================-->
-	<!--main-container-part-->
+<%-- --main-container-part --%>
 	<div id="content" style="margin-right: 100px; margin-top: 40px;">
 		<!--breadcrumbs-->
 		<div id="content-header">

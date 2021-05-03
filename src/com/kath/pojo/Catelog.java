@@ -1,7 +1,7 @@
 package com.kath.pojo;
 /**
  * 分类
- * @author lyq
+ * @author kath
  *
  */
 public class Catelog {

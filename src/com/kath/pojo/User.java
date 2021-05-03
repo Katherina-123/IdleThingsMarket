@@ -2,7 +2,7 @@ package com.kath.pojo;
 
 /**
  * 用户
- * @author lyq
+ * @author kath
  *
  */
 public class User{

@@ -1,7 +1,7 @@
 package com.kath.pojo;
 /**
  * 评论
- * @author lyq
+ * @author kath
  *
  */
 public class Comments {

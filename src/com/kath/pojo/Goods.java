@@ -1,7 +1,7 @@
 package com.kath.pojo;
 /**
  * 商品
- * @author lyq
+ * @author kath
  *
  */
 public class Goods {

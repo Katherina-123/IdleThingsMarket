@@ -1,7 +1,7 @@
 package com.kath.pojo;
 /**
  * 回复
- * @author lyq
+ * @author kath
  *
  */
 public class Reply {

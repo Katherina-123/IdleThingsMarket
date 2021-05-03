@@ -35,7 +35,7 @@
 					href="<%=basePath%>admin/userList?pageNum=1"> <i
 							class="icon-group"></i>用户管理
 					</a></li>
-					<li class="bg_lg span3"><a
+					<li class="bg_lg"><a
 						href="<%=basePath%>admin/goodsList?pageNum=1"> <i
 							class="icon-signal"></i>商品管理
 					</a></li>

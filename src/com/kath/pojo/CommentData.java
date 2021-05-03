@@ -1,7 +1,7 @@
 package com.kath.pojo;
 /**
  * 商品拓展 联合查询
- * @author lyq
+ * @author kath
  *
  */
 import java.util.List;

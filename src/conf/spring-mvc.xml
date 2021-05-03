@@ -17,7 +17,7 @@
 	http://www.springframework.org/schema/aop
 	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
 
-<!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
+<!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器，是声明组件的扫描器-->
 <context:component-scan base-package="com.kath.*" />
     
     <!-- 处理请求时返回json字符串的中文乱码问题 -->
@@ -49,7 +49,8 @@
     <mvc:resources location="/WEB-INF/pages/error/" mapping="/WEB-INF/pages/error/**"/> 
     <mvc:resources location="/upload/" mapping="/upload/**"/> 
     
-    <!-- 视图解析器 -->
+    <!-- 视图解析器，将逻辑视图转换成用户可以看到的物理视图 -->
+    <!--    对转向页面的路径解析。prefix：前缀；suffix：后缀-->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"></property>
         <property name="suffix" value=".jsp"></property>

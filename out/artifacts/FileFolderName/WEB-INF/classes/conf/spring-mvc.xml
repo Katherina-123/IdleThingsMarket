@@ -49,7 +49,8 @@
     <mvc:resources location="/WEB-INF/pages/error/" mapping="/WEB-INF/pages/error/**"/> 
     <mvc:resources location="/upload/" mapping="/upload/**"/> 
     
-    <!-- 视图解析器 -->
+    <!-- 视图解析器，将逻辑视图转换成用户可以看到的物理视图 -->
+    <!--    对转向页面的路径解析。prefix：前缀；suffix：后缀-->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"></property>
         <property name="suffix" value=".jsp"></property>

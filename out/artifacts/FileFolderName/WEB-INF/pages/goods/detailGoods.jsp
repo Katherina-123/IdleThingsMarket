@@ -275,7 +275,8 @@
             <p class="bargain">可讲价</p>
             <p>
                 <i class="iconfont"></i>
-                <em class="item-location">城北玫瑰花园小区</em>
+                <em class="item-location">${cur_user.address}</em>
+<%--                <em class="item-location">城北玫瑰花园小区</em>--%>
             </p>
         </div>
         <div class="publisher-info-title">

@@ -2,6 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
+//    得到项目的名字
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
@@ -183,14 +184,14 @@
             <ul class="right">
                 <c:if test="${empty cur_user}">
                     <li class="publish-btn">
-                       <button onclick="showLogin()" data-toggle="tooltip" 
-                                title="您需要先登录哦！" class="red lighten-1 waves-effect waves-light btn" 	>
+                       <button onclick="showLogin()" data-toggle="tooltip" class="red lighten-1 waves-effect waves-light btn" 	>
                             我要发布</button>
                     </li>
                 </c:if>
                 <c:if test="${!empty cur_user}">
                     <li class="publish-btn">
                         <button data-position="bottom" class="red lighten-1 waves-effect waves-light btn">
+<%--                            首页点击我要发布按钮进入个人中心发布物品页面--%>
                             <a href="<%=basePath%>goods/publishGoods">我要发布</a>
                         </button>
                     </li>
@@ -720,17 +721,6 @@
                 text: "请先去注册"
             })
             break;
-        case "reg_suc":
-            swal({
-                title:"注册成功！",
-                text:"您可以登录了"
-            })
-            break;
-        case "reg_fail":
-            swal({
-                title:"注册失败",
-                text:"账户已存在"
-            })
     }
     <%request.getSession().removeAttribute("msg");%>
 </script>

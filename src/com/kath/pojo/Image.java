@@ -1,7 +1,7 @@
 package com.kath.pojo;
 /**
  * 图片
- * @author lyq
+ * @author kath
  *
  */
 public class Image {

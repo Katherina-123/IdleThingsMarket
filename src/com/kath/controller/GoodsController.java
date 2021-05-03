@@ -205,22 +205,31 @@ public class GoodsController {
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/goodsId/{id}")
+//	@PathVariable 可以将URL中占位符参数{xxx}绑定到处理器类的方法形参中@PathVariable(“xxx“)
+//	@RequestParam用于将请求参数区数据映射到功能处理方法的参数上。
 	public ModelAndView getGoodsById(HttpServletRequest request, @PathVariable("id") Integer id,
 			@RequestParam(value = "str", required = false) String str) throws Exception {
+		//具体商品
 		Goods goods = goodsService.getGoodsByPrimaryKey(id);
+		//通过goods.getUserId获取商品卖家
 		User seller = userService.selectByPrimaryKey(goods.getUserId());
+		//商品分类
 		Catelog catelog = catelogService.selectByPrimaryKey(goods.getCatelogId());
+		//GoodsExtend获取商品图片和评论
 		GoodsExtend goodsExtend = new GoodsExtend();
 		List<Image> imageList = imageService.getImagesByGoodsPrimaryKey(id);
 		CommentExtend CommentExtend=goodsService.selectCommentsByGoodsId(id);
 		goodsExtend.setGoods(goods);
 		goodsExtend.setImages(imageList);
+
+		//添加数据
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("CommentExtend",CommentExtend);
 		modelAndView.addObject("goodsExtend", goodsExtend);
 		modelAndView.addObject("seller", seller);
 		modelAndView.addObject("search", str);
 		modelAndView.addObject("catelog", catelog);
+		//指定视图，返回该视图，省略了前缀后缀
 		modelAndView.setViewName("/goods/detailGoods");
 		return modelAndView;
 

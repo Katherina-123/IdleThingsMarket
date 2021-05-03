@@ -1,8 +1,8 @@
 package com.kath.pojo;
 /**
  * 商品拓展 联合查询
- * @author lyq
- *
+ * @author kath
+ * 商品评论，图片
  */
 import java.util.ArrayList;
 import java.util.List;
