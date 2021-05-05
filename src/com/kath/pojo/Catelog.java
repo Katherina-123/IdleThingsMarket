@@ -11,6 +11,7 @@ public class Catelog {
 
     private Integer number;
 
+    //分类状态，0为正常
     private Byte status;
 
     public Integer getId() {

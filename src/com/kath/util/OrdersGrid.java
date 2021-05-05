@@ -10,7 +10,9 @@ import java.util.List;
  * Created by kath on 2021/4/26.
  */
 
+
 @XmlRootElement
+//管理员操作订单表工具类
 public class OrdersGrid {
     private int current;//当前页面号
     private int rowCount;//每页行数

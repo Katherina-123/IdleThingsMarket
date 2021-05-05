@@ -9,6 +9,7 @@ public interface CommentsMapper {
 
     int insertSelective(Comments record);
 
+    //返回对应id评论
     Comments selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Comments record);

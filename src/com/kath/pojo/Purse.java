@@ -6,7 +6,7 @@ public class Purse {
 	private Float balance;//当前金额
 	private Float recharge;//充值
 	private Float withdrawals;//提现
-	private Integer state;//申请状态
+	private Integer state;//申请状态 0未审核 已审核（1不通过 2通过）
 	
 	public Integer getId() {
 		return id;

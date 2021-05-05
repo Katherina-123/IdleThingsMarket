@@ -48,7 +48,7 @@ public interface OrdersMapper {
 	public List<Orders> getOrdersList();
 	
 	/**
-	 * 根据id获取
+	 * 根据id获取，管理员用
 	 * @param ordersId
 	 * @return
 	 */

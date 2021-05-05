@@ -41,7 +41,8 @@
    <select id="selectById" resultMap="BaseResultMap" >
     select * from orders where id=#{id,jdbcType=INTEGER}
   </select>
-  
+
+<!--    在订单列表里模糊查询-->
      <select id="getPageOrdersByOrders" resultMap="BaseResultMap">
     select * from orders where  1=1
     <if test="orderNum != '' and orderNum != null" >

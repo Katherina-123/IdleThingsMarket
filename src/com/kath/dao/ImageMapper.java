@@ -7,6 +7,7 @@ import com.kath.pojo.Image;
 public interface ImageMapper {
     int deleteByPrimaryKey(Integer id);
 
+    //删除商品时根据商品id删除图片
     int deleteImagesByGoodsPrimaryKey(Integer goodsId);
 
     int insert(Image record);
@@ -21,5 +22,6 @@ public interface ImageMapper {
 
     int updateByPrimaryKey(Image record);
 
+    //根据商品id遍历商品图片
     List<Image> selectByGoodsPrimaryKey(Integer goodsId);
 }

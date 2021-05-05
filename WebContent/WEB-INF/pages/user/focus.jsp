@@ -137,9 +137,9 @@
                                         <span class="fa fa-heart-o fa-lg"><a href="<%=basePath%>user/deleteFocus/${items.goods.id}">取消关注</a></span>
                                     </div><br>
                                     <div class="like_detail">
-                                        <div class="like_content">
-                                            <span>下架时间：${items.goods.endTime}</span>
-                                        </div>
+<%--                                        <div class="like_content">--%>
+<%--                                            <span>下架时间：${items.goods.endTime}</span>--%>
+<%--                                        </div>--%>
                                     </div>
                                 </div>
                             </div>

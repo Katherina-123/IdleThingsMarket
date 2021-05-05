@@ -1,6 +1,6 @@
 package com.kath.pojo;
 /**
- * 回复
+ * 回复（unrealized in project）
  * @author kath
  *
  */

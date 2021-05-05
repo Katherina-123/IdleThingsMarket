@@ -42,7 +42,8 @@
   	<select id="selectPurseList"  resultMap="BaseResultMap">
  	 select * from purse
   	</select>
-  	
+
+<!--	在钱包列表里模糊查询-->
   	<select id="getPagePurseByPurse"  resultMap="BaseResultMap" resultType="java.lang.Integer">
  	 select * from purse where 1=1
  	 <if test="userId != null and userId != ''">

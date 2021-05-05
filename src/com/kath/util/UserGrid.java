@@ -7,10 +7,11 @@ import com.kath.pojo.User;
 import java.util.List;
 
 /**
- * Created by kath on 2021/4/26.
+ * Created by kath on 2021/3/26.
  */
 
 @XmlRootElement
+//管理员操作用户表工具类
 public class UserGrid {
     private int current;//当前页面号
     private int rowCount;//每页行数

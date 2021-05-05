@@ -1,7 +1,7 @@
 package com.kath.util;
 
 /**
- * Created by lenovo on 2017/7/7.
+ * Created by kath.
  */
 public class CellRegion {
     //记录合并单元格的每行记录起始和终点的行号

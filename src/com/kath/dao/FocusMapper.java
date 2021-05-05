@@ -7,7 +7,7 @@ import com.kath.pojo.Focus;
 public interface FocusMapper {
 	
 	 /**
-     * 查询登录用户的所有关注商品
+     * 查询所登录用户的所有关注商品
      * @param user_id
      * @return
      */

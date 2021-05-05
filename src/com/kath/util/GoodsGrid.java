@@ -11,6 +11,7 @@ import java.util.List;
  */
 
 @XmlRootElement
+//管理员操作商品表工具类
 public class GoodsGrid {
     private int current;//当前页面号
     private int rowCount;//每页行数

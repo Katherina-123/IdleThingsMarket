@@ -126,7 +126,8 @@
     where status=1  and  (name like concat('%',#{name},'%') OR describle like concat('%',#{describle},'%'));
     <include refid="Factor"></include>
   </select>
-  
+
+<!--  limit-->
   <select id="selectByStr" resultMap="ResultMapWithBLOBs">
     select * from goods where  status=1
     <if test="name != null" >

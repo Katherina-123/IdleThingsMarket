@@ -64,7 +64,7 @@ public interface GoodsMapper {
     int updateByPrimaryKey(Goods record);
 
     /**
-     * 查询所有的商品
+     * 查询所有商品
      * @return
      */
     public List<Goods> selectAllGoods();
