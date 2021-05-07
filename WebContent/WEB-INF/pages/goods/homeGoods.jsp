@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%--springmvc 的表单标签--%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
@@ -33,8 +34,6 @@
             position: absolute;
             margin-top: 360px;
             margin-left: 30%;
-            /*float: left;*/
-            /*border: 1px solid rebeccapurple;*/
         }
         .slideshow .page li{
             width: 20px;
@@ -58,8 +57,6 @@
             width: 30px;
             height: 20px;
             margin-left: 20px;
-            /* display:flex; */
-            /* justify-content: space-between; */
             position: absolute;
             margin-top: 250px;
         }
@@ -72,8 +69,6 @@
             width: 30px;
             height: 20px;
             margin-left: 860px;
-            /* display:flex; */
-            /* justify-content: space-between; */
             position: absolute;
             margin-top: 250px;
         }
@@ -83,7 +78,6 @@
     <script type="text/javascript" src="<%=basePath%>js/jquery.js" ></script>
     <script type="text/javascript" src="<%=basePath%>js/materialize.min.js" ></script>
     <script type="text/javascript" src="<%=basePath%>js/index.bundle.js" ></script>
-<%--    <script type="text/javascript" src="<%=basePath%>js/myjquery.js" ></script>--%>
     <link rel="stylesheet" href="<%=basePath%>css/materialize-icon.css" />
     <link rel="stylesheet" href="<%=basePath%>css/user.css" />
     <script>
@@ -117,14 +111,7 @@
                 $("#changeName").css("display","none");
             }
         }
-        function LoginSuc(){
-            alert("denglu")
-            // document.write("登录成功！")
-        }
-        function LoginFail(){
-            document.write("账号或密码错误！")
-        }
-        
+        //注册验证
         $(document).ready(function(){
             //异步验证
             $("#phone").blur(function(){
@@ -136,7 +123,8 @@
     				dataType:'json',
     				success:function(json){
     					if(json.flag){
-    						 $("#errorPhone").html("账号已被注册，请重新输入!");
+    					    //flag=true，账户已注册过
+    						 // $("#errorPhone").html("账号已被注册，请重新输入!");
     						 $("#register").attr("disabled",true);
     					}else{
     						 $("#errorPhone").empty();
@@ -174,24 +162,22 @@
                         <input type="submit" class="button button2"value="搜索" style="height: 45px;width:80px;background-color:#ef5350;margin-top: -20px;">
                         <input id="search" name="str" placeholder="搜索看看已有闲置吧..." style="height: 40px;width: 250px"
                                class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
-                      	</input>
-<%--                        <label for="search" class="active">--%>
-<%--                            <i ng-click="search()" class="iconfont"></i>--%>
-<%--                        </label>--%>
+                        </input>
                     </div>
                 </form>
             </div>
             <ul class="right">
+<%--                cur_user在登录时存入session--%>
                 <c:if test="${empty cur_user}">
                     <li class="publish-btn">
-                       <button onclick="showLogin()" data-toggle="tooltip" class="red lighten-1 waves-effect waves-light btn" 	>
+                        <button onclick="showLogin()" data-toggle="tooltip" class="red lighten-1 waves-effect waves-light btn" 	>
                             我要发布</button>
                     </li>
                 </c:if>
                 <c:if test="${!empty cur_user}">
                     <li class="publish-btn">
                         <button data-position="bottom" class="red lighten-1 waves-effect waves-light btn">
-<%--                            首页点击我要发布按钮进入个人中心发布物品页面--%>
+                                <%--                            首页点击我要发布按钮进入个人中心发布物品页面--%>
                             <a href="<%=basePath%>goods/publishGoods">我要发布</a>
                         </button>
                     </li>
@@ -201,9 +187,6 @@
                     <li>
                         <a>${cur_user.username}</a>
                     </li>
-                    <!-- <li class="notification">
-                        <i ng-click="showNotificationBox()" class="iconfont"></i>
-                    </li> -->
                     <li class="changemore">
                         <a class="changeMoreVertShow()">
                             <i class="iconfont"></i>
@@ -265,9 +248,6 @@
                     </div>
 
                 </form>
-<%--                <c:if test="${empty cur_user}">--%>
-
-<%--                </c:if>--%>
 
             </div>
         </div>

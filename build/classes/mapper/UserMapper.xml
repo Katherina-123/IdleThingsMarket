@@ -48,6 +48,7 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
    <!--根据手机号 用户名 qq查询用户-->
+<!--  like：模糊查询，concat：连接函数-->
   <select id="getUserListByUser" resultMap="BaseResultMap" parameterType="String">
     select * from user where 1=1  
     <if test="phone != '' and phone != null" >
@@ -60,6 +61,7 @@
     AND qq like concat('%',#{qq},'%')
     </if>
     </select>
+<!--  根据用户注册时间降序获取用户表-->
 	<select id="getUserListOrderByCreateAt" resultMap="BaseResultMap" parameterType="String">
 	    select <include refid="Base_Column_List" /> from user Order By create_at Desc
 	</select>
@@ -67,6 +69,7 @@
     delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
+<!--  useGeneratedKeys：插入数据:返回记录的id值-->
   <insert id="insert" parameterType="com.kath.pojo.User" useGeneratedKeys="true" keyProperty="id">
     insert into user (id, phone, username, 
       password, address, QQ, create_at,
@@ -77,6 +80,7 @@
       #{goodsNum,jdbcType=INTEGER}, #{power,jdbcType=INTEGER}, #{lastLogin,jdbcType=VARCHAR}, 
       #{status,jdbcType=TINYINT})
   </insert>
+<!--  Selective???-->
   <insert id="insertSelective" parameterType="com.kath.pojo.User" >
     insert into user
     <trim prefix="(" suffix=")" suffixOverrides="," >

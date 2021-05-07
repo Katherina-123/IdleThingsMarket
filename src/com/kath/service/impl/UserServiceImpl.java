@@ -107,7 +107,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<User> getUserOrderByDate(int size) {
+        //传递两个参数（当前页码，每页查询条数）
 		PageHelper.startPage(1, size);
+		//startPage方法后紧跟查询语句
 		 List<User> list = userMapper.getUserListOrderByCreateAt();
 		return list;
 	}

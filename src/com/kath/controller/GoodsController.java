@@ -108,7 +108,7 @@ public class GoodsController {
 	}
 
 	/**
-	 * 搜索商品
+	 * 搜索商品   √
 	 * 
 	 * @param str          //ajax传值
 	 * @return
@@ -120,14 +120,19 @@ public class GoodsController {
 		List<GoodsExtend> goodsExtendList = new ArrayList<GoodsExtend>();
 		for (int i = 0; i < goodsList.size(); i++) {
 			GoodsExtend goodsExtend = new GoodsExtend();
+			//将查询出来的商品赋给goods
 			Goods goods = goodsList.get(i);
+			//根据商品ID获取图片
 			List<Image> imageList = imageService.getImagesByGoodsPrimaryKey(goods.getId());
+			//goods->goodsExtend，展出图片
 			goodsExtend.setGoods(goods);
 			goodsExtend.setImages(imageList);
+			//将所有查询出来的商品放入goodsExtendList
 			goodsExtendList.add(i, goodsExtend);
 		}
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("goodsExtendList", goodsExtendList);
+		//搜索框id="search"，name="str"
 		modelAndView.addObject("search", str);
 		modelAndView.setViewName("/goods/searchGoods");
 		return modelAndView;
@@ -328,21 +333,20 @@ public class GoodsController {
 	}
 
 	/**
-	 * 发布商品
+	 * 发布商品   √
 	 *
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/publishGoods")
 	public ModelAndView publishGoods(HttpServletRequest request) {
-		// 校验用户是否登录
+		// 获取当前用户
 		User cur_user = (User) request.getSession().getAttribute("cur_user");
-		// if (cur_user == null) {
-		// return "/goods/homeGoods";
-		// } else {
 		Integer userId = cur_user.getId();
 		Purse myPurse = purseService.getPurseByUserId(userId);
 		ModelAndView mv = new ModelAndView();
+		//添加模型数据 可以是任意的POJO对象也可以是任何java类型
+		//添加钱包
 		mv.addObject("myPurse", myPurse);
 		mv.setViewName("/goods/pubGoods");
 		return mv;

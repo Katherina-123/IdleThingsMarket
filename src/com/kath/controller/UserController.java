@@ -76,7 +76,7 @@ public class UserController {
 	}
 	
 	/**
-	 * 注册验证账号
+	 * 注册验证账号  √
 	 * @param request
 	 * @return
 	 */
@@ -87,7 +87,6 @@ public class UserController {
 		User user = userService.getUserByPhone(phone);
 		if(user==null) {
 			request.getSession().setAttribute("msg","reg_suc");
-//			return "{\"success\":true,\"flag\":false}";//用户存在，注册失败
 			return "{\"success\":true,\"flag\":false}";//用户不存在，注册成功
 
 		}else {
@@ -97,7 +96,7 @@ public class UserController {
 	}
 
 	/**
-	 * 验证登录
+	 * 验证登录     ×
 	 * @param request
 	 * @param user
 	 * @param modelMap
@@ -107,14 +106,15 @@ public class UserController {
 	//Spring MVC中的ModelAndView构造方法可以指定返回的页面名称，通过setViewName()方法跳转到指定的页面
 	public ModelAndView loginValidate(HttpServletRequest request, HttpServletResponse response, User user,
 			ModelMap modelMap) {
-		//getUserByPhone返回的是User类：public User getUserByPhone(String phone);
+		//获取当前用户哇
 		User cur_user = userService.getUserByPhone(user.getPhone());
+		//获取来源页地址
 		String url = request.getHeader("Referer");
 		if (cur_user != null) {
 			String pwd = MD5.md5(user.getPassword());
 			if (pwd.equals(cur_user.getPassword())) {
 				if(cur_user.getStatus()==1) {
-					//request.getSession().setAttribute这个的生命周期是session级别的
+					//request.getSession().setAttribute将cur_user存入session
 					request.getSession().setAttribute("cur_user", cur_user);
 					request.getSession().setAttribute("msg", "success");
 					return new ModelAndView("redirect:" + url);
@@ -171,7 +171,7 @@ public class UserController {
 	}
 
 	/**
-	 * 用户退出
+	 * 用户退出    √
 	 * 
 	 * @param request
 	 * @return
@@ -179,11 +179,12 @@ public class UserController {
 	@RequestMapping(value = "/logout")
 	public String logout(HttpServletRequest request) {
 		request.getSession().setAttribute("cur_user", null);
-		return "redirect:/goods/homeGoods";
+//		return "redirect:/goods/homeGoods";
+		return "/goods/homeGoods";
 	}
 
 	/**
-	 * 个人中心
+	 * 个人中心    √
 	 * 
 	 * @return
 	 */
@@ -194,8 +195,10 @@ public class UserController {
 		Integer userId = cur_user.getId();
 		int size=5;
 		Purse myPurse = purseService.getPurseByUserId(userId);
+		//获取发表notice的用户列表
 		List<User> users=userService.getUserOrderByDate(size);
 		List<Notice> notice=noticeService.getNoticeList();
+		//添加notice数据
 		mv.addObject("notice", notice);
 		mv.addObject("myPurse", myPurse);
 		mv.addObject("users", users);
@@ -220,8 +223,8 @@ public class UserController {
 	}
 
 	/**
-	 * 我的闲置 查询出所有的用户商品以及商品对应的图片
-	 * 
+	 * 我的闲置 查询出所有的用户商品以及商品对应的图片      √
+	 * allGoods是地址栏中的显示
 	 * @return 返回的model为 goodsAndImage对象,该对象中包含goods 和 images，参考相应的类
 	 */
 	@RequestMapping(value = "/allGoods")
@@ -231,19 +234,20 @@ public class UserController {
 		List<Goods> goodsList = goodsService.getGoodsByUserId(userId);
 		List<GoodsExtend> goodsAndImage = new ArrayList<GoodsExtend>();
 		for (int i = 0; i < goodsList.size(); i++) {
-			// 将用户信息和image信息封装到GoodsExtend类中，传给前台
+			// 将用户信息和image信息一个一个封装到GoodsExtend类中，传给前台
 			GoodsExtend goodsExtend = new GoodsExtend();
 			Goods goods = goodsList.get(i);
 			List<Image> images = imageService.getImagesByGoodsPrimaryKey(goods.getId());
 			goodsExtend.setGoods(goods);
 			goodsExtend.setImages(images);
+			//封装到goodsExtend对象
 			goodsAndImage.add(i, goodsExtend);
 		}
 		Purse myPurse = purseService.getPurseByUserId(userId);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("goodsAndImage", goodsAndImage);
-		mv.setViewName("/user/goods");
 		mv.addObject("myPurse", myPurse);
+		mv.setViewName("/user/goods");
 		return mv;
 	}
 
@@ -256,6 +260,7 @@ public class UserController {
 	public ModelAndView focus(HttpServletRequest request) {
 		User cur_user = (User) request.getSession().getAttribute("cur_user");
 		Integer userId = cur_user.getId();
+		//返回该用户的focus列表
 		List<Focus> focusList = focusService.getFocusByUserId(userId);
 		List<GoodsExtend> goodsAndImage = new ArrayList<GoodsExtend>();
 		for (int i = 0; i < focusList.size(); i++) {

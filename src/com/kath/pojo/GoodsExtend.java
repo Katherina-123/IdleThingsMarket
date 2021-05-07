@@ -9,15 +9,15 @@ import java.util.List;
 
 public class GoodsExtend{
 	private Goods goods;
+	private List<Image> images = new ArrayList<Image>();
+	private List<Comments> comments=new ArrayList<Comments>();
+
     public Goods getGoods() {
 		return goods;
 	}
 	public void setGoods(Goods goods) {
 		this.goods = goods;
 	}
-	private List<Image> images = new ArrayList<Image>();
-    private List<Comments> comments=new ArrayList<Comments>();
-
 	public List<Image> getImages() {
 		return images;
 	}

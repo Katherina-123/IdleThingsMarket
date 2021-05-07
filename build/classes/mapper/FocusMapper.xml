@@ -10,7 +10,7 @@
   <select id="getFocusByUserId" resultMap="BaseResultMap">
   select * from focus where user_id = #{user_id,jdbcType=INTEGER}
   </select>
-  
+<!--  #{0}，#{1}是顺序传参-->
   <delete id="deleteFocusByUserIdAndGoodsId" parameterType="java.lang.Integer">
   delete from focus where goods_id=#{0} and user_id=#{1}
   </delete>

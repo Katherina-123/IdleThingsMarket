@@ -21,6 +21,7 @@
 <context:component-scan base-package="com.kath.*" />
     
     <!-- 处理请求时返回json字符串的中文乱码问题 -->
+<!--    加入这个标签后，springmvc项目启动后，会创建HttpMessageConverter接口的7个实现类对象，包括StringHttpMessageConverter和MappingJackosn2HttpMessageConverter-->
     <mvc:annotation-driven>
         <mvc:message-converters>
             <bean class="org.springframework.http.converter.StringHttpMessageConverter">

@@ -169,9 +169,6 @@
         -->
         <div id="user_content">
             <div class="share">
-         <!--
-            <img src="<%=basePath%>img/Advertisement.png">
-          -->
                 <div class="publish">
                 	<form role="form" id="contextForm">
                      <div class="pub_content">
@@ -187,12 +184,7 @@
                     </div>
                  	  </form>
                     <div class="button">
-                        <!-- 
-                        	<span class="fa fa-image">
-                            ::before
-                            <input type="file" accept="image/gif,image/jpeg,image/jpg,image/png" multiple/>
-                        </span>
-                         -->
+
                         <div class="checkbox" style="width:135px;">
                             <button onclick="sendContext()">发 布</button>
                         </div>
@@ -201,7 +193,7 @@
                 </div>
                 <!--
 
-                    描述：闲置商品展示
+                    描述：求购信息展示
                 -->
                 <div class="share_content">
                  <c:if test="${notice==null}">

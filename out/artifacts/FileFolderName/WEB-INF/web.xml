@@ -4,7 +4,7 @@
   <welcome-file-list>
     <welcome-file>/WEB-INF/pages/index.jsp</welcome-file>
   </welcome-file-list>
-<!--  自定义各配置文件的位置-->
+  <!--  自定义各配置文件的位置-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:conf/applicationContext.xml</param-value>
@@ -13,12 +13,12 @@
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
   <context-param>
-<param-name>log4jConfigLocation</param-name>
-<param-value>classpath:conf/log4j.properties</param-value>
-</context-param>
-<listener>
-<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-</listener>
+    <param-name>log4jConfigLocation</param-name>
+    <param-value>classpath:conf/log4j.properties</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+  </listener>
   <filter>
     <filter-name>encodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -33,7 +33,7 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   <servlet>
-<!--    声明springmvc核心对象DispatcherServlet-->
+    <!--    声明springmvc核心对象DispatcherServlet-->
     <servlet-name>SpringMVC</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
@@ -47,20 +47,20 @@
     <servlet-name>SpringMVC</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-  <error-page>
-    <error-code>400</error-code>
-    <location>/WEB-INF/pages/error/404.html</location>
-  </error-page>
-  <error-page>
-    <error-code>404</error-code>
-    <location>/WEB-INF/pages/error/404.html</location>
-  </error-page>
-  <error-page>
-    <error-code>500</error-code>
-    <location>/WEB-INF/pages/error/404.html</location>
-  </error-page>
-  <error-page>
-    <exception-type>java.lang.Exception</exception-type>
-    <location>/WEB-INF/pages/error/404.html</location>
-  </error-page>
+<!--  <error-page>-->
+<!--    <error-code>400</error-code>-->
+<!--    <location>/WEB-INF/pages/error/404.html</location>-->
+<!--  </error-page>-->
+<!--  <error-page>-->
+<!--    <error-code>404</error-code>-->
+<!--    <location>/WEB-INF/pages/error/404.html</location>-->
+<!--  </error-page>-->
+<!--  <error-page>-->
+<!--    <error-code>500</error-code>-->
+<!--    <location>/WEB-INF/pages/error/404.html</location>-->
+<!--  </error-page>-->
+<!--  <error-page>-->
+<!--    <exception-type>java.lang.Exception</exception-type>-->
+<!--    <location>/WEB-INF/pages/error/404.html</location>-->
+<!--  </error-page>-->
 </web-app>
