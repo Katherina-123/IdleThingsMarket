@@ -51,24 +51,27 @@ public class UserController {
 	private NoticeService noticeService;
 
 	/**
-	 * 用户注册
+	 * 用户注册    √
 	 * 
 	 * @param user1
 	 * @return
 	 */
 	@RequestMapping(value = "/addUser")
+	//从model中获取请求注册的用户数据：username，phone，password
 	public String addUser(HttpServletRequest request, @ModelAttribute("user") User user1) {
 		String url = request.getHeader("Referer");
 		User user = userService.getUserByPhone(user1.getPhone());
-		if (user == null) {// 检测该用户是否已经注册
+		if (user == null) {// 判断该用户是否已经注册
 			String t = DateUtil.getNowDate();
 			// 对密码进行MD5加密
 			String str = MD5.md5(user1.getPassword());
+			//初始化用户信息
 			user1.setCreateAt(t);// 创建开始时间
 			user1.setPassword(str);
 			user1.setGoodsNum(0);
 			user1.setStatus((byte) 1);//初始正常状态
 			user1.setPower(100);
+			//mapper文件语句：userMapper.insert(user)
 			userService.addUser(user1);
 			purseService.addPurse(user1.getId());// 注册的时候同时生成钱包
 		}
@@ -132,7 +135,7 @@ public class UserController {
 	}
 
 	/**
-	 * 更改用户名
+	 * 更改用户名   √
 	 * 
 	 * @param request
 	 * @param user
@@ -141,12 +144,13 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/changeName")
 	public ModelAndView changeName(HttpServletRequest request, User user, ModelMap modelMap) {
+		//获取当前来源页地址，因为有两处可以修改用户名的地方，url不一样
 		String url = request.getHeader("Referer");
 		// 从session中获取出当前用户
 		User cur_user = (User) request.getSession().getAttribute("cur_user");
 		cur_user.setUsername(user.getUsername());// 更改当前用户的用户名
 		userService.updateUserName(cur_user);// 执行修改操作
-		request.getSession().setAttribute("cur_user", cur_user);// 修改session值
+		request.getSession().setAttribute("cur_user", cur_user);// 修改当前用户信息
 		return new ModelAndView("redirect:" + url);
 	}
 
@@ -172,15 +176,14 @@ public class UserController {
 
 	/**
 	 * 用户退出    √
-	 * 
+	 * 清空session中user数据
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping(value = "/logout")
 	public String logout(HttpServletRequest request) {
 		request.getSession().setAttribute("cur_user", null);
-//		return "redirect:/goods/homeGoods";
-		return "/goods/homeGoods";
+		return "redirect:/goods/homeGoods";
 	}
 
 	/**
@@ -193,12 +196,13 @@ public class UserController {
 		ModelAndView mv = new ModelAndView();
 		User cur_user = (User) request.getSession().getAttribute("cur_user");
 		Integer userId = cur_user.getId();
+		//???
 		int size=5;
 		Purse myPurse = purseService.getPurseByUserId(userId);
 		//获取发表notice的用户列表
 		List<User> users=userService.getUserOrderByDate(size);
 		List<Notice> notice=noticeService.getNoticeList();
-		//添加notice数据
+		//添加notice数据,钱包数据，
 		mv.addObject("notice", notice);
 		mv.addObject("myPurse", myPurse);
 		mv.addObject("users", users);
@@ -224,7 +228,7 @@ public class UserController {
 
 	/**
 	 * 我的闲置 查询出所有的用户商品以及商品对应的图片      √
-	 * allGoods是地址栏中的显示
+	 *
 	 * @return 返回的model为 goodsAndImage对象,该对象中包含goods 和 images，参考相应的类
 	 */
 	@RequestMapping(value = "/allGoods")
@@ -296,8 +300,8 @@ public class UserController {
 	}
 
 	/**
-	 * 添加我的关注
-	 * 
+	 * 添加我的关注  √
+	 * @param id 商品id
 	 * @return
 	 */
 	@RequestMapping(value = "/addFocus/{id}")
@@ -325,12 +329,13 @@ public class UserController {
 	}
 
 	/**
-	 * 我的钱包
+	 * 我的钱包   √
 	 * 
 	 * @return 返回的model为 goodsAndImage对象
 	 */
 	@RequestMapping(value = "/myPurse")
 	public ModelAndView getMoney(HttpServletRequest request) {
+		//获取当前用户的钱包属性
 		User cur_user = (User) request.getSession().getAttribute("cur_user");
 		Integer user_id = cur_user.getId();
 		Purse purse = purseService.getPurseByUserId(user_id);

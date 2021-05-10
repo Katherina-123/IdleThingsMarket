@@ -205,7 +205,7 @@
                     <div class="yes_share">
                     <h1 style="text-align: center;">求购信息</h1><hr>
                      <c:forEach items="${notice}" var="item" varStatus="status">
-                   	 <button type="button" class="btn btn-info" onclick="viewPersonal(${item.user.id})" style="background-color: #c6f5f4;border:0px;outline:none;">${item.user.username}</button>
+                   	 <button type="button" class="btn btn-info"  style="background-color: #4d9bcf;border:0px;outline:none;">${item.user.username}</button>
                      <span >说：&nbsp;&nbsp;&nbsp;&nbsp;${item.context}</span><br>
                      <p style="text-align:right;color:#4fbef6;">发布时间：${item.createAt}</p>
                      <hr><br>

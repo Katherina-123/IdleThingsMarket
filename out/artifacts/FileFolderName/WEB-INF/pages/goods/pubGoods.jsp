@@ -68,7 +68,6 @@
                     <img src="">
                 </div>
                 <span class="name">${cur_user.username}</span><hr>
-              <!--   <span class="school">东华大学</span> -->
                  <a class="btn" style="width: 98%;background-color: rgb(79, 190, 246);color:rgba(255, 255, 255, 1);" href="<%=basePath%>user/myPurse">我的钱包：￥${myPurse.balance}</a>
                 <input type="hidden" value="${myPurse.recharge}" id="recharge"/>
                 <input type="hidden" value="${myPurse.withdrawals}" id="withdrawals"/>
@@ -121,7 +120,6 @@
         -->
         <div id="user_content">
             <div class="basic">
-<%--                <form:form action="../goods/publishGoodsSubmit" method="post" role="form" enctype="multipart/form-data">--%>
                     <form:form action="../goods/publishGoodsSubmit" method="post" role="form" enctype="multipart/form-data">
                     <h1 style="margin-left: 210px;margin-top: 50px;">发布物品</h1><hr />
                     <div class="changeinfo">
@@ -188,6 +186,7 @@
 </div>
 
 <script>
+<%--    bootstrap fileinput插件 实现表单数据和图片异步上传的方法--%>
     $(".myfile").fileinput({
         uploadUrl:"<%=basePath%>goods/uploadFile",//上传的地址
         uploadAsync:true, //默认异步上传

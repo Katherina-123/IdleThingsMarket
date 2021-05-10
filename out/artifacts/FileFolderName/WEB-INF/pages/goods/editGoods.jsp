@@ -31,12 +31,6 @@
 <div id="cover" style="min-height: 639px;">
     <div id="user_area">
         <div id="home_header">
-<%--            <a href="<%=basePath%>goods/homeGoods">--%>
-<%--                <h1 class="logo"></h1>--%>
-<%--            </a>--%>
-<%--            <a href="/user/home">--%>
-<%--                <div class="home"></div>--%>
-<%--            </a>--%>
                 <a href="<%=basePath%>goods/homeGoods">
                     <img src="<%=basePath%>img/home_header1.png"  style="margin-left: 20px;" >
                 </a>
@@ -104,7 +98,7 @@
         </div>
         <!--
 
-	            描述：发布物品
+	            修改物品信息
         -->
         <div id="user_content">
             <div class="basic">
@@ -159,6 +153,7 @@
                                     <div class="form-group">
                                         <div class="col-sm-10">
                                             <img src="<%=basePath%>upload/${goodsExtend.images[0].imgUrl}" style="width:450px;higth:350px;"/>
+<%--                                            加上不能修改的商品数据一起form表单提交到后台--%>
                                             <input type="hidden" name="imgUrl" value="${goodsExtend.images[0].imgUrl}">
                                             <input type="hidden" name="id" value="${goodsExtend.goods.id}">
                                             <input type="hidden" name="startTime" value="${goodsExtend.goods.startTime}">

@@ -3,7 +3,7 @@
 <mapper namespace="com.kath.dao.GoodsMapper" >
 
 
-   <resultMap id="CommentExtend" type="com.kath.pojo.CommentExtend" >
+  <resultMap id="CommentExtend" type="com.kath.pojo.CommentExtend" >
     <id column="goodsId" property="id" jdbcType="INTEGER" />
     <result column="catelog_id" property="catelogId" jdbcType="INTEGER" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
@@ -15,11 +15,11 @@
     <result column="status" property="status" jdbcType="INTEGER" />
     <result column="polish_time" property="polishTime" jdbcType="VARCHAR" />
     <collection property="comments" ofType="com.kath.pojo.Comments">
-    	<id column="commentsId" property="id" jdbcType="INTEGER" />
-    	<result column="goods_id" property="goodsId" jdbcType="LONGVARCHAR" />
-	    <result column="content" property="content" jdbcType="LONGVARCHAR" />
-	    <result column="create_at" property="createAt" jdbcType="VARCHAR" />
-	    <association property="user" javaType="com.kath.pojo.User" resultMap="userMap"/>
+      <id column="commentsId" property="id" jdbcType="INTEGER" />
+      <result column="goods_id" property="goodsId" jdbcType="LONGVARCHAR" />
+      <result column="content" property="content" jdbcType="LONGVARCHAR" />
+      <result column="create_at" property="createAt" jdbcType="VARCHAR" />
+      <association property="user" javaType="com.kath.pojo.User" resultMap="userMap"/>
     </collection>
   </resultMap>
   <resultMap id="userMap" type="com.kath.pojo.User" >
@@ -33,8 +33,8 @@
     <result column="last_login" property="lastLogin" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="TINYINT" />
   </resultMap>
-  
-  
+
+
   <resultMap id="BaseResultMap" type="com.kath.pojo.Goods" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="catelog_id" property="catelogId" jdbcType="INTEGER" />
@@ -47,7 +47,7 @@
     <result column="status" property="status" jdbcType="INTEGER" />
     <result column="polish_time" property="polishTime" jdbcType="VARCHAR" />
   </resultMap>
-  
+
   <resultMap id="ResultMapWithBLOBs" type="com.kath.pojo.Goods" extends="BaseResultMap" >
     <result column="describle" property="describle" jdbcType="LONGVARCHAR" />
   </resultMap>
@@ -58,51 +58,51 @@
     describle
   </sql>
   <sql id="Factor">
---     and end_time >= now() order by polish_time DESC
+    --     and end_time >= now() order by polish_time DESC
   </sql>
-  
-  
+
+
   <select id="selectCommentsByGoodsId"  resultMap="CommentExtend" parameterType="java.lang.Integer">
-  	select
-  		aa.id 'goodsId',
-  		aa.catelog_id,
-  		aa.user_id,
-  		aa.name,
-  		aa.price,
-  		aa.real_price,
-  		aa.start_time,
-  		aa.end_time,
-  		aa.status,
-  		aa.polish_time,
-  		dd.*
-  		from goods aa
-  		left join (
-  			select 
-  			bb.id as 'commentsId',
-	  		bb.content,
-	  		bb.goods_id,
-	  		bb.create_at,
-	  		cc.id as 'userid',
-	  		cc.phone,
-	  		cc.username,
-	  		cc.password,
-	  		cc.QQ,
-	  		cc.create_at 'ucreate_at',
-	  		cc.goods_num,
-	  		cc.power,
-	  		cc.last_login,
-	  		cc.status
-	  		from user cc,comments bb
-	  		where cc.id=bb.user_id
-  		) as dd on dd.goods_id = aa.id
-  		where aa.id=#{id}
+    select
+      aa.id 'goodsId',
+      aa.catelog_id,
+      aa.user_id,
+      aa.name,
+      aa.price,
+      aa.real_price,
+      aa.start_time,
+      aa.end_time,
+      aa.status,
+      aa.polish_time,
+      dd.*
+    from goods aa
+           left join (
+      select
+        bb.id as 'commentsId',
+        bb.content,
+        bb.goods_id,
+        bb.create_at,
+        cc.id as 'userid',
+        cc.phone,
+        cc.username,
+        cc.password,
+        cc.QQ,
+        cc.create_at 'ucreate_at',
+        cc.goods_num,
+        cc.power,
+        cc.last_login,
+        cc.status
+      from user cc,comments bb
+      where cc.id=bb.user_id
+    ) as dd on dd.goods_id = aa.id
+    where aa.id=#{id}
   </select>
-  
-  
-     <insert id="addComments">
-	  insert into comments(id,user_id,goods_id,content,create_at) values(#{id},#{user.id},#{goods.id},#{content},#{createAt})
-	  </insert>
-  
+
+
+  <insert id="addComments">
+    insert into comments(id,user_id,goods_id,content,create_at) values(#{id},#{user.id},#{goods.id},#{content},#{createAt})
+  </insert>
+
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select
     *
@@ -110,15 +110,15 @@
     where id = #{id,jdbcType=INTEGER} and status=1;
     <include refid="Factor"></include>
   </select>
-  
-   <select id="selectById" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+
+  <select id="selectById" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select
     *
     from goods
     where id = #{id,jdbcType=INTEGER};
     <include refid="Factor"></include>
   </select>
-  
+
   <select id="searchGoods" resultMap="ResultMapWithBLOBs" parameterType="String" >
     select
     *
@@ -127,29 +127,29 @@
     <include refid="Factor"></include>
   </select>
 
-<!--  limit-->
+  <!--  limit-->
   <select id="selectByStr" resultMap="ResultMapWithBLOBs">
     select * from goods where  status=1
     <if test="name != null" >
-     AND ( name like concat('%',#{name},'%')
-    </if>
-    <if test="describle != null" >
-     OR describle like concat('%',#{describle},'%'))
-    </if> 
-    order by polish_time DESC limit #{limit,jdbcType=INTEGER}
-    <include refid="Factor"></include>
-  </select>
-  
-  <select id="selectByCatelog" resultMap="ResultMapWithBLOBs">
-    select * from goods
-    where catelog_id = #{catelog_id,jdbcType=INTEGER}
-    <if test="name != null" >
-    AND ( name like concat('%',#{name},'%')
+      AND ( name like concat('%',#{name},'%')
     </if>
     <if test="describle != null" >
       OR describle like concat('%',#{describle},'%'))
     </if>
-     AND status=1;
+    order by polish_time DESC limit #{limit,jdbcType=INTEGER}
+    <include refid="Factor"></include>
+  </select>
+
+  <select id="selectByCatelog" resultMap="ResultMapWithBLOBs">
+    select * from goods
+    where catelog_id = #{catelog_id,jdbcType=INTEGER}
+    <if test="name != null" >
+      AND ( name like concat('%',#{name},'%')
+    </if>
+    <if test="describle != null" >
+      OR describle like concat('%',#{describle},'%'))
+    </if>
+    AND status=1;
     <include refid="Factor"></include>
   </select>
   <select id="selectAllGoods" resultMap="ResultMapWithBLOBs">
@@ -163,50 +163,50 @@
     select * from goods
     where catelog_id = #{catelogId,jdbcType=INTEGER} and status=1
     order by polish_time DESC
-    limit #{limit,jdbcType=INTEGER}
+      limit #{limit,jdbcType=INTEGER}
   </select>
-  
-   <select id="selectOrderByDate" resultMap="ResultMapWithBLOBs">
+
+  <select id="selectOrderByDate" resultMap="ResultMapWithBLOBs">
     select * from goods where status=1
     order by polish_time DESC
-    limit #{limit,jdbcType=INTEGER}
+      limit #{limit,jdbcType=INTEGER}
   </select>
   <!-- 后台查询 -->
   <select id="getGoodsList" resultMap="ResultMapWithBLOBs" parameterType="String">
     select * from goods
   </select>
-  
-   <select id="getPageGoodsByGoods" resultMap="ResultMapWithBLOBs">
+
+  <select id="getPageGoodsByGoods" resultMap="ResultMapWithBLOBs">
     select * from goods where  1=1
     <if test="id != '' and id != null" >
-     AND id like concat('%',#{id},'%')
+      AND id like concat('%',#{id},'%')
     </if>
-     <if test="name != '' and name != null" >
-     AND name like concat('%',#{name},'%')
-    </if> 
+    <if test="name != '' and name != null" >
+      AND name like concat('%',#{name},'%')
+    </if>
     <if test="status != null">
-     AND status like concat('%',#{status},'%')
+      AND status like concat('%',#{status},'%')
     </if>
   </select>
-  
+
   <delete id="deleteByPrimaryKeys" parameterType="java.lang.Integer" >
-     delete from goods where id = #{id,jdbcType=INTEGER}
+    delete from goods where id = #{id,jdbcType=INTEGER}
   </delete>
 
   <update id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-     update goods
-   <set>status=0</set>
-   where id = #{id,jdbcType=INTEGER}
+    update goods
+    <set>status=0</set>
+    where id = #{id,jdbcType=INTEGER}
   </update>
 
   <insert id="insert" parameterType="com.kath.pojo.Goods" useGeneratedKeys="true" keyProperty="id">
     insert into goods (id, catelog_id, user_id,
-    name, price, real_price, start_time,
-    end_time, polish_time,describle)
+                       name, price, real_price, start_time,
+                       end_time, polish_time,describle)
     values (#{id,jdbcType=INTEGER}, #{catelogId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER},
-    #{name,jdbcType=VARCHAR}, #{price,jdbcType=REAL}, #{realPrice,jdbcType=REAL}, #{startTime,jdbcType=VARCHAR},
-    #{endTime,jdbcType=VARCHAR}, #{polishTime,jdbcType=VARCHAR}, #{describle,jdbcType=LONGVARCHAR}
-    )
+            #{name,jdbcType=VARCHAR}, #{price,jdbcType=REAL}, #{realPrice,jdbcType=REAL}, #{startTime,jdbcType=VARCHAR},
+            #{endTime,jdbcType=VARCHAR}, #{polishTime,jdbcType=VARCHAR}, #{describle,jdbcType=LONGVARCHAR}
+           )
   </insert>
   <insert id="insertSelective" parameterType="com.kath.pojo.Goods" >
     insert into goods
@@ -320,29 +320,29 @@
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.kath.pojo.Goods" >
     update goods
     set catelog_id = #{catelogId,jdbcType=INTEGER},
-      user_id = #{userId,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR},
-      price = #{price,jdbcType=REAL},
-      real_price = #{realPrice,jdbcType=REAL},
-      start_time = #{startTime,jdbcType=VARCHAR},
-      end_time = #{endTime,jdbcType=VARCHAR},
-      polish_time = #{polishTime,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
-      describle = #{describle,jdbcType=LONGVARCHAR}
+        user_id = #{userId,jdbcType=INTEGER},
+        name = #{name,jdbcType=VARCHAR},
+        price = #{price,jdbcType=REAL},
+        real_price = #{realPrice,jdbcType=REAL},
+        start_time = #{startTime,jdbcType=VARCHAR},
+        end_time = #{endTime,jdbcType=VARCHAR},
+        polish_time = #{polishTime,jdbcType=VARCHAR},
+        status = #{status,jdbcType=INTEGER},
+        describle = #{describle,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.kath.pojo.Goods" >
     update goods
     set catelog_id = #{catelogId,jdbcType=INTEGER},
-      user_id = #{userId,jdbcType=INTEGER},
-      name = #{name,jdbcType=VARCHAR},
-      price = #{price,jdbcType=REAL},
-      real_price = #{realPrice,jdbcType=REAL},
-      start_time = #{startTime,jdbcType=VARCHAR},
-      end_time = #{endTime,jdbcType=VARCHAR},
-      polish_time = #{polishTime,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
-      describle = #{describle,jdbcType=LONGVARCHAR}
+        user_id = #{userId,jdbcType=INTEGER},
+        name = #{name,jdbcType=VARCHAR},
+        price = #{price,jdbcType=REAL},
+        real_price = #{realPrice,jdbcType=REAL},
+        start_time = #{startTime,jdbcType=VARCHAR},
+        end_time = #{endTime,jdbcType=VARCHAR},
+        polish_time = #{polishTime,jdbcType=VARCHAR},
+        status = #{status,jdbcType=INTEGER},
+        describle = #{describle,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateGoodsByGoodsId" parameterType="com.kath.pojo.Goods" >
@@ -350,7 +350,7 @@
     set status = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  
-  
-  
+
+
+
 </mapper>

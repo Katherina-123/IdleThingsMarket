@@ -5,7 +5,7 @@ import java.util.List;
 import com.kath.pojo.Image;
 
 /**
- * Created by lenovo on 2017/5/12.
+ * Created by kath on 2021/3/12.
  */
 public interface ImageService {
     int insert(Image record);

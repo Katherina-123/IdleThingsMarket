@@ -5,7 +5,7 @@ import java.util.List;
 import com.kath.pojo.Catelog;
 
 /**
- * Created by lenovo on 2017/5/9.
+ * Created by kath on 2021/4/9.
  */
 public interface CatelogService {
     public List<Catelog> getAllCatelog();

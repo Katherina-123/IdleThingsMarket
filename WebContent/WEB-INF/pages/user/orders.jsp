@@ -143,9 +143,7 @@
 
 							<div class="container">
 								<!-- Nav tabs -->
-								<ul class="nav nav-tabs" role="tablist" style="width: 46%">
-									<!-- <li class="nav-item"><a class="nav-link active"
-										data-toggle="tab" href="#home">全部订单</a></li> -->
+								<ul class="nav nav-tabs" role="tablist" style="width: 46%">->
 									<li class="nav-item"><a class="nav-link active" data-toggle="tab"
 										href="#orders_my" >我买的</a></li>
 									<li class="nav-item" ><a class="nav-link" data-toggle="tab"
@@ -154,15 +152,7 @@
 
 								<!-- Tab panes -->
 								<div class="tab-content" style="width: 46%">
-									<!-- <div id="home" class="container tab-pane active"
-										style="width: 100%">
-										<br>
-										<from>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-											elit, sed do eiusmod tempor incididunt ut labore et dolore
-											magna aliqua.</p>
-										</from>
-									</div> -->
+
 									<!-- 买家订单中心 -->
 									<div id="orders_my" class="container tab-pane active"
 										style="width: 100%">
@@ -184,9 +174,13 @@
 													<tbody>
 													<c:forEach var="items" items="${orders}">
                                             	<tr>
+<%--															订单编号--%>
 															<td>${items.orderNum}</td>
+<%--															商品名称--%>
 															<td>${items.goods.name}</td>
+<%--															商品价格--%>
 															<td>${items.goods.price}</td>
+<%--															商品备注--%>
 															<td>${items.orderInformation}</td>
 															<td>
 															<c:if test="${items.orderState==1}"><input type="button" value="待发货" class="btn btn-info"/></c:if>
@@ -251,39 +245,6 @@
 						     </c:if>
 					</div>
 				</div>
-				<!--
-
-                描述：最右侧，可能认识的人
-            
-				<div class="recommend">
-					<div class="title">
-						<span class="text">可能认识的人</span> <span class="change">换一组</span> <span
-							class="underline"></span>
-					</div>
-					<ul>
-						<li><a href="" class="head_img"> <img
-								src="<%=basePath%>img/photo1.jpg">
-						</a> <span>Brudce</span>
-							<div class="fa fa-plus-square"></div></li>
-						<li><a href="" class="head_img"> <img
-								src="<%=basePath%>img/photo2.jpg">
-						</a> <span>Graham</span>
-							<div class="fa fa-plus-square"></div></li>
-						<li><a href="" class="head_img"> <img
-								src="<%=basePath%>img/photo3.jpg">
-						</a> <span>hly</span>
-							<div class="fa fa-plus-square"></div></li>
-						<li><a href="" class="head_img"> <img
-								src="<%=basePath%>img/photo4.jpg">
-						</a> <span>Danger-XFH</span>
-							<div class="fa fa-plus-square"></div></li>
-						<li><a href="" class="head_img"> <img
-								src="<%=basePath%>img/photo5.jpg">
-						</a> <span>Keithw</span>
-							<div class="fa fa-plus-square"></div></li>
-					</ul>
-				</div>
-				-->
 			</div>
 		</div>
 	</div>

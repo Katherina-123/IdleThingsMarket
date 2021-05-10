@@ -2,6 +2,7 @@ package com.kath.service.impl;
 
 import com.kath.dao.CatelogMapper;
 import com.kath.pojo.Catelog;
+import com.kath.pojo.Goods;
 import com.kath.service.CatelogService;
 
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ public class CatelogServiceImpl implements CatelogService {
         int count = catelogMapper.getCount(catelog);
         return count;
     }
+
     public List<Catelog> getAllCatelog() {
         List<Catelog> catelogs = catelogMapper.getAllCatelog();
         return catelogs;

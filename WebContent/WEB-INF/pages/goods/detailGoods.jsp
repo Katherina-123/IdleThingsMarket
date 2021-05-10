@@ -53,6 +53,7 @@
     <script type="text/javascript">
     
     function  addFocus(id) {
+        // 当前页面打开我的关注页面
     	location.href = '<%=basePath%>user/addFocus/'+id
     	alert("已关注成功，查看关注列表~")
     	
@@ -60,6 +61,7 @@
     
 	/* 前往支付 */
     function  toPay(id) {
+        //当前页面打开支付页面
     	window.location.href = '<%=basePath%>goods/buyId/'+id
     }
 	
@@ -84,7 +86,6 @@
                 <form ng-submit="search()" class="ng-pristine ng-invalid ng-invalid-required" action="<%=basePath%>goods/search">
                     <div class="input-field">
                         <input type="submit" class="button button2"value="搜索" style="height: 45px;width:80px;background-color:#ef5350;margin-top: -20px;">
-                        <%--                        <input type="submit" class="red lighten-1 waves-effect waves-light btn" value="搜索">--%>
                         <input id="search" name="str" placeholder="  搜索看看已有闲置吧..." style="height: 40px;width: 250px"
                                class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
                         </input>
@@ -97,9 +98,8 @@
                 <c:if test="${empty cur_user}">
                     <li class="publish-btn">
                         <button onclick="showLogin()" data-toggle="tooltip" 
-                                title="您需要先登录哦！" class="red lighten-1 waves-effect waves-light btn" 	>
+                                 class="red lighten-1 waves-effect waves-light btn" 	>
                             我要发布</button>
-                          
                     </li>
                 </c:if>
                 <c:if test="${!empty cur_user}">
@@ -114,10 +114,6 @@
                     <li>
                         <a>${cur_user.username}</a>
                     </li>
-                   <!--  <li class="notification">
-                        <i ng-click="showNotificationBox()" class="iconfont"></i>
-                        <div ng-show="notification.tagIsShow" class="notification-amount red lighten-1 ng-binding ng-hide">0 </div>
-                    </li> -->
                     <li class="changemore">
                         <a class="changeMoreVertShow()">
                             <i class="iconfont"></i>
@@ -164,7 +160,6 @@
                     <div class="input-field col s12">
                         <input type="password" name="password" required="required" class="validate ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" />
                         <label>密码</label>
-                        <!-- <a ng-click="showForget()" class="forget-btn">忘记密码？</a> -->
                     </div>
                     <button type="submit" class="waves-effect waves-light btn login-btn red lighten-1">
                         <i class="iconfont left"></i>
@@ -224,6 +219,7 @@
     </div>
 </div>
 <!--更改用户名-->
+<%--ng-controller指明控制器--%>
 <div ng-controller="changeNameController" class="ng-scope">
     <div id="changeName" class="change-name stark-components">
         <div class="publish-box z-depth-4">
@@ -250,6 +246,7 @@
 <!--显示商品详情-->
 <div ng-controller="detailBoxController" class="detail-box stark-components z-depth-1 row ng-scope">
     <div class="col s12 path">
+<%--        homegoods-->detaiGoods传过来CommentExtend，goodsExtend，seller，catelog--%>
         <a href="<%=basePath%>goods/catelog/${catelog.id}">${catelog.name}</a>
         <em>></em>
         <a>${goodsExtend.goods.name}</a>
@@ -257,6 +254,7 @@
     <div class="col s6">
         <div class="slider" style="height: 440px;">
             <ul class="slides" style="height: 400px;">
+<%--                获取图片存放地址--%>
                 <img src="<%=basePath%>upload/${goodsExtend.images[0].imgUrl}" />
             </ul>
             <ul class="indicators" style="display:none;">
@@ -276,7 +274,6 @@
             <p>
                 <i class="iconfont"></i>
                 <em class="item-location">${cur_user.address}</em>
-<%--                <em class="item-location">城北玫瑰花园小区</em>--%>
             </p>
         </div>
         <div class="publisher-info-title">
@@ -314,7 +311,7 @@
                     <div class="value">${seller.qq}</div>
                     </c:if>
                     <c:if test="${seller.qq==null}">
-                    <div class="value">该同学没留下QQ</div>
+                    <div class="value">该用户没留下QQ</div>
                     </c:if>
                     
                 </div>
@@ -350,24 +347,6 @@
             <h1 class="title">评论</h1>
             <hr class="hr1" />
             <hr class="hr2" />
-            <c:forEach var="item" items="${CommentExtend.comments}"  >
-            <div class="comment-collection">
-                <div class="comment-item ng-scope">
-                    <div class="comment-main-content">
-               <em class="name ng-binding">${item.user.username}:</em>
-                        <em class="ng-hide">回复</em>
-                        <em class="name ng-binding ng-hide">@:</em>
-                        <em class="ng-binding">${item.content}</em>
-                    </div>
-                    <div class="comment-function">
-                        <em class="time ng-biinding">${item.createAt}</em>
-                       
-                       <!--  <a class="reply-or-delete">删除</a>
-                        <a class="reply-or-delete">回复</a> -->
-                    </div>
-                </div>
-            </div>
-             </c:forEach>
           <form id="addCommentForm" class="form-horizontal" >
             <div class="comment-add row">
                 <div class="input-field col s12">
@@ -378,12 +357,6 @@
                     <c:if test="${!empty cur_user}">
                     <button type="button" class="waves-effect wave-light btn comment-submit" onclick="addComments()">确认</button>
                     </c:if>
-                   <%--   <c:if test="${!empty cur_user} && ${cur_user.id!=goodsExtend.comments.userId}">
-                    <button type="submit" class="waves-effect wave-light btn comment-submit">确认</button>
-                    </c:if>
-                     <c:if test="${!empty cur_user} && ${cur_user.id==goodsExtend.comments.userId}">
-                    <button data-toggle="tooltip"  title="您已经评论过了哦！" disabled="disabled"  class="waves-effect wave-light btn comment-submit">确认</button>
-                    </c:if> --%>
                      <c:if test="${empty cur_user}">
                     <button href="javacript:void(0);" data-toggle="tooltip"  title="您需要先登录哦！" disabled="disabled" class="waves-effect wave-light btn comment-submit">确认</button>
                     </c:if>
@@ -403,13 +376,6 @@ function addComments(){
 		type:'POST',
 		data:$('#addCommentForm').serialize(),// 序列化表单值  
 		dataType:'json',
-	/* 	success:function(json){
-			alert(1)
-			alert(json.msg)
-		},
-		error:function(){
-			alert('请求超时或系统出错!');
-		} */
 	});
 	alert("您已评论成功~")
 	window.location.reload();

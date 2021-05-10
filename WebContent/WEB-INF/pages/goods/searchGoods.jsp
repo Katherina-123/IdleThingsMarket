@@ -307,7 +307,8 @@
                             <p><c:out value="${item.goods.name}"></c:out></p>
                         </div>
                         <div class="card-content item-location">
-                            <p>四川师范大学</p>
+                            <p>轻松闲置</p>
+<%--                            <p><c:out value="${item.userId}"></c:out></p>--%>
                             <p><c:out value="${item.goods.startTime}"></c:out></p>
                         </div>
                     </a>

@@ -5,6 +5,7 @@
 <%
 //    得到项目的名字
     String path = request.getContextPath();
+    //http://localhost:8080/Mall
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <!DOCTYPE html>
@@ -81,6 +82,7 @@
     <link rel="stylesheet" href="<%=basePath%>css/materialize-icon.css" />
     <link rel="stylesheet" href="<%=basePath%>css/user.css" />
     <script>
+        //showLogin：div.login.stark-components .publish-box .signup-area  index
         function showLogin() {
             if($("#signup-show").css("display")=='block'){
                 $("#signup-show").css("display","none");
@@ -123,8 +125,6 @@
     				dataType:'json',
     				success:function(json){
     					if(json.flag){
-    					    //flag=true，账户已注册过
-    						 // $("#errorPhone").html("账号已被注册，请重新输入!");
     						 $("#register").attr("disabled",true);
     					}else{
     						 $("#errorPhone").empty();
@@ -160,7 +160,7 @@
                 <form class="ng-pristine ng-invalid ng-invalid-required" action="<%=basePath%>goods/search">
                     <div class="input-field">
                         <input type="submit" class="button button2"value="搜索" style="height: 45px;width:80px;background-color:#ef5350;margin-top: -20px;">
-                        <input id="search" name="str" placeholder="搜索看看已有闲置吧..." style="height: 40px;width: 250px"
+                        <input id="search" name="str" placeholder="搜索搜索看看已有闲置吧..." style="height: 40px;width: 250px"
                                class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
                         </input>
                     </div>
@@ -324,6 +324,7 @@
     左侧导航条
 -->
 <div ng-controller="sidebarController" class="sidebar stark-components ng-scope">
+<%--    active是css样式，isAll是判断条件 true或者false;--%>
     <li ng-class="{true: 'active'}[isAll]">
         <a href="<%=basePath%>goods/catelog" class="index">
             <img src="<%=basePath%>img/navigator_pic.png">
@@ -418,6 +419,7 @@
     </div>
     <div class="waterfoo stark-components row">
         <div class="item-wrapper normal">
+<%--            controller中的homegoods方法传回来的key值为catelog+Goods+id--%>
             <c:forEach var="item" items="${catelogGoods}">
                 <div class="card col">
                     <a href="<%=basePath%>goods/goodsId/${item.goods.id}">
@@ -631,6 +633,7 @@
 </body>
 <%--<script src="jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>--%>
 <script type="text/javascript" src="<%=basePath%>js/jquery-3.1.1.min.js" ></script>
+<%--轮播图js--%>
 <script type="text/javascript">
     // 图片绝对定位
     // 通过下标，显示当前，隐藏其他兄弟图片
@@ -673,6 +676,7 @@
     })
 </script>
 <script src="https://cdn.bootcdn.net/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+<%--登录注册提示js--%>
 <script>
     var msg = '<%=(String) request.getSession().getAttribute("msg")%>';
     switch (msg) {

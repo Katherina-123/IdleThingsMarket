@@ -27,6 +27,7 @@ public class GoodsServiceImpl implements GoodsService {
 
     public int addGood(Goods goods , Integer duration) {
         String startTime = DateUtil.getNowDay();
+        //根据现在的时间得到duration天后的时间
         String endTime = DateUtil.getLastTime(startTime, duration);
         String polishTime = startTime;
         //添加上架时间，下架时间，擦亮时间，擦亮时间未实现

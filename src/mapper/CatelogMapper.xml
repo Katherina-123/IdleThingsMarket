@@ -89,4 +89,9 @@
     update catelog
     set number = #{number,jdbcType=INTEGER} where id = #{id,jdbcType=INTEGER}
   </update>
+<!--  <select id="getCount" parameterMap="java.lang.Integer" resultType="java.lang.Integer">-->
+<!--    select number-->
+<!--    from catelog-->
+<!--    where id = # {id,jdbcType=INTEGER }-->
+<!--  </select>-->
 </mapper>

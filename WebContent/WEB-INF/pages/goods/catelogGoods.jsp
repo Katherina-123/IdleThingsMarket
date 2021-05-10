@@ -71,13 +71,6 @@
                         <input id="search" name="str" placeholder="  搜索看看已有闲置吧..." style="height: 40px;width: 250px"
                                class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>
                         </input>
-<%--                        <input id="search" name="str" value="<c:out value="${search}"></c:out>" placeholder="搜点什么吧..." style="height: 40px;margin-right: 10px;"--%>
-<%--                               class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"/>--%>
-<%--                        <input type="submit" class="button button2"value="搜索";style="height: 35px;width: 80px";></input>--%>
-<%--                        <label for="search" class="active">--%>
-<%--                            <i ng-click="search()" class="iconfont"></i>--%>
-<%--                        </label>--%>
-
                     </div>
                 </form>
             </div>
@@ -150,7 +143,6 @@
                     <div class="input-field col s12">
                         <input type="password" name="password" required="required" class="validate ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" />
                         <label>密码</label>
-                       <!--  <a ng-click="showForget()" class="forget-btn">忘记密码？</a> -->
                     </div>
                     <button type="submit" class="waves-effect waves-light btn login-btn red lighten-1">
                         <i class="iconfont left"></i>
@@ -299,6 +291,7 @@
     <!--
 
         描述：最新发布
+        选择具体分类后
     -->
     <div class="index-title">
         <c:if test="${empty catelog.name}"><a href="" style="margin-left: 48%">最新发布</a></c:if>
@@ -308,6 +301,7 @@
     </div>
     <div class="waterfoo stark-components row">
         <div class="item-wrapper normal">
+<%--            后端返回goodsExtendList--%>
             <c:forEach var="item" items="${goodsExtendList}">
                 <div class="card col">
                     <a href="<%=basePath%>goods/goodsId/${item.goods.id}">
@@ -319,7 +313,7 @@
                             <p><c:out value="${item.goods.name}"></c:out></p>
                         </div>
                         <div class="card-content item-location">
-                            <p>四川省成都市</p>
+                            <p>轻松闲置</p>
                             <p><c:out value="${item.goods.startTime}"></c:out></p>
                         </div>
                     </a>

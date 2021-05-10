@@ -1,15 +1,7 @@
 package com.kath.controller;
 
-import com.kath.pojo.Admin;
-import com.kath.pojo.Goods;
-import com.kath.pojo.Orders;
-import com.kath.pojo.Purse;
-import com.kath.pojo.User;
-import com.kath.service.AdminService;
-import com.kath.service.GoodsService;
-import com.kath.service.OrdersService;
-import com.kath.service.PurseService;
-import com.kath.service.UserService;
+import com.kath.pojo.*;
+import com.kath.service.*;
 import com.kath.util.GoodsGrid;
 import com.kath.util.OrdersGrid;
 import com.kath.util.PurseGrid;
@@ -37,6 +29,9 @@ public class AdminController {
 	private GoodsService goodsService;
 
 	@Resource
+	private CatelogService catelogService;
+
+	@Resource
 	private OrdersService ordersService;
 
 	@Resource
@@ -45,10 +40,14 @@ public class AdminController {
 	@Resource
 	private AdminService adminService;
 
+	/**
+	 * √
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String login(HttpSession session) {
-		// 清除session
-		//session.invalidate();
+
 		return "/admin/login";
 	}
 
@@ -294,6 +293,14 @@ public class AdminController {
 		return mv;
 	}
 
+	@RequestMapping(value = "/goodsCategoryList")
+	@ResponseBody
+	public ModelAndView getGoodsCategoryList() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("admin/category/category_list");
+		return modelAndView;
+	}
+
 	/*********************************************************
 	 * 订单管理 1.查找所有订单 2.查看订单 3.修改订单 4.删除订单 5.查询订单 kath
 	 * 
@@ -451,19 +458,7 @@ public class AdminController {
 		return purse;
 	}
 	
-	/* 修改钱包 */
-//	@RequestMapping(value = "/updatePurse", method = RequestMethod.POST)
-//	@ResponseBody
-//	public String updatePurse(HttpServletRequest request, Purse purse) {
-//		int id = purse.getId();
-//		try {
-//			purseService.updateByPrimaryKey(id, purse);
-//		} catch (Exception e) {
-//			return "{\"success\":false,\"msg\":\"保存失败!\"}";
-//		}
-//		return "{\"success\":true,\"msg\":\"保存成功!\"}";
-//	}
-	
+
 	/* 通过 */
 	@RequestMapping(value = "/updatePursePass", method = RequestMethod.POST)
 	@ResponseBody

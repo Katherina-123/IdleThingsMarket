@@ -36,7 +36,7 @@ public class OrdersController {
     ModelAndView mv = new ModelAndView();
 	
 	 /**
-     * 我的订单 买
+     * 我的订单  √
      */
     @RequestMapping(value = "/myOrders")
     public ModelAndView orders(HttpServletRequest request) {
@@ -44,7 +44,9 @@ public class OrdersController {
         Integer user_id = cur_user.getId();
         List<Orders> ordersList1=new ArrayList<Orders>();
         List<Orders> ordersList2=new ArrayList<Orders>();
+        //买的商品
         ordersList1 = ordersService.getOrdersByUserId(user_id);
+        //卖的商品
         ordersList2 = ordersService.getOrdersByUserAndGoods(user_id);
         Purse myPurse=purseService.getPurseByUserId(user_id);
         mv.addObject("ordersOfSell",ordersList2);

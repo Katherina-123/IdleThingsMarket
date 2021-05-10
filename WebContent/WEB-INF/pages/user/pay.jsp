@@ -60,10 +60,6 @@
 	<div id="cover" style="min-height: 639px;">
 		<div id="user_area">
 			<div id="home_header">
-<%--				<a href="<%=basePath%>goods/homeGoods">--%>
-<%--					<h1 class="logo"></h1>--%>
-<%--				</a>--%>
-<%--				<a href="<%=basePath%>goods/homeGoods">--%>
                  <img src="<%=basePath%>img/home_header1.png"  style="margin-left: 20px;" >
            		 </a> 
 				<a href="<%=basePath%>user/home">
@@ -84,7 +80,6 @@
 					</div>
 					<span class="name">${cur_user.username}</span>
 					<hr>
-					<!--   <span class="school">莆田学院</span> -->
 				   <a class="btn" style="width: 98%;background-color: rgb(79, 190, 246);color:rgba(255, 255, 255, 1);" href="<%=basePath%>user/myPurse">我的钱包：￥${myPurse.balance}</a>
                 <input type="hidden" value="${myPurse.recharge}" id="recharge"/>
                 <input type="hidden" value="${myPurse.withdrawals}" id="withdrawals"/>

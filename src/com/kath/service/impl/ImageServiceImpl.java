@@ -15,9 +15,11 @@ import java.util.List;
 public class ImageServiceImpl implements ImageService {
     @Resource
     private ImageMapper imageMapper;
+    //添加图片
     public int insert(Image record) {
         return imageMapper.insert(record);
     }
+    //查找图片
     public List<Image> getImagesByGoodsPrimaryKey(Integer goodsId) {
         List<Image> image = imageMapper.selectByGoodsPrimaryKey(goodsId);
         return image;
