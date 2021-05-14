@@ -63,7 +63,6 @@ table td {
 				action="<%=basePath%>admin/searchPurse" method="post">
 				<div class="form-group">
 					<div class="col-sm-5" style="text-align: center;">
-						<%-- <span>ID：</span> <input type="number" placeholder="请输入id~" name="id" value="${searchpurse.id}" />  --%>
 						<input type="number" placeholder="请输用户id" name="userId" value="${searchpurse.userId}" class="form-control"/> 
 					</div>
 					<div class="col-sm-5" style="text-align: left;">
@@ -76,7 +75,6 @@ table td {
 					</div>
 					<div class="col-sm-2">
 						<button class="btn btn-success btn-default" type="submit">查找</button>
-						<!-- <button class="btn btn-danger btn-sm" type="button" id="deletePurseButton">删除</button>  -->
 					</div>
 				</div>
 			</form>
@@ -98,8 +96,6 @@ table td {
 				<tbody>
 					<c:forEach items="${purseGrid.rows}" var="item">
 						<tr>
-							<%-- <td><input type="checkbox" name="itemIds" value="${item.id}"></td> --%>
-							<%-- <td>${item.id}</td> --%>
 							<td>${item.userId}</td>
 							<td>${item.balance}</td>
 							<td>${item.recharge}</td>
@@ -108,7 +104,7 @@ table td {
 							<c:if test="${item.state==null}"><span >-</span></c:if>
 							<c:if test="${item.state==0}"><span class="btn-primary btn-info">尚待审核</span> </c:if>
 							<c:if test="${item.state==1}"><span class="btn-primary btn-danger">审核失败</span></c:if>
-							<c:if test="${item.state==2}"><span class="btn-primary  btn-success">审核成功</span></c:if>
+							<c:if test="${item.state==2}"><span class="btn-primary btn-success">审核成功</span></c:if>
 							</td>
 							<td>
 							<c:choose>
@@ -116,7 +112,7 @@ table td {
 							   <button type="button" class="btn btn-primary" >无需审核</button>       
 							   </c:when>
 							   <c:when test="${item.state==0}"> 
-							   <button type="button" class="btn btn-info" onclick="doEdit(${item.id})">立即审核</button>       
+							   <button type="button" class="btn btn-info" onclick="doReview(${item.id})">立即审核</button>
 							   </c:when>
 							   <c:otherwise> 
 							   <button type="button" class="btn btn-success" >已经审核</button>       
@@ -219,7 +215,7 @@ table td {
 <script type="text/javascript">
 
 	/* 修改 */
-	function doEdit(id){
+	function doReview(id){
 		$.ajax({
 			url:'<%=basePath%>admin/getPurse',
 			type:'GET',

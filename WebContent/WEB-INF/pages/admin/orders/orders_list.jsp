@@ -64,9 +64,11 @@ table td {
 				action="<%=basePath%>admin/searchOrders" method="post">
 				<div class="form-group">
 					<div class="col-sm-8" style="text-align: center;">
-						<span>订单编号：</span> <input type="number" placeholder="请输入纯数字~"
-							name="orderNum" value="${searchorders.orderNum}" /> <span>订单信息：</span> <input
-							type="text" name="orderInformation" value="${searchorders.orderInformation}" /> <span>状态：</span>
+						<span>订单编号：</span> <input type="number" placeholder="请输入纯数字"
+							name="orderNum" value="${searchorders.orderNum}" />
+						<span>订单信息：</span> <input
+							type="text" name="orderInformation" value="${searchorders.orderInformation}" />
+						<span>状态：</span>
 						<select name="orderState" id="myselected">
 							<option value="" selected="selected">请选择订单状态</option>
 							<option value="1">待发货</option>
@@ -76,8 +78,8 @@ table td {
 					</div>
 					<div class="col-sm-4">
 						<button class="btn btn-success btn-sm" type="submit">查找</button>
-						<button class="btn btn-danger btn-sm" type="button"
-							id="deleteOrdersButton">删除</button>
+<%--						<button class="btn btn-danger btn-sm" type="button"--%>
+<%--							id="deleteOrdersButton">删除</button>--%>
 					</div>
 				</div>
 			</form>

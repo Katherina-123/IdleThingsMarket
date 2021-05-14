@@ -26,9 +26,9 @@
 
 		function ordersDeliver(orderNum){
 	
-		location.href ='<%=basePath%>orders/deliver/'+orderNum
+		location.href ='<%=basePath%>orders/deliver/'+orderNum;
 	
-		alert("发货成功，请送货给对方，并等待确认收货~")
+		alert("发货成功，请耐心等待确认收货~")
 	}
 		
 		function ordersReceipt(orderNum,orderPrice,goodsId){
@@ -143,7 +143,7 @@
 
 							<div class="container">
 								<!-- Nav tabs -->
-								<ul class="nav nav-tabs" role="tablist" style="width: 46%">->
+								<ul class="nav nav-tabs" role="tablist" style="width: 46%">
 									<li class="nav-item"><a class="nav-link active" data-toggle="tab"
 										href="#orders_my" >我买的</a></li>
 									<li class="nav-item" ><a class="nav-link" data-toggle="tab"
@@ -153,7 +153,7 @@
 								<!-- Tab panes -->
 								<div class="tab-content" style="width: 46%">
 
-									<!-- 买家订单中心 -->
+									<!-- 买进的订单中心 -->
 									<div id="orders_my" class="container tab-pane active"
 										style="width: 100%">
 										<br>
@@ -167,7 +167,6 @@
 														  <th >订单编号</th>
 															<th>名称</th>
 															<th>价格</th>
-															<th>备注</th>
 															<th>操作</th>
 														</tr>
 													</thead>
@@ -180,8 +179,6 @@
 															<td>${items.goods.name}</td>
 <%--															商品价格--%>
 															<td>${items.goods.price}</td>
-<%--															商品备注--%>
-															<td>${items.orderInformation}</td>
 															<td>
 															<c:if test="${items.orderState==1}"><input type="button" value="待发货" class="btn btn-info"/></c:if>
 															<c:if test="${items.orderState==2}"><input type="button" value="收&nbsp&nbsp&nbsp&nbsp货" onclick="ordersReceipt(${items.orderNum},${items.orderPrice},${items.goods.id})" class="btn btn-info"/></c:if>
@@ -195,7 +192,7 @@
 
 										</form>
 									</div>
-									<!-- 卖家订单中心 -->
+									<!-- 卖出的订单中心 -->
 									<div id="orders_other" class="container tab-pane fade"
 										style="width: 100%">
 										<br>
@@ -209,7 +206,6 @@
 														  <th>订单编号</th>
 															<th>名称</th>
 															<th>价格</th>
-															<th>备注</th>
 															<th>操作</th>
 														</tr>
 													</thead>
@@ -221,7 +217,6 @@
 															${items.goods.name}
 															</td>
 															<td>${items.goods.price}</td>
-															<td>${items.orderInformation}</td>
 															<td>
 															
 															<c:if test="${items.orderState==1}"><input type="button" value="发&nbsp&nbsp&nbsp&nbsp货" onclick="ordersDeliver(${items.orderNum})" class="btn btn-info"/></c:if>

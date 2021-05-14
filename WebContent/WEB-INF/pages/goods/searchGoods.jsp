@@ -90,10 +90,6 @@
                     <li>
                         <a>${cur_user.username}</a>
                     </li>
-                    <!-- <li class="notification">
-                        <i ng-click="showNotificationBox()" class="iconfont"></i>
-                        <div ng-show="notification.tagIsShow" class="notification-amount red lighten-1 ng-binding ng-hide">0 </div>
-                    </li> -->
                     <li class="changemore">
                         <a class="changeMoreVertShow()">
                             <i class="iconfont"></i>
@@ -285,7 +281,7 @@
 <div class="main-content">
     <!--
 
-        描述：最新发布
+        描述：搜索出的商品
     -->
     <div class="index-title">
         
@@ -308,7 +304,6 @@
                         </div>
                         <div class="card-content item-location">
                             <p>轻松闲置</p>
-<%--                            <p><c:out value="${item.userId}"></c:out></p>--%>
                             <p><c:out value="${item.goods.startTime}"></c:out></p>
                         </div>
                     </a>

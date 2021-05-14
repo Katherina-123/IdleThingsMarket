@@ -45,9 +45,7 @@
 <div id="cover" style="min-height: 639px;">
     <div id="user_area">
         <div id="home_header">
-<%--            <a href="<%=basePath%>goods/homeGoods">--%>
-<%--                <h1 class="logo"></h1>--%>
-<%--            </a>--%>
+
             <a href="<%=basePath%>user/home">
                  <img src="<%=basePath%>img/home_header1.png"  style="margin-left: 20px;" >
             </a>
@@ -68,6 +66,7 @@
                     <img src="">
                 </div>
                 <span class="name">${cur_user.username}</span><hr>
+<%--                后端传myPurse数据--%>
                  <a class="btn" style="width: 98%;background-color: rgb(79, 190, 246);color:rgba(255, 255, 255, 1);" href="<%=basePath%>user/myPurse">我的钱包：￥${myPurse.balance}</a>
                 <input type="hidden" value="${myPurse.recharge}" id="recharge"/>
                 <input type="hidden" value="${myPurse.withdrawals}" id="withdrawals"/>
@@ -195,12 +194,6 @@
         showCaption: true,//是否显示标题,就是那个文本框
         showPreview : true, //是否显示预览,不写默认为true
         dropZoneEnabled: true,//是否显示拖拽区域，默认不写为true，但是会占用很大区域
-        // minImageWidth: 50, //图片的最小宽度
-        // minImageHeight: 50,//图片的最小高度
-        // maxImageWidth: 1000,//图片的最大宽度
-        // maxImageHeight: 1000,//图片的最大高度
-        // maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
-        // minFileCount: 0,
         minImageWidth: 50, //图片的最小宽度
         minImageHeight: 50,//图片的最小高度
         maxImageWidth: 1000,//图片的最大宽度
@@ -219,13 +212,16 @@
     })
     //异步上传返回结果处理
     $('.myfile').on('fileerror', function(event, data, msg) {
+        //错误信息输出到控制台
         console.log("fileerror");
         console.log(data);
     });
     //异步上传返回结果处理
     $(".myfile").on("fileuploaded", function (event, data, previewId, index) {
         console.log("fileuploaded");
+        //获取原imgUrl
         var ref=$(this).attr("data-ref");
+        //修改ref值为后台处理过的data.response.imgUrl
         $("input[name='"+ref+"']").val(data.response.imgUrl);
     });
 

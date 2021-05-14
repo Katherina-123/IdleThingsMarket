@@ -27,8 +27,6 @@
 				<i class="icon-home"></i>主页</a> <a title="管理员个人信息" class="tip-bottom">管理员个人信息</a>
 			</div>
 		</div>
-		<!--End-breadcrumbs-->
-		<!-- Tabs Container-->
 		<section id="tabsContainer" class="clearfix">
 
 			<!--Inner-->

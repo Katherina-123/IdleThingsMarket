@@ -22,16 +22,18 @@
 <script type="text/javascript" src="<%=basePath%>js/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>js/bootstrap.min.js"></script>
 
-<!--订单编号随机数（有可能重复，得处理）  -->
+<!--订单编号随机数（有可能重复）  -->
 <script type="text/javascript">
 	window.onload = function() {
-		var o = document.getElementsByClassName('order-num');
+		var oNum = document.getElementsByClassName('order-num');
 
-		o[0].value = fRandomBy(00000000, 99999999);
+		oNum[0].value = fRandomBy(00000000, 99999999);
 	}
 	function fRandomBy(under, over) {
+		//arguments.length 函数实参个数
 		switch (arguments.length) {
 		case 1:
+			//Math.random()生成一个小于1的数，parseInt将其处理为整数
 			return parseInt(Math.random() * under + 1);
 		case 2:
 			return parseInt(Math.random() * (over - under + 1) + under);

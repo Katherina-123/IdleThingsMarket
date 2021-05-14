@@ -53,12 +53,11 @@ table td{
 
 		<!-- Page table -->
 		<div class="container" style="width: 900px;">
-			<!-- &lt;!&ndash; Marketing Icons Section &ndash;&gt;-->
 
 			<div class="col-lg-12">
 				<h2 class="page-header"
 					style="margin-top:10px;text-align: center; font-family: '微软雅黑', Verdana, sans-serif, '宋体', serif;">
-					用户列表显示</h2>
+					用户列表</h2>
 			</div>
 
 			<!--搜索栏-->
@@ -66,7 +65,7 @@ table td{
 				<div class="form-group">
 				<div  class="col-sm-8" style="text-align:center;">
 					<span >手机：</span>
-					<input type="number" placeholder="请输入正确的手机号~" name="phone" value="${searchuser.phone}"/>
+					<input type="number" placeholder="请输入正确的手机号" name="phone" value="${searchuser.phone}"/>
 					<span >昵称：</span>
 					<input type="text" name="username" value="${searchuser.username}"/>
 					<span >QQ：</span>
@@ -74,7 +73,7 @@ table td{
 				</div>
 					<div class="col-sm-4">
 						<button class="btn btn-success btn-sm" type="submit" >查找</button>
-						<button class="btn btn-danger btn-sm" type="button" id="deleteUserButton">删除</button>
+<%--						<button class="btn btn-danger btn-sm" type="button" id="deleteUserButton">删除</button>--%>
 					</div>
 				</div>
 			</form>
@@ -118,7 +117,7 @@ table td{
 				</tbody>
 			</table>
 
-			<!--分页条-->
+			<!--分页条！！！！！！-->
 			<div style="text-align: right">
 				<div class="pagination">
 					<ul>
@@ -282,6 +281,7 @@ table td{
 				data:{id:id},
 				dataType:'json',
 				success:function(json){
+				    //返回user对象的json格式
 					if(json){
 						$('#myviewform').find("input[name='id']").val(json.id);
 						$('#myviewform').find("input[name='power']").val(json.power);

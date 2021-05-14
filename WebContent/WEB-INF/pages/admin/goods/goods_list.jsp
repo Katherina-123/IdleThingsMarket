@@ -66,7 +66,7 @@ table td{
 				<div class="form-group">
 				<div  class="col-sm-8" style="text-align:center;">
 					<span >商品ID：</span>
-					<input type="number" placeholder="请输入纯数字~" name="id" value="${searchgoods.id}"/>
+					<input type="number" placeholder="请输入纯数字" name="id" value="${searchgoods.id}"/>
 					<span >名称：</span>
 					<input type="text"  name="name" value="${searchgoods.name}"/>
 					<span >状态：</span>
@@ -82,7 +82,7 @@ table td{
 					</div>
 				</div>
 			</form>
-			
+
 			<!--表格显示-->
 			<table style="width: 90%" class="table table-bordered">
 				<thead>
@@ -104,25 +104,25 @@ table td{
 							<td>${item.id}</td>
 							<td>${item.name}</td>
 							<td>
-					        <c:if test="${item.catelogId == 1}">  
+					        <c:if test="${item.catelogId == 1}">
 							<span> 闲置数码</span>
 							</c:if>
-							<c:if test="${item.catelogId == 2}">  
+							<c:if test="${item.catelogId == 2}">
 							<span>出行代步 </span>
 							</c:if>
-							<c:if test="${item.catelogId == 3}">  
+							<c:if test="${item.catelogId == 3}">
 							<span> 日用电器  </span>
 							</c:if>
-							<c:if test="${item.catelogId == 4}">  
+							<c:if test="${item.catelogId == 4}">
 							<span> 图书教材  </span>
 							</c:if>
-							<c:if test="${item.catelogId == 5}">  
+							<c:if test="${item.catelogId == 5}">
 							<span>美妆衣物 </span>
 							</c:if>
-							<c:if test="${item.catelogId == 6}">  
+							<c:if test="${item.catelogId == 6}">
 							<span> 运动棋牌</span>
 							</c:if>
-							<c:if test="${item.catelogId == 7}">  
+							<c:if test="${item.catelogId == 7}">
 							<span> 票券小物</span>
 							</c:if>
 							</td>

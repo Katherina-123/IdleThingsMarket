@@ -39,11 +39,12 @@
 			
 				<input type="hidden" value='${admin.id }' id="id" name="id"/>
 				<div class="row pass">
-					<input type="password" id="password" name="password" placeholder="原密码" />
+					<input type="password" id="password" name="password" style="background-color: #2e363f" placeholder="原密码" />
 				</div>
 				<div class="row pass">
-					<input type="password" id="password1" name="password1" placeholder="新密码" />
+					<input type="password" id="password1" name="password1" style="background-color: #2e363f" placeholder="新密码" />
 				</div>
+<%--				原密码有误则无法修改--%>
 				<c:if test="${msg!=null}">
 				<span style="color:red;">${msg}</span><br>
 				</c:if>

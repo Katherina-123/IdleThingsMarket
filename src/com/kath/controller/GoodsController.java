@@ -56,6 +56,7 @@ public class GoodsController {
 	
 
 	/**
+	 * index跳转
 	 * 首页显示商品，每一类商品查询6件，根据最新上架排序 key的命名为catelogGoods1、catelogGoods2....
 	 *   √
 	 * @return
@@ -72,7 +73,7 @@ public class GoodsController {
 		List<Goods> goodsList = null;
 		List<GoodsExtend> goodsAndImage = null;
 
-//		 获取最新发布列表，数量为6
+//		 获取最新发布列表，最新的6个
 		goodsList = goodsService.getGoodsOrderByDate(goodsSize);
 		goodsAndImage = new ArrayList<GoodsExtend>();
 		for (int j = 0; j < goodsList.size(); j++) {
@@ -89,6 +90,7 @@ public class GoodsController {
 
 		/* 获取其他列表物品信息，数量为6 */
 		for (int i = 1; i <= catelogSize; i++) {
+			//方法参数为catelogID，limit
 			goodsList = goodsService.getGoodsByCatelogOrderByDate(i, goodsSize);
 			goodsAndImage = new ArrayList<GoodsExtend>();
 			for (int j = 0; j < goodsList.size(); j++) {
@@ -118,18 +120,18 @@ public class GoodsController {
 	 */
 	@RequestMapping(value = "/search")
 	public ModelAndView searchGoods(@RequestParam(value = "str", required = false) String str) throws Exception {
+		//对商品的名称和描述都进行模糊查询
 		List<Goods> goodsList = goodsService.searchGoods(str, str);
 		List<GoodsExtend> goodsExtendList = new ArrayList<GoodsExtend>();
 		for (int i = 0; i < goodsList.size(); i++) {
 			GoodsExtend goodsExtend = new GoodsExtend();
-			//将查询出来的商品赋给goods
 			Goods goods = goodsList.get(i);
 			//根据商品ID获取图片
 			List<Image> imageList = imageService.getImagesByGoodsPrimaryKey(goods.getId());
-			//goods->goodsExtend，展出图片
+			//goods封装到goodsExtend，展出图片
 			goodsExtend.setGoods(goods);
 			goodsExtend.setImages(imageList);
-			//将所有查询出来的商品放入goodsExtendList
+			//将所有查询出来的商品->goodsExtendList
 			goodsExtendList.add(i, goodsExtend);
 		}
 		ModelAndView modelAndView = new ModelAndView();
@@ -155,7 +157,7 @@ public class GoodsController {
 		int goodsSize = 12;
 		List<Goods> goodsList = null;
 		List<GoodsExtend> goodsAndImage = null;
-		// 获取最新发布列表
+		// 获取最新发布列表,商品在数据库中是按时间顺序排列
 		goodsList = goodsService.getGoodsByStr(goodsSize, str, str);
 		goodsAndImage = new ArrayList<GoodsExtend>();
 		for (int j = 0; j < goodsList.size(); j++) {
@@ -252,7 +254,7 @@ public class GoodsController {
      */
     @RequestMapping(value = "/addComments",method=RequestMethod.POST)
 	public void addComments(HttpServletRequest request,Comments comments) {
-    	//请求里传入了goodsId和content
+    	//请求中传入goodsId和content
     	User cur_user = (User)request.getSession().getAttribute("cur_user");
     	//评论用户
         comments.setUser(cur_user);
@@ -265,7 +267,7 @@ public class GoodsController {
 	}
 
 	/**
-	 * 修改商品信息
+	 * 修改发布的闲置信息  ！页面！  √
 	 *
 	 * @return
 	 * @throws Exception
@@ -276,6 +278,7 @@ public class GoodsController {
 		Goods goods = goodsService.getGoodsByPrimaryKey(id);
 		List<Image> imageList = imageService.getImagesByGoodsPrimaryKey(id);
 		GoodsExtend goodsExtend = new GoodsExtend();
+		//获取修改商品的信息
 		goodsExtend.setGoods(goods);
 		goodsExtend.setImages(imageList);
 		ModelAndView modelAndView = new ModelAndView();
@@ -289,7 +292,7 @@ public class GoodsController {
 	}
 
 	/**
-	 * 提交商品更改信息
+	 * 提交商品更改信息  √
 	 *
 	 * @return
 	 * @throws Exception
@@ -297,12 +300,13 @@ public class GoodsController {
 	@RequestMapping(value = "/editGoodsSubmit")
 	public String editGoodsSubmit(HttpServletRequest request, Goods goods) throws Exception {
 		User cur_user = (User) request.getSession().getAttribute("cur_user");
+		//修改商品信息
 		goods.setUserId(cur_user.getId());
 		String polish_time = DateUtil.getNowDay();
 		goods.setPolishTime(polish_time);
 		goods.setStatus(1);
 		goodsService.updateGoodsByPrimaryKeyWithBLOBs(goods.getId(), goods);
-		return "user/goods";
+		return "goods/editGoods";
 	}
 
 	/**
@@ -326,7 +330,7 @@ public class GoodsController {
 	@RequestMapping(value = "/deleteGoods/{id}")
 	public String deleteGoods(HttpServletRequest request, @PathVariable("id") Integer id) throws Exception {
 		Goods goods = goodsService.getGoodsByPrimaryKey(id);
-		// 删除商品后，catlog的number-1，user表的goods_num-1，image删除,更新session的值
+		// 删除商品后，catlog的number-1，user对象的goods_num-1，image删除,更新session的值
 		User cur_user = (User) request.getSession().getAttribute("cur_user");
 		goods.setUserId(cur_user.getId());
 		int number = cur_user.getGoodsNum();
@@ -367,15 +371,12 @@ public class GoodsController {
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/publishGoodsSubmit")
-//	MultipartFile是spring类型，代表HTML中form data方式上传的文件，包含二进制数据+文件名称。
-//	public String publishGoodsSubmit(HttpServletRequest request, Image ima, Goods goods, MultipartFile image)
-
 	public String publishGoodsSubmit(HttpServletRequest request, Image ima, Goods goods)
 			throws Exception {
 		// 查询出当前用户cur_user对象，便于使用id
 		User cur_user = (User) request.getSession().getAttribute("cur_user");
 		goods.setUserId(cur_user.getId());
-		goodsService.addGood(goods, 10);// 在goods表中插入物品
+		goodsService.addGood(goods, 60);// 在goods表中插入物品
 		// 返回插入的该物品的id
 		int goodsId = goods.getId();
 		ima.setGoodsId(goodsId);
@@ -392,7 +393,7 @@ public class GoodsController {
 	}
 
 	/**
-	 * 上传物品
+	 * 上传图片
 	 * 
 	 * @param session
 	 * @param myfile
@@ -411,13 +412,13 @@ public class GoodsController {
 			// System.out.println("file_path:"+file_path);
 			// 上传图片
 			if (myfile != null && oldFileName != null && oldFileName.length() > 0) {
-				// 新的图片名称
+				// 新的图片名称+原图片的格式
 				String newFileName = UUID.randomUUID() + oldFileName.substring(oldFileName.lastIndexOf("."));
 				// 新图片
 				File newFile = new File(file_path + "/" + newFileName);
 				// 将内存中的数据写入磁盘
 				myfile.transferTo(newFile);
-				// 将新图片名称返回到前端
+				// hashmap只用来存了成功的提示和图片的新名称
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put("success", "成功啦");
 				map.put("imgUrl", newFileName);
@@ -430,14 +431,15 @@ public class GoodsController {
 		}
 
 	/**
-	 * 根据商品id查询该商品详细信息  √
+	 * 确认商品订单  √
 	 * 
 	 * @param id  商品id
 	 * @return
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/buyId/{id}")
-	public ModelAndView getGoodsdetailById(HttpServletRequest request, @PathVariable("id") Integer id)
+//	public ModelAndView getGoodsdetailById(HttpServletRequest request, @PathVariable("id") Integer id)
+	public ModelAndView buyGoods(HttpServletRequest request, @PathVariable("id") Integer id)
 			throws Exception {
        //封装商品
 		Goods goods = goodsService.getGoodsByPrimaryKey(id);

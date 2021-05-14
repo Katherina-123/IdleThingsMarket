@@ -21,30 +21,7 @@
     <script type="text/javascript" src="<%=basePath%>js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<%=basePath%>js/bootstrap-paginator.min.js"></script>
    <script type="text/javascript">
-   
-   function viewPersonal(id){
-	   $.ajax({
-			url:'<%=basePath%>admin/getUser',
-			type:'GET',
-			data:{id:id},
-			dataType:'json',
-			success:function(json){
-				if(json){
-					$('#myviewform').find("input[name='phone']").val(json.phone);
-					$('#myviewform').find("input[name='username']").val(json.username);
-					$('#myviewform').find("input[name='qq']").val(json.qq);
-					$('#myviewform').find("input[name='power']").val(json.power);
-					$('#myviewform').find("input[name='createAt']").val(json.createAt);
-					$('#viewModal').modal('toggle');
-				}
-			},
-			error:function(){
-				alert('请求超时或系统出错!');
-				$('#viewModal').modal('hide');
-			}
-   });
-  }
-   
+
    function sendContext(){
 	 var context= $("#mycontext").text();
 	 $.ajax({
@@ -62,26 +39,7 @@
 	 });
 	   
    }
-   
-   $(function(){
-       var options={
-           bootstrapMajorVersion:1,    //版本
-           currentPage:1,    //当前页数
-           numberOfPages:5,    //最多显示Page页
-           totalPages:10,    //所有数据可以显示的页数
-           onPageClicked:function(e,originalEvent,type,page){
-               console.log("e");
-               console.log(e);
-               console.log("originalEvent");
-               console.log(originalEvent);
-               console.log("type");
-               console.log(type);
-               console.log("page");
-               console.log(page);
-           }
-       }
-       //$("#page").bootstrapPaginator(options);
-   })
+
    </script>
 
 </head>
@@ -92,9 +50,7 @@
 <div id="cover" style="min-height: 639px;">
     <div id="user_area">
         <div id="home_header">
-<%--            <a href="<%=basePath%>goods/homeGoods">--%>
-<%--                <h1 class="logo"></h1>--%>
-<%--            </a>--%>
+
             <a href="<%=basePath%>goods/homeGoods">
                  <img src="<%=basePath%>img/home_header1.png"  >
             </a>
@@ -207,123 +163,18 @@
                      <c:forEach items="${notice}" var="item" varStatus="status">
                    	 <button type="button" class="btn btn-info"  style="background-color: #4d9bcf;border:0px;outline:none;">${item.user.username}</button>
                      <span >说：&nbsp;&nbsp;&nbsp;&nbsp;${item.context}</span><br>
+                     <p style="text-align:left;color:#4fbef6;">联系方式：${item.user.phone}</p>
                      <p style="text-align:right;color:#4fbef6;">发布时间：${item.createAt}</p>
                      <hr><br>
                      </c:forEach>
-                      <div id="page" style="center"></div>
-                    <!--  <h1> 1 2 3 4 5 下一页 上一页</h1> -->
                     </div>
-                    </c:if>  
+                    </c:if>
                 </div>
             </div>
-            <!--
 
-                描述：最右侧，可能认识的人
-            
-            <div class="recommend">
-                <div class="title">
-                    <span class="text">可能认识的人</span>
-                    <span class="change">换一组</span>
-                    <span class="underline"></span>
-                </div>
-                <ul>
-                <c:forEach items="${users}" var="item" varStatus="status">
-                	<li>
-                        <a href="#" class="head_img">
-                            <img src="<%=basePath%>img/photo${status.index + 1}.jpg">
-                        </a>
-                        <span>${item.username}</span>
-                        <div class="fa fa-plus-square"></div>
-                    </li>
-                  </c:forEach>
-                    <%-- <li>
-                        <a href="" class="head_img">
-                            <img src="<%=basePath%>img/photo1.jpg">
-                        </a>
-                        <span>Brudce</span>
-                        <div class="fa fa-plus-square"></div>
-                    </li>
-                    <li>
-                        <a href="" class="head_img">
-                            <img src="<%=basePath%>img/photo2.jpg">
-                        </a>
-                        <span>Graham</span>
-                        <div class="fa fa-plus-square"></div>
-                    </li>
-                    <li>
-                        <a href="" class="head_img">
-                            <img src="<%=basePath%>img/photo3.jpg">
-                        </a>
-                        <span>hly</span>
-                        <div class="fa fa-plus-square"></div>
-                    </li>
-                    <li>
-                        <a href="" class="head_img">
-                            <img src="<%=basePath%>img/photo4.jpg">
-                        </a>
-                        <span>Danger-XFH</span>
-                        <div class="fa fa-plus-square"></div>
-                    </li>
-                    <li>
-                        <a href="" class="head_img">
-                            <img src="<%=basePath%>img/photo5.jpg">
-                        </a>
-                        <span>Keithw</span>
-                        <div class="fa fa-plus-square"></div>
-                    </li> --%>
-                </ul>
-            </div>
-            -->
         </div>
     </div>
 </div>
-<!-- 模态框（Modal） -->
-<div class="modal fade" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title middle" id="myModalLabel">查看用户信息</h4>
-            </div>
-            <div class="modal-body" style="height: 220px;">
-	         <form id="myviewform">
-	          <div class="form-group">
-	            <label for="recipient-name" class="control-label col-sm-2" >名称:</label>
-	            <div class="col-sm-10">
-	            <input type="text" class="form-control" id="message-text" name="username" readonly/>
-	          </div>
-	          </div>
-	          <div class="form-group">
-	            <label for="message-text" class="control-label col-sm-2">手机号:</label>
-	            <div class="col-sm-10">
-	            <input type="text" class="form-control" id="message-text" name="phone" readonly/>
-	          </div> 
-	          </div>
-	           <div class="form-group">
-	            <label for="message-text" class="control-label col-sm-2">qq号:</label>
-	            <div class="col-sm-10">
-	            <input type="text" class="form-control" id="message-text" name="qq" readonly/>
-	          </div> 
-	          </div>
-	          <div class="form-group">
-	            <label for="message-text" class="control-label col-sm-2">信用积分:</label>
-	            <div class="col-sm-10">
-	            <input type="text" class="form-control" id="message-text" name="power" readonly/>
-	          </div>
-	           </div>
-	          <div class="form-group">
-	            <label for="message-text" class="control-label col-sm-2">开户时间:</label>
-	             <div class="col-sm-10">
-	            <input type="text" class="form-control" id="message-text" name="createAt" readonly/>
-	          </div>
-	           </div>
-	        </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal -->
 </div>
 </body>
 </html>

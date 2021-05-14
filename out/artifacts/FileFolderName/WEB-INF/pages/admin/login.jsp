@@ -36,8 +36,8 @@
 				<div class="controls">
 					<div class="main_input_box">
 						<span class="add-on bg_ly"><i class="icon-lock"></i> </span> <input
-							type="password" placeholder="密码" name="password"
-							id="password" />
+							type="password"  name="password"  class="required"
+							id="password" placeholder="密码" />
 					</div>
 				</div>
 			</div>
@@ -67,12 +67,6 @@
             }
         }
     });
-    
-    function encrypt(){
-    	/// var pwd = $.md5($("#password").val());
-    	$("#password").val(pwd);
-    	return true;
-    };
 </script>
 </body>
 

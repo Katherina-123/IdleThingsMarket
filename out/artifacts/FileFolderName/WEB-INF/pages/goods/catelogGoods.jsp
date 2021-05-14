@@ -229,6 +229,8 @@
     描述：左侧导航条
 -->
 <div ng-controller="sidebarController" class="sidebar stark-components ng-scope">
+<%--    <div ng-class="{true:'selected',false:'unselected'}[isSelected]"></div>--%>
+<%--    当isSelected为true时，增加selected样式；当isSelected为false时，增加unselected样式。--%>
     <li ng-class="{true: 'active'}[isAll]">
         <a href="<%=basePath%>goods/catelog" class="index">
             <img src="<%=basePath%>img/navigator_pic.png">

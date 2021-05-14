@@ -16,6 +16,7 @@ import com.kath.service.UserService;
 import com.kath.util.DateUtil;
 import com.kath.util.MD5;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.net.SocketTimeoutException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -51,7 +53,7 @@ public class UserController {
 	private NoticeService noticeService;
 
 	/**
-	 * 用户注册    √
+	 * 用户注册核心   √
 	 * 
 	 * @param user1
 	 * @return
@@ -66,7 +68,7 @@ public class UserController {
 			// 对密码进行MD5加密
 			String str = MD5.md5(user1.getPassword());
 			//初始化用户信息
-			user1.setCreateAt(t);// 创建开始时间
+			user1.setCreateAt(t);// 创建时间
 			user1.setPassword(str);
 			user1.setGoodsNum(0);
 			user1.setStatus((byte) 1);//初始正常状态
@@ -79,7 +81,7 @@ public class UserController {
 	}
 	
 	/**
-	 * 注册验证账号  √
+	 * 注册验证账号，返回前端信息  √
 	 * @param request
 	 * @return
 	 */
@@ -99,7 +101,7 @@ public class UserController {
 	}
 
 	/**
-	 * 验证登录     ×
+	 * 验证登录     √
 	 * @param request
 	 * @param user
 	 * @param modelMap
@@ -109,7 +111,7 @@ public class UserController {
 	//Spring MVC中的ModelAndView构造方法可以指定返回的页面名称，通过setViewName()方法跳转到指定的页面
 	public ModelAndView loginValidate(HttpServletRequest request, HttpServletResponse response, User user,
 			ModelMap modelMap) {
-		//获取当前用户哇
+		//获取当前用户
 		User cur_user = userService.getUserByPhone(user.getPhone());
 		//获取来源页地址
 		String url = request.getHeader("Referer");
@@ -155,7 +157,7 @@ public class UserController {
 	}
 
 	/**
-	 * 完善或修改信息
+	 * 完善或修改信息   √
 	 * 
 	 * @param request
 	 * @param user
@@ -163,7 +165,8 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value = "/updateInfo")
-	public ModelAndView updateInfo(HttpServletRequest request, User user, ModelMap modelMap) {
+//	public ModelAndView updateInfo(HttpServletRequest request, User user, ModelMap modelMap) {
+	public ModelAndView updateInfo(HttpServletRequest request, User user) {
 		// 从session中获取出当前用户
 		User cur_user = (User) request.getSession().getAttribute("cur_user");
 		cur_user.setUsername(user.getUsername());
@@ -196,13 +199,13 @@ public class UserController {
 		ModelAndView mv = new ModelAndView();
 		User cur_user = (User) request.getSession().getAttribute("cur_user");
 		Integer userId = cur_user.getId();
-		//???
+		//分页未实现
 		int size=5;
 		Purse myPurse = purseService.getPurseByUserId(userId);
 		//获取发表notice的用户列表
 		List<User> users=userService.getUserOrderByDate(size);
 		List<Notice> notice=noticeService.getNoticeList();
-		//添加notice数据,钱包数据，
+		//添加notice数据,钱包数据
 		mv.addObject("notice", notice);
 		mv.addObject("myPurse", myPurse);
 		mv.addObject("users", users);
@@ -211,7 +214,7 @@ public class UserController {
 	}
 
 	/**
-	 * 个人信息设置
+	 * 个人信息页面  √
 	 * 
 	 * @return
 	 */
@@ -238,7 +241,7 @@ public class UserController {
 		List<Goods> goodsList = goodsService.getGoodsByUserId(userId);
 		List<GoodsExtend> goodsAndImage = new ArrayList<GoodsExtend>();
 		for (int i = 0; i < goodsList.size(); i++) {
-			// 将用户信息和image信息一个一个封装到GoodsExtend类中，传给前台
+			// 将用户信息和image信息一个一个封装到GoodsandImage列表中，传给前台
 			GoodsExtend goodsExtend = new GoodsExtend();
 			Goods goods = goodsList.get(i);
 			List<Image> images = imageService.getImagesByGoodsPrimaryKey(goods.getId());
@@ -256,7 +259,7 @@ public class UserController {
 	}
 
 	/**
-	 * 我的关注 查询出所有的用户商品以及商品对应的图片
+	 * 我的关注 查询出所有的用户商品以及商品对应的图片  √
 	 * 
 	 * @return 返回的model为 goodsAndImage对象,该对象中包含goods 和 images，参考相应的类
 	 */
@@ -268,9 +271,9 @@ public class UserController {
 		List<Focus> focusList = focusService.getFocusByUserId(userId);
 		List<GoodsExtend> goodsAndImage = new ArrayList<GoodsExtend>();
 		for (int i = 0; i < focusList.size(); i++) {
-			// 将用户信息和image信息封装到GoodsExtend类中，传给前台
 			GoodsExtend goodsExtend = new GoodsExtend();
 			Focus focus = focusList.get(i);
+			//根据商品ID得到商品和图片对象，封装goodExtend类，传给前台
 			Goods goods = goodsService.getGoodsByPrimaryKey(focus.getGoodsId());
 			List<Image> images = imageService.getImagesByGoodsPrimaryKey(focus.getGoodsId());
 			goodsExtend.setGoods(goods);
@@ -279,6 +282,7 @@ public class UserController {
 		}
 		Purse myPurse = purseService.getPurseByUserId(userId);
 		ModelAndView mv = new ModelAndView();
+		//关注列表goodsAndImage和钱包myPurse数据传给前台
 		mv.addObject("goodsAndImage", goodsAndImage);
 		mv.addObject("myPurse", myPurse);
 		mv.setViewName("/user/focus");
@@ -286,7 +290,7 @@ public class UserController {
 	}
 
 	/**
-	 * 删除我的关注
+	 * 删除我的关注  √
 	 * @return
 	 */
 	@RequestMapping(value = "/deleteFocus/{id}")
@@ -294,14 +298,15 @@ public class UserController {
 		User cur_user = (User) request.getSession().getAttribute("cur_user");
 		Integer user_id = cur_user.getId();
 		focusService.deleteFocusByUserIdAndGoodsId(goods_id, user_id);
-
+		//重定向：创建一个新的请求
 		return "redirect:/user/allFocus";
 
 	}
 
 	/**
 	 * 添加我的关注  √
-	 * @param id 商品id
+	 * @param
+	 *
 	 * @return
 	 */
 	@RequestMapping(value = "/addFocus/{id}")
@@ -346,7 +351,7 @@ public class UserController {
 	}
 
 	/**
-	 * 充值与提现 根据传过来的两个值进行判断是充值还是提现
+	 * 充值与提现 根据传过来的是recharge还是withdraw进行判断是充值还是提现  √
 	 * 
 	 * @return 返回的model为 goodsAndImage对象
 	 */
@@ -355,40 +360,75 @@ public class UserController {
 		User cur_user = (User) request.getSession().getAttribute("cur_user");
 		Integer user_id = cur_user.getId();
 		purse.setUserId(user_id);
-		purse.setState(0);
-		if (purse.getRecharge() != null) {
+		//如果钱包状态为null，则修改状态为未审核0
+		if(purse.getState() == null){
+			//如果不为1或2，设置状态为0，表示未审核
+			purse.setState(0);
+			if (purse.getRecharge() != null) {
+				purseService.updatePurse(purse);
+			}
+			if (purse.getWithdrawals() != null) {
+				purseService.updatePurse(purse);
+			}
+		}
+		//如果钱包状态为1或2，表示已审核通过，改为null
+		else if(purse.getState() == 1 || purse.getState() == 2){
+			purse.setState(null);
 			purseService.updatePurse(purse);
 		}
-		if (purse.getWithdrawals() != null) {
-			purseService.updatePurse(purse);
-		}
+
+
 		return "redirect:/user/myPurse";
 	}
-	
+
+	/**
+	 * 钱包审核查看后修改钱包状态  √
+	 *
+	 */
+	@RequestMapping(value = "/updatePurseState",method = RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView updatePurseState(HttpServletRequest request) {
+		Integer purseId = Integer.parseInt(request.getParameter("id"));
+		int purseid = purseId - 10;
+		Purse myPurse = purseService.getPurseById(purseid);
+		myPurse.setState(null);
+		this.purseService.updateByPrimaryKey(purseid,myPurse);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("myPurse",myPurse);
+		return mv;
+	}
+
+
+	/**
+	 * 发表notice  ajax请求  √
+	 *
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping(value = "/insertSelective",method = RequestMethod.POST)
 	@ResponseBody
 	public String insertSelective(HttpServletRequest request){
 		String context=request.getParameter("context");
 		User cur_user = (User) request.getSession().getAttribute("cur_user");
 		Notice notice=new Notice();
+		//设置新notice
 		notice.setContext(context);
 		Date dt = new Date();     
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		//添加notice时间
 		notice.setCreateAt(sdf.format(dt));
+		//设置notice状态
 		notice.setStatus((byte) 0);
 		notice.setUser(cur_user);
 		if(context==null||context=="") {
 			return "{\"success\":false,\"msg\":\"发布失败，请输入内容!\"}";
 		}
 	try {
+		    //添加notice
 			noticeService.insertSelective(notice);
 		} catch (Exception e) {
 			return "{\"success\":false,\"msg\":\"发布失败!\"}";
 		}
 			return "{\"success\":true,\"msg\":\"发布成功!\"}";
-		
 	}
-	
-	
-
 }

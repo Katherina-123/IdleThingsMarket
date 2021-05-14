@@ -20,6 +20,7 @@
     <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
   </listener>
   <filter>
+<!--    处理请求编码问题-->
     <filter-name>encodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
     <async-supported>true</async-supported>

@@ -97,7 +97,9 @@
 
     <!-- 配置事物切面 -->
     <aop:config>
+<!--      切入点  -->
         <aop:pointcut expression="execution(* com.kath.service.*.*(..))" id="serviceOperation"/>
+<!--        通知-->
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation"/>
     </aop:config>
 </beans>

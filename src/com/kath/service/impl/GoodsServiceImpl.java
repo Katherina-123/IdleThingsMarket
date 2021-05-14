@@ -64,7 +64,8 @@ public class GoodsServiceImpl implements GoodsService {
         List<Goods> goods = goodsMapper.searchGoods(name,describle);
         return  goods;
     }
-    
+
+    //limit限制取出的数据条数
     public List<Goods> getGoodsByStr(Integer limit,String name,String describle) {
         List<Goods> goods = goodsMapper.selectByStr(limit, name, describle);
         return goods;

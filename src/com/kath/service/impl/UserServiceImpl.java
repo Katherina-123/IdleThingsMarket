@@ -45,6 +45,7 @@ public class UserServiceImpl implements UserService {
 
     //获取出当前页用户
     public List<User> getPageUser(int pageNum, int pageSize) {
+        //pageNum:指定页码，pageSize：每页大小
         PageHelper.startPage(pageNum,pageSize);//分页核心代码
         List<User> list= userMapper.getUserList();
         return list;
@@ -99,6 +100,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<User> getPageUserByUser(String phone, String username, String qq, int pageNum, int pageSize) {
+        //pageNum当前页码，pageSize为当前页面行数
 	 PageHelper.startPage(pageNum,pageSize);//分页核心代码
 	 List<User> list= userMapper.getUserListByUser(phone,username,qq);
 	 return list;

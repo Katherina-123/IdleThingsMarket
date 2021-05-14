@@ -26,12 +26,12 @@
         <div id="breadcrumb">
             <a href="<%=basePath%>admin/indexs" title="主页"
                class="tip-bottom"><i class="icon-home"></i>主页</a> <a title="商品可视化"
-               class="tip-bottom">商品可视化</a>
+               class="tip-bottom">商品分类可视化</a>
         </div>
     </div>
     <!--End-breadcrumbs-->
     <div class="container" style="width: 900px;">
-        <div id="my_chart" style="width: 850px;height: 500px"></div>
+        <div id="my_chart" style="width: 900px;height: 500px"></div>
     </div>
     <!-- Page table -->
 
@@ -83,6 +83,25 @@
         },
         series: [
             {
+                name: '面积模式',
+                type: 'pie',
+                radius: [20, 140],
+                center: ['75%', '50%'],
+                roseType: 'area',
+                itemStyle: {
+                    borderRadius: 5
+                },
+                data: [
+                    {value: 19, name: '闲置数码'},
+                    {value: 6, name: '出行代步'},
+                    {value: 9, name: '日用电器'},
+                    {value: 9, name: '图书教材'},
+                    {value: 17, name: '美妆衣物'},
+                    {value: 6, name: '运动棋牌'},
+                    {value: 7, name: '票券小物'},
+                ]
+            },
+            {
                 name: '半径模式',
                 type: 'pie',
                 radius: [20, 140],
@@ -100,76 +119,17 @@
                     }
                 },
                 data: [
-                    {value: 40, name: '闲置数码'},
-                    {value: 33, name: '出行代步'},
-                    {value: 28, name: '日用电器'},
-                    {value: 22, name: '图书教材'},
-                    {value: 20, name: '美妆衣物'},
-                    {value: 15, name: '运动棋牌'},
-                    {value: 12, name: '票券小物'},
+                    {value: 19, name: '闲置数码'},
+                    {value: 6, name: '出行代步'},
+                    {value: 9, name: '日用电器'},
+                    {value: 9, name: '图书教材'},
+                    {value: 17, name: '美妆衣物'},
+                    {value: 6, name: '运动棋牌'},
+                    {value: 7, name: '票券小物'},
                 ]
             },
-            {
-                name: '面积模式',
-                type: 'pie',
-                radius: [20, 140],
-                center: ['75%', '50%'],
-                roseType: 'area',
-                itemStyle: {
-                    borderRadius: 5
-                },
-                data: [
-                    {value: 30, name: '出行代步'},
-                    {value: 28, name: '出行代步'},
-                    {value: 26, name: '日用电器'},
-                    {value: 24, name: '图书教材'},
-                    {value: 22, name: '美妆衣物'},
-                    {value: 20, name: '运动棋牌'},
-                    {value: 18, name: '票圈小屋'},
-                ]
-            }
         ]
     };
     goodsEcharts.setOption(option);
 </script>
-
-<script type="text/javascript">
-    /* 查看 */
-    function doView(id){
-        $.ajax({
-            url:'<%=basePath%>admin/getGoods',
-            type:'GET',
-            data:{id:id},
-            dataType:'json',
-            success:function(json){
-                if(json){
-                    $('#myviewform').find("input[name='id']").val(json.id);
-                    $('#myviewform').find("input[name='name']").val(json.name);
-                    $('#myviewform').find("input[name='catelogId']").val(json.catelogId);
-                    $('#myviewform').find("input[name='price']").val(json.price);
-                    $('#myviewform').find("input[name='realPrice']").val(json.realPrice);
-                    $('#myviewform').find("input[name='startTime']").val(json.startTime);
-                    $('#myviewform').find("textarea[name='describle']").val(json.describle);
-                    if(json.status==1){
-                        $('#myviewform').find("input[name='status']").val('在售');
-                    }else{
-                        $('#myviewform').find("input[name='status']").val('下架');
-                    }
-                    $('#viewModal').modal('toggle');
-                }
-            },
-            error:function(){
-                alert('请求超时或系统出错!');
-                $('#viewModal').modal('hide');
-            }
-        });
-    }
-
-
-
-    //根据值 动态选中
-    $("#myselected option[value='${searchgoods.status}']").attr("selected","selected");
-
-</script>
-
 </html>

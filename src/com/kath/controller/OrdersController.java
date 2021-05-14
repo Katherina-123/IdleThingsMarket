@@ -58,7 +58,7 @@ public class OrdersController {
     
     
 	 /**
-     * 提交订单
+     * 提交订单  √
      */
     @RequestMapping(value = "/addOrders")
     public String addorders(HttpServletRequest request,Orders orders) {
@@ -66,14 +66,18 @@ public class OrdersController {
     	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");//转换格式
         User cur_user = (User)request.getSession().getAttribute("cur_user");
         Integer user_id = cur_user.getId();
+        //添加订单信息
         orders.setUserId(user_id);
         orders.setOrderDate(sdf.format(d));
         Goods goods=new Goods();
+        //商品下架
         goods.setStatus(0);
         goods.setId(orders.getGoodsId());
+        //更新商品信息
         goodsService.updateGoodsByGoodsId(goods);
         ordersService.addOrders(orders);
         Float balance=orders.getOrderPrice();
+        //更新用户钱包
         purseService.updatePurseOfdel(user_id,balance);
         return "redirect:/orders/myOrders";
     }
@@ -93,7 +97,7 @@ public class OrdersController {
     
     
     /**
-     * 收货
+     * 收货  要修改卖家钱包信息  √
      */
     @RequestMapping(value = "/receipt")
     public String receipt(HttpServletRequest request) {
@@ -102,8 +106,8 @@ public class OrdersController {
     	Integer goodsId=Integer.parseInt(request.getParameter("goodsId"));
     	Integer userId=goodsService.getGoodsById(goodsId).getUserId();
     	ordersService.receiptByOrderNum(orderNum);
+    	//买家确认收货后，卖家钱包加钱
     	purseService.updatePurseByuserId(userId,balance);
-    	/*买家确认收货后，卖家钱包+*/
         return "redirect:/orders/myOrders";
     }
 
